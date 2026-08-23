@@ -1,0 +1,11 @@
+.page-transition{position:fixed;inset:0;z-index:210;display:grid;place-items:center;background:#171717;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .34s cubic-bezier(.22,1,.36,1),visibility 0s linear .34s}
+.page-transition img{width:clamp(190px,22vw,320px);height:auto;opacity:.16;transform:scale(.985);transition:opacity .34s cubic-bezier(.22,1,.36,1),transform .34s cubic-bezier(.22,1,.36,1)}
+.page-arriving,.page-reloading,.page-leaving{overflow:hidden}
+.page-arriving .page-transition,.page-reloading .page-transition{opacity:1;visibility:visible;pointer-events:auto;transition:none}
+.page-arriving .page-transition img{opacity:.18}
+.page-reloading .page-transition img{opacity:.82;transform:scale(1)}
+.page-transition-ready .page-transition{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .4s cubic-bezier(.22,1,.36,1),visibility 0s linear .4s}
+.page-transition-ready .page-transition img{opacity:0;transform:scale(1.012)}
+.page-leaving .page-transition{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .28s cubic-bezier(.22,1,.36,1)}
+.page-leaving .page-transition img{opacity:.2;transform:scale(1)}
+@media (max-width:720px),(orientation:portrait) and (max-width:1024px),(orientation:portrait) and (pointer:coarse),(orientation:landscape) and (pointer:coarse) and (max-height:560px),(prefers-reduced-motion:reduce){.page-transition{display:none!important}.page-arriving,.page-reloading,.page-leaving{overflow:auto}}

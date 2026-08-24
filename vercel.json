@@ -7,12 +7,6 @@
       "has": [{ "type": "host", "value": "www.kozanogluhukuk.com" }],
       "destination": "https://kozanogluhukuk.com/:path*",
       "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "kozanoglu.vercel.app" }],
-      "destination": "https://kozanogluhukuk.com/:path*",
-      "permanent": true
     }
   ],
   "headers": [

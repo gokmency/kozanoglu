@@ -1,5 +1,3 @@
-@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,600&f[]=general-sans@400,500,600&f[]=satoshi@500&display=swap');
-
 :root{--navy:#0a1116;--navy-soft:#151e23;--paper:#f1ede4;--mist:#c9c0ae;--bronze:#ad9870;--line:rgba(224,216,200,.17);--glass:rgba(10,17,22,.76);--ease:cubic-bezier(.22,1,.36,1)}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;background:var(--navy)}

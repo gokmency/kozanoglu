@@ -11,7 +11,7 @@
   /* içerik görünür oldukça yumuşak giriş + mobil arama düğmesi (alt sayfalar) */
   if('IntersectionObserver'in window){
     if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
-      const items=document.querySelectorAll('.section-head,.cards>.card,.steps>.step,.topic-grid>li,.area-row,.faq-item,.story-grid>*,.people>.person,.location-block,.post-card,.post-feature,.split-facts>div,.hood-list,.local-grid>*,.cta>*,.contact-layout>*,.tldr,.m-chapter,.m-area');
+      const items=document.querySelectorAll('.section-head,.cards>.card,.steps>.step,.topic-grid>li,.area-row,.faq-item,.story-grid>*,.people>.person,.location-block,.post-card,.post-feature,.split-facts>div,.hood-list,.local-grid>*,.cta>*,.contact-layout>*,.tldr,.doc-list>li,.m-chapter,.m-area');
       const vh=innerHeight,io=new IntersectionObserver(entries=>{let n=0;entries.forEach(entry=>{if(!entry.isIntersecting)return;const el=entry.target;io.unobserve(el);el.style.setProperty('--rv-d',Math.min(n++,5)*70+'ms');el.classList.add('in');setTimeout(()=>{el.classList.remove('rv','in');el.style.removeProperty('--rv-d')},1400)})},{rootMargin:'0px 0px -8% 0px'});
       items.forEach(el=>{if(el.getBoundingClientRect().top<vh*.92)return;el.classList.add('rv');io.observe(el)});
     }

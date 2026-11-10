@@ -25,7 +25,7 @@ ORG = {
     "hasMap": MAP,
     "areaServed": [{"@type": "AdministrativeArea", "name": "Kepez"}, {"@type": "Place", "name": "Varsak, Kepez"}, {"@type": "City", "name": "Antalya"}],
     "knowsAbout": ["Aile hukuku", "Boşanma", "Ceza hukuku", "Gayrimenkul hukuku", "Kira hukuku", "Miras hukuku", "İş hukuku", "İcra ve iflas hukuku", "Ticaret hukuku"],
-    "employee": [{"@type": "Person", "name": n, "jobTitle": t} for n, t in [("Osman Kozanoğlu", "Avukat"), ("Hüseyin Kozanoğlu", "Avukat"), ("Beyza Kozanoğlu", "Avukat"), ("Abdullah Kozanoğlu", "Stajyer Avukat")]],
+    "employee": [{"@type": "Person", "name": n, "jobTitle": t} for n, t in [("Osman Kozanoğlu", "Avukat"), ("Hüseyin Kozanoğlu", "Avukat"), ("Beyza Oya", "Avukat"), ("Abdullah Kozanoğlu", "Stajyer Avukat")]],
 }
 
 NAV = [("/hakkimizda", "Hakkımızda", None), ("/calisma-alanlari", "Çalışma Alanları", "Alanlar"), ("/blog", "Blog", None), ("/iletisim", "İletişim", None)]
@@ -142,14 +142,18 @@ def write(name, content):
 # ---------------------------------------------------------------- Blog
 import re as _re
 BLOG_DATE = "2026-11-04"
+NEW_DATE = "2026-11-10"
 POSTS = [
-    # slug, md, kategori, alan linki, alan adı, görsel, görsel alt
+    # slug, md, kategori, alan linki, alan adı, görsel, görsel alt, [tarih]
+    ("ev-sahibi-kiraciyi-nasil-cikarir", "tahliye.md", "Kira", "/gayrimenkul-kira-miras", "Gayrimenkul, kira ve miras", "blog-tahliye", "Boş bir odada açık kapının yanında üst üste duran koliler ve üzerinde bir anahtar", NEW_DATE),
+    ("bosanmada-velayet", "velayet.md", "Aile", "/aile-hukuku", "Boşanma ve aile hukuku", "blog-velayet", "Kapının yanında duran küçük bir çocuk sırt çantası ve yağmur botları", NEW_DATE),
+    ("savciliga-sikayet-suresi", "sikayet.md", "Ceza", "/ceza-hukuku", "Ceza hukuku", "blog-sikayet", "Uzun pencerelerden ışık alan boş bir koridorda ahşap bank ve üzerinde kapalı bir dosya", NEW_DATE),
     ("kira-artisi-ve-kira-tespit-davasi", "kira.md", "Kira", "/gayrimenkul-kira-miras", "Gayrimenkul, kira ve miras", "blog-kira", "Travertin bir rafın üzerinde pirinç ev anahtarları ve katlanmış boş bir kâğıt"),
     ("anlasmali-bosanma-rehberi", "bosanma.md", "Aile", "/aile-hukuku", "Boşanma ve aile hukuku", "blog-bosanma", "Ceviz bir masanın iki ucunda birbirinden uzak duran iki seramik fincan"),
     ("ifadeye-cagrildiniz", "ifade.md", "Ceza", "/ceza-hukuku", "Ceza hukuku", "blog-ifade", "Koyu bir masada dar bir ışık huzmesinin altında açılmamış bir zarf ve okuma gözlüğü"),
-    ("isten-cikarildim-haklarim", "isten.md", "İş", "/is-icra-ticaret", "İş, icra ve ticaret hukuku", "blog-isten", "Kozanoğlu Hukuk Bürosu'nda boş bir görüşme odası"),
-    ("odeme-emri-geldi", "odeme.md", "İcra", "/is-icra-ticaret", "İş, icra ve ticaret hukuku", "blog-odeme", "Ceviz masa üzerinde kâğıt ve kalem, görüşme masası"),
-    ("miras-kalan-tasinmaz", "miras.md", "Miras", "/gayrimenkul-kira-miras", "Gayrimenkul, kira ve miras", "blog-miras", "Kozanoğlu Hukuk Bürosu binasının girişi"),
+    ("isten-cikarildim-haklarim", "isten.md", "İş", "/is-icra-ticaret", "İş, icra ve ticaret hukuku", "blog-isten", "Boşaltılmış bir ofis masasında kalan küçük bir saksı ve kupa"),
+    ("odeme-emri-geldi", "odeme.md", "İcra", "/is-icra-ticaret", "İş, icra ve ticaret hukuku", "blog-odeme", "Travertin bir yüzeyde üst üste duran zarflar ve pirinç bir mektup açacağı"),
+    ("miras-kalan-tasinmaz", "miras.md", "Miras", "/gayrimenkul-kira-miras", "Gayrimenkul, kira ve miras", "blog-miras", "Önünde yaşlı bir zeytin ağacı olan eski taş bir köy evi"),
 ]
 
 def _inline(t):
@@ -221,9 +225,11 @@ def words(sections, tldr, faqs):
     return len(txt.split())
 
 parsed = []
-for slug, md, cat, alink, aname, img, alt in POSTS:
+TR_AY = ["", "Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
+for slug, md, cat, alink, aname, img, alt, *rest in POSTS:
+    date = rest[0] if rest else BLOG_DATE
     title, summary, tldr, sections, faqs = parse_md(os.path.join(OUT, "content", "blog", md))
-    parsed.append(dict(slug=slug, cat=cat, alink=alink, aname=aname, img=img, alt=alt, title=title, summary=summary, tldr=tldr, sections=sections, faqs=faqs, mins=max(3, round(words(sections, tldr, faqs) / 200))))
+    parsed.append(dict(date=date, slug=slug, cat=cat, alink=alink, aname=aname, img=img, alt=alt, title=title, summary=summary, tldr=tldr, sections=sections, faqs=faqs, mins=max(3, round(words(sections, tldr, faqs) / 200))))
 
 os.makedirs(os.path.join(OUT, "blog"), exist_ok=True)
 for i, p in enumerate(parsed):
@@ -245,7 +251,7 @@ for i, p in enumerate(parsed):
         <div class="tldr"><p class="section-label">Kısaca</p><ul>{tl}</ul></div>
         {"".join(h for _, _, h in secs)}
         <section class="post-section" id="sik-sorulan-sorular"><h2>Sık sorulan sorular</h2><div class="faq">{faq_items}</div></section>
-        <p class="disclaimer">Bu yazı genel bilgilendirme amacıyla hazırlanmıştır ve hukuki görüş niteliğinde değildir. Mevzuat ve uygulama değişebilir; kendi durumunuz için bir avukatla görüşün. Son güncelleme: 4 Kasım 2026.</p>
+        <p class="disclaimer">Bu yazı genel bilgilendirme amacıyla hazırlanmıştır ve hukuki görüş niteliğinde değildir. Mevzuat ve uygulama değişebilir; kendi durumunuz için bir avukatla görüşün. Son güncelleme: {int(p["date"][8:])} {TR_AY[int(p["date"][5:7])]} {p["date"][:4]}.</p>
       </article>
     </div>
     <section class="section alt">
@@ -256,7 +262,7 @@ for i, p in enumerate(parsed):
     desc = p["summary"][:300]
     ttl = p["title"] + " | Kozanoğlu Hukuk"
     graph = [webpage(path, "WebPage", ttl, desc),
-             {"@type": "BlogPosting", "@id": SITE + path + "#article", "headline": p["title"], "description": desc, "image": SITE + f"/assets/blog/{p['img']}.webp", "datePublished": BLOG_DATE, "dateModified": BLOG_DATE, "inLanguage": "tr-TR", "articleSection": p["cat"], "author": {"@id": ORG_ID}, "publisher": {"@id": ORG_ID}, "mainEntityOfPage": {"@id": SITE + path + "#webpage"}, "about": {"@id": SITE + p["alink"] + "#service"}},
+             {"@type": "BlogPosting", "@id": SITE + path + "#article", "headline": p["title"], "description": desc, "image": SITE + f"/assets/blog/{p['img']}.webp", "datePublished": p["date"], "dateModified": p["date"], "inLanguage": "tr-TR", "articleSection": p["cat"], "author": {"@id": ORG_ID}, "publisher": {"@id": ORG_ID}, "mainEntityOfPage": {"@id": SITE + path + "#webpage"}, "about": {"@id": SITE + p["alink"] + "#service"}},
              crumbs(("Hukuk Notları", "/blog"), (p["title"], path))]
     if faqs: graph.append(faq_ld(faqs))
     html_out = page(path, ttl, desc, f"blog/{p['img']}.webp", graph, body, og_img=f"/assets/blog/{p['img']}-og.jpg", og_type="article")
@@ -264,12 +270,12 @@ for i, p in enumerate(parsed):
 
 # blog index
 path = "/blog"
-t = "Hukuk Notları: Kira, Boşanma, İcra, Miras | Kozanoğlu Hukuk"
-d = "Kira artışı, anlaşmalı boşanma, ifadeye çağrılma, işten çıkarılma, ödeme emri ve miras kalan taşınmazlar hakkında süreleri ve adımları anlatan kapsamlı yazılar."
+t = "Hukuk Notları: Kira, Velayet, Şikâyet, İcra | Kozanoğlu Hukuk"
+d = "Tahliye, velayet, savcılığa şikâyet, kira artışı, anlaşmalı boşanma, ifade, işten çıkarılma, ödeme emri ve miras: süreleri ve adımları örneklerle anlatan dokuz yazı."
 feat, rest = parsed[0], parsed[1:]
 cards = "".join(f'<a class="post-card" href="/blog/{o["slug"]}"><img src="/assets/blog/{o["img"]}-card.webp" width="800" height="450" loading="lazy" decoding="async" alt="{e(o["alt"])}"><span class="post-meta"><span>{o["cat"]}</span><span>{o["mins"]} dk.</span></span><h2>{_inline(o["title"])}</h2><p>{_inline(o["summary"])}</p><span class="read">Yazıyı okuyun ↗</span></a>' for o in rest)
 body = "\n".join([
-    hero("interior-logo.webp", "Hukuk notları", "Süreler, adımlar, sık yapılan hatalar.", "Bize en çok sorulan konuları uzun ve anlaşılır yazılarla anlattık. Her yazıda kaçırılmaması gereken süreler ve sık sorulan sorular var."),
+    hero("interior-logo.webp", "Hukuk notları", "Süreler, adımlar, sık yapılan hatalar.", "Büroda en sık sorulan dokuz konu. Her yazıda kanun maddesi, kaçırılmaması gereken süre ve gündelik hayattan birer örnek var."),
     f'''    <section class="section">
       <a class="post-feature" href="/blog/{feat["slug"]}"><img src="/assets/blog/{feat["img"]}.webp" width="1376" height="768" loading="lazy" decoding="async" alt="{e(feat["alt"])}"><div><span class="post-meta"><span>{feat["cat"]}</span><span>{feat["mins"]} dk.</span></span><h2>{_inline(feat["title"])}</h2><p>{_inline(feat["summary"])}</p><span class="read">Yazıyı okuyun ↗</span></div></a>
       <div class="blog-grid">{cards}</div>
@@ -292,10 +298,17 @@ def related_posts(area_path):
     </section>'''
 
 # ---------------------------------------------------------------- Area pages
-def area_page(slug, img, title, desc, eyebrow, h1, lead, topics_h2, topics_intro, topics, notes_h2, notes, faqs, local, cta_h2, service):
+def area_page(slug, img, title, desc, eyebrow, h1, lead, topics_h2, topics_intro, topics, notes_h2, notes, faqs, local, cta_h2, service, docs=None):
     path = "/" + slug
     topic_html = "".join(f'<li><strong>{t}</strong><span>{d}</span></li>' for t, d in topics)
     notes_html = "".join(f'<h3>{t}</h3><p>{p}</p>' for t, p in notes)
+    docs_html = ""
+    if docs:
+        d_intro, d_items = docs
+        docs_html = f'''    <section class="section">
+      {head("İlk görüşme", "Yanınızda getirirseniz işimiz hızlanır.", d_intro)}
+      <ol class="doc-list">{"".join(f"<li><strong>{a}</strong><span>{b}</span></li>" for a, b in d_items)}</ol>
+    </section>'''
     body = "\n".join([
         hero(img, eyebrow, h1, lead, crumb=[("/calisma-alanlari", "Çalışma alanları")]),
         f'''    <section class="section">
@@ -304,6 +317,7 @@ def area_page(slug, img, title, desc, eyebrow, h1, lead, topics_h2, topics_intro
     </section>''',
         f'''    <section class="section alt article-section"><div><p class="section-label">Bilmeniz gerekenler</p><h2>{notes_h2}</h2></div><div class="article-body">{notes_html}<p class="disclaimer">Süreler ve kurallar mevzuat değişikliğiyle güncellenebilir. Kendi durumunuz için bizimle görüşün.</p></div></section>''',
         f'''    <section class="section local-note"><div class="local-grid"><p class="section-label">Pratikte</p><div><p class="local-lead">{local}</p><a class="text-link" href="/kepez-varsak-avukat">Kepez ve Varsak sayfası ↗</a></div></div></section>''',
+        docs_html,
         faq_html(faqs),
         related_posts(path),
         f'''    <section class="section alt">
@@ -322,7 +336,7 @@ area_page(
     "Kepez Boşanma Avukatı, Aile Hukuku | Kozanoğlu Hukuk Antalya",
     "Kepez'de boşanma ve aile hukuku: anlaşmalı ve çekişmeli boşanma, velayet, nafaka, mal paylaşımı ve koruma kararları. Antalya Aile Mahkemeleri'ndeki davalar için (0242) 244 54 20.",
     "Çalışma alanı · Aile hukuku", "Boşanma ve aile hukuku.",
-    "Anlaşmalı ya da çekişmeli boşanma, velayet, nafaka ve mal paylaşımı. Zor bir dönemde, işin hukuki tarafını sakin ve düzenli yürütürüz.",
+    "Anlaşmalı ya da çekişmeli boşanma, velayet, nafaka ve mal paylaşımı. Protokolü biz yazarız, duruşma gününü biz takip ederiz; siz hangi kâğıdı neden imzaladığınızı bilirsiniz.",
     "Aile dosyalarında üstlendiğimiz işler.",
     "Boşanma çoğu zaman tek bir dava değildir. Velayet, nafaka ve mal paylaşımı ayrı ayrı konuşulur, bazen yıllarca sürer. Hangisinin önce ele alınacağını birlikte belirleriz.",
     [("Anlaşmalı boşanma", "Protokolün hazırlanması ve duruşmaya birlikte girilmesi."),
@@ -335,13 +349,23 @@ area_page(
     [("Anlaşmalı boşanmanın iki şartı var", "Evliliğin en az bir yıl sürmüş olması ve iki eşin de duruşmaya bizzat gelmesi gerekir. Velayet, nafaka ve mal paylaşımı protokolde açıkça yazılmazsa, boşanmadan sonra yeni bir davanın kapısı açık kalır."),
      ("Çekişmeli davada her iddia ispat ister", "Mesaj kayıtları, banka hareketleri, tanıklar ve sağlık raporları önemlidir. Delilleri dava açılmadan önce bir araya getirmek, dava sırasında aramaktan çok daha kolaydır."),
      ("Şiddet varsa boşanmayı beklemeyin", "Şiddet ya da tehdit söz konusuysa koruma ve uzaklaştırma kararı, boşanma davasından bağımsız olarak hemen istenebilir."),
+     ("Dava sürerken de nafaka ve velayet düzenlenir", "Hakim, dava açıldığı andan itibaren çocuğun kimde kalacağına ve tedbir nafakasına geçici olarak karar verir. Dava uzadıkça bu geçici düzen kalıcılaşır; ilk dilekçedeki talepler bu yüzden önemlidir."),
      ("Mal paylaşımının süresi sınırsız değil", "Mal rejiminin tasfiyesi için dava, boşanma kararının kesinleşmesinden sonra on yıl içinde açılmalıdır.")],
     [("Anlaşmalı boşanma ne kadar sürer?", "Protokol hazırsa ve mahkemenin takvimi uygunsa karar genellikle ilk duruşmada verilir. Kararın kesinleşmesi için ayrıca tebliğ ve itiraz sürelerinin dolması gerekir."),
      ("Kepez'de oturuyorum, boşanma davası nerede açılır?", "Dava, eşlerden birinin yerleşim yerinde ya da davadan önce son altı ay birlikte oturduğunuz yerde açılabilir. Kepez'de oturuyorsanız dava Antalya Aile Mahkemeleri'nde görülür."),
      ("Velayet kararı sonradan değiştirilebilir mi?", "Evet. Koşullar değiştiğinde ve çocuğun yararı bunu gerektirdiğinde velayetin değiştirilmesi istenebilir."),
+     ("Karara rağmen nafaka ödenmiyor, ne yapabilirim?", "Nafaka alacağı için icra takibi başlatılır. Takibe rağmen ödemeyen kişi hakkında, şikâyetiniz üzerine icra ceza mahkemesi üç aya kadar tazyik hapsine karar verebilir."),
+     ("Velayet anneye mi verilir?", "Kanunda böyle bir kural yok. Hakim çocuğun yararına bakar; çocuğun yaşı, alıştığı düzen ve uzman raporu belirleyici olur."),
      ("Eşim anlaşmaya yanaşmazsa ne olur?", "Çekişmeli boşanma davası açılır. Dava sürerken taraflar anlaşırsa, dava anlaşmalı boşanmaya dönüştürülebilir.")],
     "Protokolü ve ön görüşmeleri ofiste birlikte hazırlarız. Duruşmalar Antalya Adliyesi'nde yapılır; anlaşmalı boşanma dışında çoğuna sizin yerinize biz gireriz.",
-    "Boşanmayı düşünüyorsanız, önce konuşalım.", "Aile hukuku")
+    "Boşanmayı düşünüyorsanız, önce konuşalım.", "Aile hukuku",
+    docs=("Hepsi elinizde olmayabilir. Olanları getirin, eksikleri görüşmede birlikte çıkarırız.",
+          [("Nüfus kayıt örneği", "e-Devlet'ten alınan vukuatlı nüfus kayıt örneği evlilik tarihini ve çocukları gösterir."),
+           ("Gelir belgeleri", "Maaş bordrosu, SGK hizmet dökümü ya da banka hesap hareketleri. Nafaka hesabı bunlara dayanır."),
+           ("Mal kayıtları", "Evlilik içinde alınan ev, araç ve birikimlere ait tapu, ruhsat ve banka kayıtları."),
+           ("Yazışmalar ve fotoğraflar", "Mesajların ekran görüntüleri tarihleriyle birlikte. Telefonu sıfırlamayın."),
+           ("Önceki kararlar", "Varsa koruma kararı, karakol tutanağı ya da daha önce açılmış davaların numaraları."),
+           ("Çocuklara ilişkin bilgiler", "Okul, sağlık durumu ve çocuğa bugüne kadar kimin baktığı.")]))
 
 area_page(
     "ceza-hukuku", "rear-entrance.webp",
@@ -350,7 +374,7 @@ area_page(
     "Çalışma alanı · Ceza hukuku", "Ceza hukuku.",
     "İfadeden duruşmaya kadar. Şüpheli ve sanık müdafiliğinin yanında, suçtan zarar gören taraf olarak dosyası olanları da temsil ediyoruz.",
     "Ceza dosyalarında yanınızda olduğumuz aşamalar.",
-    "Ceza dosyasında en kritik an çoğu zaman ilk ifadedir. Orada söylenen her cümle dosyaya girer ve sonraki her aşamada karşınıza çıkar.",
+    "Ceza dosyalarının çoğu ilk ifadede şekillenir. Orada söylenen her cümle tutanağa geçer ve iddianamede, duruşmada, kararda yeniden karşınıza çıkar.",
     [("İfade ve sorgu", "Karakolda, savcılıkta ve sulh ceza hakimliğinde ifade sırasında hazır bulunmak."),
      ("Gözaltı ve tutukluluk", "Gözaltı süresine, tutuklama ve adli kontrol kararlarına itiraz."),
      ("Asliye ve ağır ceza davaları", "Savunmanın hazırlanması, delil ve tanık takibi, duruşmalar."),
@@ -365,9 +389,18 @@ area_page(
     [("Avukatsız ifade verirsem ne olur?", "İfade geçerlidir ve dosyaya girer. Sonradan ‘yanlış anlaşıldım’ demek kolay değildir. Bu yüzden ifade öncesinde bir avukatla konuşmak çoğu zaman sonucu etkiler."),
      ("Kepez'deki bir olay hangi adliyeye gider?", "Kepez'de yaşanan olaylarla ilgili soruşturmaları Antalya Cumhuriyet Başsavcılığı yürütür. Davalar Meltem'deki Antalya Adliyesi'nde bulunan ceza mahkemelerinde görülür."),
      ("Yakınım gözaltına alındı, ne yapmalıyım?", "Önce hangi emniyet biriminde ya da jandarma karakolunda tutulduğunu öğrenin. Gözaltındaki kişinin avukatla görüşme hakkı vardır; bir avukata ulaşmak ilk adımdır."),
+     ("Uzlaştırmacı aradı, ne yapmalıyım?", "Teklife üç gün içinde cevap vermezseniz reddetmiş sayılırsınız. Uzlaşırsanız aynı olay için ayrıca tazminat davası açılamaz; bu yüzden kabul etmeden önce koşulları bir avukatla konuşun."),
+     ("Takipsizlik kararına itiraz edilebilir mi?", "Evet. Kovuşturmaya yer olmadığına dair karara, tebliğden itibaren iki hafta içinde sulh ceza hakimliğine itiraz edilebilir."),
      ("Hakkımda şikâyet olduğunu nasıl öğrenirim?", "Çoğu zaman ifadeye çağrı kâğıdı ya da telefonla öğrenirsiniz. Çağrıyı aldığınızda ne sıfatla, yani şüpheli mi tanık mı çağrıldığınızı sorun.")],
     "İfade çoğu zaman olayın yaşandığı yerdeki emniyet ya da jandarma biriminde alınır, dosya sonra adliyeye gider. İfade tarihiniz belliyse, o günden önce bir kez konuşmamız çoğu zaman yeterlidir.",
-    "İfade tarihiniz belli mi? Önce bizi arayın.", "Ceza hukuku")
+    "İfade tarihiniz belli mi? Önce bizi arayın.", "Ceza hukuku",
+    docs=("Ceza dosyalarında tarih ve saat her şeydir. Aşağıdakileri getirirseniz ilk görüşmede dosyanın nerede olduğunu söyleyebiliriz.",
+          [("Çağrı kâğıdı ya da tebligat", "Üzerindeki dosya numarası ve sıfatınız: şüpheli, tanık ya da müşteki."),
+           ("Tutanak örnekleri", "Olay yeri, ifade, arama ya da el koyma tutanağının size verilen nüshası."),
+           ("Sağlık raporu", "Yaralanma varsa olay günü alınan rapor ve sonraki tedavi belgeleri."),
+           ("Kayıtlar", "Mesaj, arama kaydı, fotoğraf, kamera kaydının bulunduğu yerin adı."),
+           ("Tanıklar", "Olayı gören kişilerin adları ve telefonları."),
+           ("Eski dosyalar", "Aynı kişiyle ya da aynı olayla ilgili daha önceki dosyaların numaraları.")]))
 
 area_page(
     "gayrimenkul-kira-miras", "hero-poster.webp",
@@ -389,18 +422,27 @@ area_page(
      ("İhtiyaç nedeniyle tahliyede süre", "Belirli süreli sözleşmede ihtiyaç nedeniyle tahliye davası, sözleşme süresinin bitiminden itibaren bir ay içinde açılmalıdır. Bu süre kaçarsa dava bir sonraki dönemi bekler."),
      ("Mirası reddetmenin süresi üç ay", "Borçlu bir miras söz konusuysa, mirası reddetmek için ölümü öğrendiğiniz tarihten itibaren üç ay süreniz vardır. Bu süre sulh hukuk mahkemesine başvurarak kullanılır.")],
     [("Ev sahibim kirayı yasal sınırın üzerinde artırmak istiyor.", "Konut kiralarında on iki aylık TÜFE ortalamasının üzerindeki artışı kabul etmek zorunda değilsiniz. Ancak sözleşmeniz beş yılı doldurduysa ev sahibi kira tespit davası açabilir."),
+     ("Oturduğum ev satıldı, yeni ev sahibi beni çıkarabilir mi?", "Satış kira sözleşmesini bitirmez. Yeni malik evi kendisi kullanacaksa, tapuyu aldıktan sonra bir ay içinde size yazılı bildirim yapmak ve altı ay sonra dava açmak zorundadır."),
+     ("Sözleşme süresi doldu, ev sahibi çıkmamı istiyor.", "Konut kiralarında sürenin dolması tek başına tahliye sebebi değildir. Siz çıkmak istemedikçe sözleşme birer yıl uzar; ev sahibi ancak kanunda sayılan sebeplerle dava açabilir."),
      ("Miras kalan evi kardeşlerle paylaşamıyoruz.", "Anlaşma olmazsa ortaklığın giderilmesi yoluna gidilir. Önce arabulucuya başvurulur; anlaşma çıkmazsa sulh hukuk mahkemesi taşınmazın bölünmesine ya da satışına karar verir."),
      ("Sitede aidat ödemeyen bir komşu için ne yapılabilir?", "Yönetim, ödenmeyen aidatlar için icra takibi başlatabilir. Kat mülkiyetinden doğan uyuşmazlıklarda dava açılacaksa önce arabulucuya gidilir."),
      ("Tapusu olmayan bir hisse için ne yapabilirim?", "Önce tapu kayıtları ve veraset durumu incelenir. Eski kayıtlarda isim ya da pay hataları sık görülür; çoğu zaman düzeltme ya da tescil davasıyla çözülür.")],
     "Varsak 2008'e kadar ayrı bir belediyeydi. Bu yüzden bölgede eski tarihli tapu kayıtları, hisseli tarlalar ve imar değişikliğinden etkilenen parseller sık görülür. Yeni sitelerle birlikte aidat, ortak alan ve kat karşılığı inşaat sözleşmesi uyuşmazlıkları da arttı.",
-    "Kira, tapu ya da miras: önce belgelere bakalım.", "Gayrimenkul, kira ve miras hukuku")
+    "Kira, tapu ya da miras: önce belgelere bakalım.", "Gayrimenkul, kira ve miras hukuku",
+    docs=("Bu dosyalar kâğıt üzerinde yürür. Sözlü anlaşmaların çoğu, ancak bir dekont ya da mesajla ispatlanabilir.",
+          [("Kira sözleşmesi", "Yazılı sözleşme yoksa kiranın ödendiğini gösteren banka dekontları."),
+           ("İhtarname ve tebligatlar", "Zarflarıyla birlikte. Süreler tebliğ tarihinden başlar."),
+           ("Tapu kaydı", "e-Devlet ya da Web Tapu üzerinden alınan güncel kayıt, hisse oranlarıyla."),
+           ("Mirasçılık belgesi", "Noterden ya da sulh hukuk mahkemesinden alınan veraset ilamı."),
+           ("Site ve apartman belgeleri", "Yönetim planı, karar defteri sayfaları, aidat borç dökümü."),
+           ("Yazışmalar", "Ev sahibi, kiracı ya da diğer hissedarlarla yapılan mesajlaşmalar.")]))
 
 area_page(
     "is-icra-ticaret", "interior-logo.webp",
     "Kepez İş, İcra ve Ticaret Avukatı | Kozanoğlu Hukuk Antalya",
     "Kepez'de iş, icra ve ticaret hukuku: kıdem ve ihbar tazminatı, işe iade, iş kazası, icra takibi, ödeme emrine itiraz, alacak ve sözleşme işleri. (0242) 244 54 20.",
     "Çalışma alanı · İş, icra, ticaret", "İş, icra ve ticaret hukuku.",
-    "İşçi ve işveren uyuşmazlıkları, icra takipleri, alacak davaları ve işletmelerin günlük sözleşme işleri.",
+    "İşten çıkarılan işçi, alacağını tahsil edemeyen esnaf, kapısına ödeme emri gelen borçlu. Üçünde de ilk soru aynı: süre ne zaman doluyor?",
     "Bu alanda üstlendiğimiz işler.",
     "Bu dosyalarda süreler kısadır. Bir tebligatı ya da fesih bildirimini birkaç gün bekletmek, hakkı tamamen kaybettirebilir.",
     [("İşçi alacakları", "Kıdem ve ihbar tazminatı, fazla mesai, yıllık izin ve ücret alacakları."),
@@ -416,10 +458,19 @@ area_page(
      ("Kıdem tazminatı için bir yıl", "Kıdem tazminatı için aynı işverende en az bir yıl çalışmış olmak ve iş sözleşmesinin kanunda sayılan bir sebeple sona ermiş olması gerekir.")],
     [("Alacağım için icra takibi mi açmalıyım, dava mı?", "Elinizde fatura, imzalı belge ya da çek varsa çoğu zaman icra takibiyle başlanır. Borçlu itiraz ederse itirazın iptali davası ve öncesinde arabuluculuk gündeme gelir."),
      ("İşten çıkarıldım ama bana sebep söylenmedi.", "Otuz ya da daha fazla işçi çalışan bir işyerinde en az altı aylık kıdeminiz varsa, işveren feshi geçerli bir sebebe dayandırmak zorundadır. Bu durumda işe iade yolu açık olabilir."),
+     ("İstifa edersem kıdem tazminatı alabilir miyim?", "Kural olarak hayır. Ancak ücretin ödenmemesi gibi haklı bir sebeple ayrılan, askere giden, emeklilik için yaş dışındaki koşulları tamamlayan ya da evlendikten sonra bir yıl içinde ayrılan kadın işçi kıdem tazminatına hak kazanır."),
+     ("Maaşıma haciz geldi, ne kadarı kesilebilir?", "Siz ayrıca muvafakat vermedikçe uygulamada maaşın dörtte biri kesilir. Birden fazla haciz varsa sıraya konur; biri bitmeden diğeri başlamaz. Nafaka borçlarında bu sınır uygulanmaz."),
      ("Bana gelen ödeme emrindeki borcu tanımıyorum.", "Süresi içinde borca itiraz edin. İtiraz edilmeyen takip kesinleşir ve haciz aşamasına geçilir."),
      ("İşletmem için sözleşme incelemesi yapıyor musunuz?", "Evet. Kira, satış, hizmet ve bayilik sözleşmelerini imzadan önce inceler, riskli maddeleri işaretleriz.")],
     "Takip, itiraz ve dava işlemlerinin çoğunu UYAP üzerinden yürütürüz. Çoğu adım için adliyeye gitmeniz gerekmez; size düşen, tebligatı aldığınız gün bizi aramak.",
-    "Bir tebligat mı geldi? Süre dolmadan arayın.", "İş, icra ve ticaret hukuku")
+    "Bir tebligat mı geldi? Süre dolmadan arayın.", "İş, icra ve ticaret hukuku",
+    docs=("İş ve icra dosyalarında ilk baktığımız şey tarihtir: işten çıkış günü, tebligatın geldiği gün, senedin vadesi.",
+          [("SGK hizmet dökümü", "e-Devlet'ten alınır. İşe giriş ve çıkış tarihlerini, bildirilen ücreti ve çıkış kodunu gösterir."),
+           ("Bordrolar ve banka dökümü", "Maaşın bir kısmı elden ödendiyse bunu gösteren her türlü kayıt."),
+           ("Fesih bildirimi", "İşverenin verdiği yazı, ibraname ya da imzalamanız istenen belgelerin fotoğrafı."),
+           ("Ödeme emri ve zarfı", "Tebliğ tarihi zarfın üzerindedir; yedi günlük süre o günden sayılır."),
+           ("Senet, çek, fatura", "Alacağın ya da borcun dayandığı belgenin aslı ya da okunaklı fotoğrafı."),
+           ("Sözleşme ve yazışmalar", "İş sözleşmesi, ticari sözleşme, e-posta ve mesajlar.")]))
 
 # ---------------------------------------------------------------- Çalışma alanları hub
 path = "/calisma-alanlari"
@@ -480,7 +531,7 @@ write("kepez-varsak-avukat.html", page(path, t, d, "mobile-hero.webp",
 # ---------------------------------------------------------------- Hakkımızda
 path = "/hakkimizda"
 t = "Hakkımızda | Kozanoğlu Hukuk Bürosu, Kepez Antalya"
-d = "Kepez Emek Mahallesi'ndeki ofisimizde Av. Osman Kozanoğlu, Av. Hüseyin Kozanoğlu, Av. Beyza Kozanoğlu ve Stj. Av. Abdullah Kozanoğlu çalışıyor. Nasıl çalıştığımızı anlattık."
+d = "Kepez Emek Mahallesi'ndeki ofisimizde Av. Osman Kozanoğlu, Av. Hüseyin Kozanoğlu, Av. Beyza Oya ve Stj. Av. Abdullah Kozanoğlu çalışıyor. Nasıl çalıştığımızı anlattık."
 body = "\n".join([
     hero("rear-entrance.webp", "Hakkımızda", "Dosyanızı kimin takip ettiğini bilirsiniz.", "Kozanoğlu Hukuk Bürosu'nda üç avukat ve bir stajyer avukat çalışıyor. Aile, ceza, gayrimenkul, kira, miras, iş ve icra dosyalarına bakıyoruz."),
     f'''    <section class="section">
@@ -493,12 +544,18 @@ body = "\n".join([
     </section>''',
     f'''    <section class="section">
       {head("Ekip", "Aynı masada dört kişi.", "Telefonu açan da, duruşmaya giren de bu ekipten biri.")}
-      <div class="people" aria-label="Kozanoğlu Hukuk Bürosu ekibi"><article class="person"><span class="initials">OK</span><h3>Osman Kozanoğlu</h3><p>Avukat</p></article><article class="person"><span class="initials">HK</span><h3>Hüseyin Kozanoğlu</h3><p>Avukat</p></article><article class="person"><span class="initials">BK</span><h3>Beyza Kozanoğlu</h3><p>Avukat</p></article><article class="person"><span class="initials">AK</span><h3>Abdullah Kozanoğlu</h3><p>Stajyer Avukat</p></article></div>
+      <div class="people" aria-label="Kozanoğlu Hukuk Bürosu ekibi"><article class="person"><span class="initials">OK</span><h3>Osman Kozanoğlu</h3><p>Avukat</p></article><article class="person"><span class="initials">HK</span><h3>Hüseyin Kozanoğlu</h3><p>Avukat</p></article><article class="person"><span class="initials">BO</span><h3>Beyza Oya</h3><p>Avukat</p></article><article class="person"><span class="initials">AK</span><h3>Abdullah Kozanoğlu</h3><p>Stajyer Avukat</p></article></div>
     </section>''',
     f'''    <section class="section alt">
       {head("İlk görüşme", "İlk görüşme nasıl geçer?")}
       <div class="steps"><article class="step"><span>01 · Telefon</span><h3>Arayın</h3><p>Konuyu bir iki cümleyle anlatmanız yeterli. Görüşme için ofiste bir saat belirleriz.</p></article><article class="step"><span>02 · Belgeler</span><h3>Elinizdekini getirin</h3><p>Sözleşme, tebligat, mesaj kayıtları, tapu ya da nüfus kaydı. Hepsi işe yarar.</p></article><article class="step"><span>03 · Yol</span><h3>Seçenekleri konuşalım</h3><p>Dava, arabuluculuk, ihtarname ya da beklemek. Süreleri ve masrafları birlikte değerlendiririz.</p></article></div>
     </section>''',
+    faq_html([
+        ("Avukatlık ücreti nasıl belirlenir?", "Ücret, işe başlamadan önce yazılı bir sözleşmeyle belirlenir. Türkiye Barolar Birliği her yıl bir asgari ücret tarifesi yayımlar; avukatlar bu tarifenin altında ücret kararlaştıramaz."),
+        ("Ücret dışında hangi masraflar çıkar?", "Harç, tebligat, bilirkişi ve keşif giderleri avukatlık ücretinden ayrıdır ve mahkeme veznesine yatırılır. Dosyanın türüne göre tahmini tutarı görüşmede söyleriz."),
+        ("Avukat tutacak durumum yoksa ne yapabilirim?", "Hukuk davaları için Antalya Barosu'nun adli yardım bürosuna başvurabilirsiniz. Ceza dosyalarında, avukatı olmayan şüpheli ya da sanık isterse baro tarafından müdafi görevlendirilir."),
+        ("Dosyamı başka bir avukattan size devredebilir miyim?", "Evet. Yeni vekaletname çıkarılır ve dosya UYAP üzerinden incelenir. Önceki avukatınıza bilgi verilmesi meslek kuralları gereğidir; bunu biz yaparız."),
+    ], label="Ücret ve masraf", h2="Para konusu baştan konuşulur."),
     f'''    <section class="section">
       {head("Konum", "Ofise nasıl gelinir?", "Adresimiz aşağıda. Gelmeden önce arayın, sizi kapıda bekletmeyelim.")}
       <div class="location-block"><img src="/assets/rear-entrance.webp" width="1440" height="804" loading="lazy" decoding="async" alt="Kozanoğlu Hukuk Bürosu girişi, Yeşilırmak Caddesi Kepez"><div class="location-copy"><div><p class="section-label">Kozanoğlu Hukuk Bürosu</p><h3>Randevuyla görüşürüz.</h3><address>Emek Mah. Yeşilırmak Cd. No:19/2<br>07030 Kepez / Antalya</address></div><a class="location-link" href="{MAP}" target="_blank" rel="noopener noreferrer"><span>Yol tarifi alın</span><span aria-hidden="true">↗</span></a></div></div>

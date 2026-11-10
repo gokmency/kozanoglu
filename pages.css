@@ -81,3 +81,10 @@ body{-webkit-font-smoothing:antialiased}html{-webkit-text-size-adjust:100%}
 .footer-legal{color:rgba(241,238,231,.6);font-size:13px}.footer-row{font-size:10px}
 .call-fab{display:none;position:fixed;right:14px;bottom:max(14px,env(safe-area-inset-bottom));z-index:75;align-items:center;gap:10px;min-height:52px;padding:0 20px;color:#171717;background:#f1eee7;box-shadow:0 12px 34px rgba(0,0,0,.42);font-family:"Satoshi",sans-serif;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;opacity:0;transform:translateY(18px);pointer-events:none;transition:opacity .4s var(--ease),transform .4s var(--ease)}.call-fab svg{width:15px;height:15px}.fab-on .call-fab{opacity:1;transform:none;pointer-events:auto}
 @media(max-width:900px){.nav-call{display:none}.call-fab{display:inline-flex}.site-nav{height:108px;grid-template-rows:62px 46px}.nav-links a{min-height:46px;font-size:10px;letter-spacing:.08em}.eyebrow,.section-label,.crumbs{font-size:10px}.footer-row{font-size:10px}.footer-row a{min-height:44px}.site-footer{padding-bottom:max(84px,env(safe-area-inset-bottom))}.hood-list li{font-size:11px}.person p{font-size:12px}}
+/* v5: görüşmeye getirilecek belgeler */
+.doc-list{display:grid;grid-template-columns:repeat(2,1fr);gap:0 clamp(28px,5vw,72px);margin:64px 0 0;padding:0;list-style:none;counter-reset:d;border-top:1px solid var(--line)}
+.doc-list li{counter-increment:d;display:grid;grid-template-columns:44px 1fr;gap:4px 0;padding:24px 0;border-bottom:1px solid var(--line)}
+.doc-list li::before{content:counter(d,decimal-leading-zero);grid-row:1/3;padding-top:5px;color:rgba(241,238,231,.45);font-family:"Satoshi",sans-serif;font-size:10px;letter-spacing:.16em}
+.doc-list strong{font-family:"Cabinet Grotesk",sans-serif;font-size:22px;font-weight:500;line-height:1.15;letter-spacing:-.025em}
+.doc-list span{color:rgba(241,238,231,.74);font-size:15px}
+@media(max-width:900px){.doc-list{grid-template-columns:1fr;margin-top:40px}.doc-list li{grid-template-columns:36px 1fr;padding:20px 0}.doc-list strong{font-size:20px}}

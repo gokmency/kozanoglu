@@ -147,3 +147,5 @@ main{position:relative}
 }
 @media (max-height:560px){.scroll-cue,.chapter-index,.progress-rail{display:none}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.001ms!important;transition-delay:0s!important}}
+
+.m-notes .m-area{grid-template-columns:44px 1fr auto}.m-notes .m-area strong{font-size:21px;line-height:1.1}

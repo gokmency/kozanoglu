@@ -1,3 +1,5 @@
 .DS_Store
 .blog-work/
 .claude/
+.wrangler/
+node_modules/

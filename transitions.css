@@ -9,3 +9,5 @@
 .page-leaving .page-transition{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .28s cubic-bezier(.22,1,.36,1)}
 .page-leaving .page-transition img{opacity:.2;transform:scale(1)}
 @media (max-width:720px),(orientation:portrait) and (max-width:1024px),(orientation:portrait) and (pointer:coarse),(orientation:landscape) and (pointer:coarse) and (max-height:560px),(prefers-reduced-motion:reduce){.page-transition{display:none!important}.page-arriving,.page-reloading,.page-leaving{overflow:auto}}
+.rv{opacity:0;transform:translate3d(0,22px,0);transition:opacity .8s cubic-bezier(.22,1,.36,1) var(--rv-d,0s),transform .8s cubic-bezier(.22,1,.36,1) var(--rv-d,0s)}
+.rv.in{opacity:1;transform:none}

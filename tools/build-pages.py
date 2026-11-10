@@ -44,7 +44,7 @@ def nav(current):
     links = "".join(
         f'<a href="{h}"{" aria-current=\"page\"" if h == current else ""}>' + (f'<span class="l-full">{t}</span><span class="l-short">{s}</span>' if s else t) + "</a>"
         for h, t, s in NAV)
-    return f'<nav class="site-nav" aria-label="Ana navigasyon"><a class="brand" href="/" aria-label="Kozanoğlu Hukuk Bürosu ana sayfa"><img src="/assets/logo.webp" width="724" height="543" fetchpriority="high" alt="Kozanoğlu Hukuk Bürosu"></a><div class="nav-links">{links}</div><span class="nav-spacer" aria-hidden="true"></span></nav>'
+    return f'<nav class="site-nav" aria-label="Ana navigasyon"><a class="brand" href="/" aria-label="Kozanoğlu Hukuk Bürosu ana sayfa"><img src="/assets/logo.webp" width="724" height="543" fetchpriority="high" alt="Kozanoğlu Hukuk Bürosu"></a><div class="nav-links">{links}</div><a class="nav-call" href="tel:{TEL}" aria-label="Büroyu arayın: {TEL_TXT}">{TEL_TXT}</a></nav>'
 
 def footer():
     area_links = "".join(f'<a href="{h}">{t}</a>' for h, t, _ in AREAS)
@@ -89,6 +89,7 @@ def page(path, title, desc, hero_img, graph, body, og_desc=None, og_img=None, og
 {body}
   </main>
   {footer()}
+  <a class="call-fab" href="tel:{TEL}" aria-label="Büroyu arayın: {TEL_TXT}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Arayın</a>
 </body>
 </html>
 '''
@@ -526,4 +527,15 @@ body = "\n".join([
     cta("Telefon açmak çoğu zaman en kısa yoldur."),
 ])
 write("iletisim.html", page(path, t, d, "meeting-room.webp", [webpage(path, "ContactPage", t, d), crumbs(("İletişim", path))], body))
+
+# 404
+path = "/404"; t = "Sayfa bulunamadı | Kozanoğlu Hukuk Bürosu"; d = "Aradığınız sayfa taşınmış ya da hiç olmamış olabilir."
+body = hero("meeting-room.webp", "404", "Bu sayfayı bulamadık.", "Adres değişmiş ya da yanlış yazılmış olabilir. Aşağıdaki başlıklardan devam edebilir ya da büroyu arayabilirsiniz.") + f"""
+    <section class="section">
+      {head("Devam edin", "Aradığınız şey burada olabilir.")}
+      {area_rows()}
+      <p class="section-intro" style="margin-top:40px"><a class="inline-link" href="/">Ana sayfa</a> · <a class="inline-link" href="/blog">Hukuk notları</a> · <a class="inline-link" href="/iletisim">İletişim ve yol tarifi</a></p>
+    </section>"""
+out404 = page(path, t, d, "meeting-room.webp", [], body).replace('content="index,follow,max-image-preview:large,max-snippet:-1"', 'content="noindex,follow"').replace(f'<link rel="canonical" href="{SITE}/404">', "")
+write("404.html", out404)
 print("ok")

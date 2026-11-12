@@ -554,7 +554,6 @@ body = "\n".join([
         ("Avukatlık ücreti nasıl belirlenir?", "Ücret, işe başlamadan önce yazılı bir sözleşmeyle belirlenir. Türkiye Barolar Birliği her yıl bir asgari ücret tarifesi yayımlar; avukatlar bu tarifenin altında ücret kararlaştıramaz."),
         ("Ücret dışında hangi masraflar çıkar?", "Harç, tebligat, bilirkişi ve keşif giderleri avukatlık ücretinden ayrıdır ve mahkeme veznesine yatırılır. Dosyanın türüne göre tahmini tutarı görüşmede söyleriz."),
         ("Avukat tutacak durumum yoksa ne yapabilirim?", "Hukuk davaları için Antalya Barosu'nun adli yardım bürosuna başvurabilirsiniz. Ceza dosyalarında, avukatı olmayan şüpheli ya da sanık isterse baro tarafından müdafi görevlendirilir."),
-        ("Dosyamı başka bir avukattan size devredebilir miyim?", "Evet. Yeni vekaletname çıkarılır ve dosya UYAP üzerinden incelenir. Önceki avukatınıza bilgi verilmesi meslek kuralları gereğidir; bunu biz yaparız."),
     ], label="Ücret ve masraf", h2="Para konusu baştan konuşulur."),
     f'''    <section class="section">
       {head("Konum", "Ofise nasıl gelinir?", "Adresimiz aşağıda. Gelmeden önce arayın, sizi kapıda bekletmeyelim.")}

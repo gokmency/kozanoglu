@@ -25,7 +25,7 @@ ORG = {
     "hasMap": MAP,
     "areaServed": [{"@type": "AdministrativeArea", "name": "Kepez"}, {"@type": "Place", "name": "Varsak, Kepez"}, {"@type": "City", "name": "Antalya"}],
     "knowsAbout": ["Aile hukuku", "Boşanma", "Ceza hukuku", "Gayrimenkul hukuku", "Kira hukuku", "Miras hukuku", "İş hukuku", "İcra ve iflas hukuku", "Ticaret hukuku"],
-    "employee": [{"@type": "Person", "name": n, "jobTitle": t} for n, t in [("Osman Kozanoğlu", "Avukat"), ("Hüseyin Kozanoğlu", "Avukat"), ("Beyza Oya", "Avukat"), ("Abdullah Kozanoğlu", "Stajyer Avukat")]],
+    "employee": [{"@type": "Person", "name": n, "jobTitle": t} for n, t in [("Osman Kozanoğlu", "Avukat"), ("Hüseyin Kozanoğlu", "Avukat"), ("Beyza Oya", "Avukat")]],
 }
 
 NAV = [("/hakkimizda", "Hakkımızda", None), ("/calisma-alanlari", "Çalışma Alanları", "Alanlar"), ("/blog", "Blog", None), ("/iletisim", "İletişim", None)]
@@ -531,9 +531,9 @@ write("kepez-varsak-avukat.html", page(path, t, d, "mobile-hero.webp",
 # ---------------------------------------------------------------- Hakkımızda
 path = "/hakkimizda"
 t = "Hakkımızda | Kozanoğlu Hukuk Bürosu, Kepez Antalya"
-d = "Kepez Emek Mahallesi'ndeki ofisimizde Av. Osman Kozanoğlu, Av. Hüseyin Kozanoğlu, Av. Beyza Oya ve Stj. Av. Abdullah Kozanoğlu çalışıyor. Nasıl çalıştığımızı anlattık."
+d = "Kepez Emek Mahallesi'ndeki ofisimizde Av. Osman Kozanoğlu, Av. Hüseyin Kozanoğlu ve Av. Beyza Oya çalışıyor. Nasıl çalıştığımızı anlattık."
 body = "\n".join([
-    hero("rear-entrance.webp", "Hakkımızda", "Dosyanızı kimin takip ettiğini bilirsiniz.", "Kozanoğlu Hukuk Bürosu'nda üç avukat ve bir stajyer avukat çalışıyor. Aile, ceza, gayrimenkul, kira, miras, iş ve icra dosyalarına bakıyoruz."),
+    hero("rear-entrance.webp", "Hakkımızda", "Dosyanızı kimin takip ettiğini bilirsiniz.", "Kozanoğlu Hukuk Bürosu'nda üç avukat çalışıyor. Aile, ceza, gayrimenkul, kira, miras, iş ve icra dosyalarına bakıyoruz."),
     f'''    <section class="section">
       {head("Nasıl çalışırız", "Önce dinleriz, sonra konuşuruz.", "Hukuki bir sorunla gelen çoğu kişi neyi soracağını bilmez. Bu çok normal. İlk görüşmede olayı sizden dinler, gereken belgeleri ve tarihleri birlikte çıkarırız.")}
       <div class="story-grid"><img src="/assets/meeting-room.webp" width="1440" height="804" loading="lazy" decoding="async" alt="Kozanoğlu Hukuk Bürosu görüşme odası, Kepez"><div class="story-copy"><p class="quote">Ne yapılabileceğini de, ne yapılamayacağını da açıkça söyleriz.</p><p>Her dosya davayla bitmez. Bazı konular bir ihtarnameyle, bazıları arabuluculuk masasında çözülür. Hangi yolun daha az masraflı, hangisinin daha uzun süreceğini görüşmede konuşuruz.</p><p>Dosya açıldıktan sonra duruşma tarihlerini, bilirkişi raporlarını ve karşı tarafın dilekçelerini size biz iletiriz. Bir gelişmeyi öğrenmek için peşimizden koşmanız gerekmez.</p></div></div>
@@ -543,8 +543,8 @@ body = "\n".join([
       <div class="cards"><article class="card"><span class="number">01</span><h3>Sade dil</h3><p>Dilekçede ne yazdığını, kararın ne anlama geldiğini hukuk terimlerine boğmadan anlatırız.</p></article><article class="card"><span class="number">02</span><h3>Gerçekçi beklenti</h3><p>Sonuç vaadi vermeyiz. Riskleri, olası süreleri ve masrafları baştan konuşuruz.</p></article><article class="card"><span class="number">03</span><h3>Düzenli haber</h3><p>Duruşma, rapor, tebligat. Dosyanızdaki gelişmeleri gecikmeden size iletiriz.</p></article></div>
     </section>''',
     f'''    <section class="section">
-      {head("Ekip", "Aynı masada dört kişi.", "Telefonu açan da, duruşmaya giren de bu ekipten biri.")}
-      <div class="people" aria-label="Kozanoğlu Hukuk Bürosu ekibi"><article class="person"><span class="initials">OK</span><h3>Osman Kozanoğlu</h3><p>Avukat</p></article><article class="person"><span class="initials">HK</span><h3>Hüseyin Kozanoğlu</h3><p>Avukat</p></article><article class="person"><span class="initials">BO</span><h3>Beyza Oya</h3><p>Avukat</p></article><article class="person"><span class="initials">AK</span><h3>Abdullah Kozanoğlu</h3><p>Stajyer Avukat</p></article></div>
+      {head("Ekip", "Aynı masada üç avukat.", "Telefonu açan da, duruşmaya giren de bu ekipten biri.")}
+      <div class="people" aria-label="Kozanoğlu Hukuk Bürosu ekibi"><article class="person"><span class="initials">OK</span><h3>Osman Kozanoğlu</h3><p>Avukat</p></article><article class="person"><span class="initials">HK</span><h3>Hüseyin Kozanoğlu</h3><p>Avukat</p></article><article class="person"><span class="initials">BO</span><h3>Beyza Oya</h3><p>Avukat</p></article></div>
     </section>''',
     f'''    <section class="section alt">
       {head("İlk görüşme", "İlk görüşme nasıl geçer?")}

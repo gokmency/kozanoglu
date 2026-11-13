@@ -24,18 +24,25 @@ ORG = {
     "address": {"@type": "PostalAddress", "streetAddress": "Emek Mah. Yeşilırmak Cd. No:19/2", "postalCode": "07030", "addressLocality": "Kepez", "addressRegion": "Antalya", "addressCountry": "TR"},
     "hasMap": MAP,
     "areaServed": [{"@type": "AdministrativeArea", "name": "Kepez"}, {"@type": "Place", "name": "Varsak, Kepez"}, {"@type": "City", "name": "Antalya"}],
-    "knowsAbout": ["Aile hukuku", "Boşanma", "Ceza hukuku", "Gayrimenkul hukuku", "Kira hukuku", "Miras hukuku", "İş hukuku", "İcra ve iflas hukuku", "Ticaret hukuku"],
+    "knowsAbout": ["Gayrimenkul hukuku", "Taşınmaz hukuku", "Tapu iptal ve tescil", "Ortaklığın giderilmesi", "Kat karşılığı inşaat sözleşmesi", "Kat mülkiyeti", "Kira hukuku", "Kamulaştırma", "İmar hukuku", "Yabancıların taşınmaz edinimi", "Aile hukuku", "Ceza hukuku", "İş hukuku", "İcra ve iflas hukuku"],
     "employee": [{"@type": "Person", "name": n, "jobTitle": t} for n, t in [("Osman Kozanoğlu", "Avukat"), ("Hüseyin Kozanoğlu", "Avukat"), ("Beyza Oya", "Avukat")]],
 }
 
 NAV = [("/hakkimizda", "Hakkımızda", None), ("/calisma-alanlari", "Çalışma Alanları", "Alanlar"), ("/blog", "Blog", None), ("/iletisim", "İletişim", None)]
 
-AREAS = [
+RE_HUB = ("/gayrimenkul-hukuku", "Gayrimenkul ve taşınmaz hukuku", "Tapu, hisseli taşınmazlar, inşaat, kira, kamulaştırma ve imar")
+RE_AREAS = [
+    ("/tapu-iptali-ortakligin-giderilmesi", "Tapu iptali, ortaklığın giderilmesi ve el atma", "Tapu iptal ve tescil, izale-i şuyu, müdahalenin men'i, ecrimisil, önalım, miras kalan taşınmaz"),
+    ("/kat-karsiligi-insaat", "Kat karşılığı inşaat ve kat mülkiyeti", "Müteahhit sözleşmeleri, geç teslim, ayıplı daire, site yönetimi ve aidat"),
+    ("/kira-hukuku", "Kira hukuku", "Kira artışı, kira tespiti, tahliye davaları ve takipleri"),
+    ("/kamulastirma-imar", "Kamulaştırma, imar ve yabancılara satış", "Kamulaştırma bedeli, kamulaştırmasız el atma, imar ve yapı, yabancıların taşınmaz edinimi"),
+]
+OTHER_AREAS = [
     ("/aile-hukuku", "Boşanma ve aile hukuku", "Anlaşmalı ve çekişmeli boşanma, velayet, nafaka, mal paylaşımı"),
     ("/ceza-hukuku", "Ceza hukuku", "İfade ve gözaltı, asliye ve ağır ceza davaları, mağdur vekilliği"),
-    ("/gayrimenkul-kira-miras", "Gayrimenkul, kira ve miras", "Kira artışı ve tahliye, tapu, ortaklığın giderilmesi, miras paylaşımı"),
     ("/is-icra-ticaret", "İş, icra ve ticaret hukuku", "İşçi alacakları, işe iade, icra takibi, alacak ve sözleşme işleri"),
 ]
+AREAS = [RE_HUB] + RE_AREAS + OTHER_AREAS
 
 def e(s):
     return html.escape(s, quote=True)
@@ -47,12 +54,13 @@ def nav(current):
     return f'<nav class="site-nav" aria-label="Ana navigasyon"><a class="brand" href="/" aria-label="Kozanoğlu Hukuk Bürosu ana sayfa"><img src="/assets/logo.webp" width="724" height="543" fetchpriority="high" alt="Kozanoğlu Hukuk Bürosu"></a><div class="nav-links">{links}</div><a class="nav-call" href="tel:{TEL}" aria-label="Büroyu arayın: {TEL_TXT}">{TEL_TXT}</a></nav>'
 
 def footer():
-    area_links = "".join(f'<a href="{h}">{t}</a>' for h, t, _ in AREAS)
+    re_links = "".join(f'<a href="{h}">{t}</a>' for h, t, _ in [RE_HUB] + RE_AREAS)
+    other_links = "".join(f'<a href="{h}">{t}</a>' for h, t, _ in OTHER_AREAS)
     return f'''<footer class="site-footer">
     <div class="footer-grid">
       <div><p class="footer-title">Kozanoğlu Hukuk Bürosu</p><address>Emek Mah. Yeşilırmak Cd. No:19/2<br>07030 Kepez / Antalya</address><a class="footer-tel" href="tel:{TEL}">{TEL_TXT}</a></div>
-      <nav aria-label="Çalışma alanları"><p class="footer-title">Çalışma alanları</p>{area_links}</nav>
-      <nav aria-label="Site"><p class="footer-title">Büro</p><a href="/hakkimizda">Hakkımızda</a><a href="/kepez-varsak-avukat">Kepez ve Varsak</a><a href="/blog">Hukuk notları</a><a href="/iletisim">İletişim ve yol tarifi</a></nav>
+      <nav aria-label="Gayrimenkul hukuku"><p class="footer-title">Gayrimenkul hukuku</p>{re_links}</nav>
+      <nav aria-label="Site"><p class="footer-title">Diğer alanlar</p>{other_links}<p class="footer-title" style="margin-top:28px">Büro</p><a href="/hakkimizda">Hakkımızda</a><a href="/kepez-varsak-avukat">Kepez ve Varsak</a><a href="/blog">Hukuk notları</a><a href="/iletisim">İletişim ve yol tarifi</a></nav>
     </div>
     <p class="footer-legal">Bu sitedeki içerikler genel bilgilendirme amaçlıdır, hukuki görüş yerine geçmez. Avukatlık meslek kuralları gereği sonuç vaadinde bulunmayız.</p>
     <div class="footer-row"><span>© 2026 Kozanoğlu Hukuk Bürosu · Kepez, Antalya</span><a class="grainz" href="https://grainzdigital.com" target="_blank" rel="noopener noreferrer">Dijital deneyim · <strong>Grainz Digital</strong></a><a href="tel:{TEL}">{TEL_TXT}</a></div>
@@ -127,12 +135,12 @@ def cta(h2, label="Arayın", sub=None):
     s = f'<p>{sub}</p>' if sub else ""
     return f'''    <section class="cta"><div><h2>{h2}</h2>{s}</div><a class="button" href="tel:{TEL}">{TEL_TXT} · {label} ↗</a></section>'''
 
-def area_rows(exclude=None):
+def area_rows(exclude=None, items=None):
     rows = ""
-    for i, (h, t, d) in enumerate(AREAS, 1):
+    for i, (h, t, d) in enumerate(items or AREAS, 1):
         if h == exclude:
             continue
-        rows += f'<a class="area-row" href="{h}"><span class="area-index">0{i}</span><span class="area-text"><strong>{t}</strong><span>{d}</span></span><span class="area-arrow" aria-hidden="true">↗</span></a>'
+        rows += f'<a class="area-row" href="{h}"><span class="area-index">{i:02d}</span><span class="area-text"><strong>{t}</strong><span>{d}</span></span><span class="area-arrow" aria-hidden="true">↗</span></a>'
     return f'<div class="area-list">{rows}</div>'
 
 def write(name, content):
@@ -145,15 +153,15 @@ BLOG_DATE = "2026-11-04"
 NEW_DATE = "2026-11-10"
 POSTS = [
     # slug, md, kategori, alan linki, alan adı, görsel, görsel alt, [tarih]
-    ("ev-sahibi-kiraciyi-nasil-cikarir", "tahliye.md", "Kira", "/gayrimenkul-kira-miras", "Gayrimenkul, kira ve miras", "blog-tahliye", "Boş bir odada açık kapının yanında üst üste duran koliler ve üzerinde bir anahtar", NEW_DATE),
+    ("ev-sahibi-kiraciyi-nasil-cikarir", "tahliye.md", "Kira", "/kira-hukuku", "Kira hukuku","blog-tahliye", "Boş bir odada açık kapının yanında üst üste duran koliler ve üzerinde bir anahtar", NEW_DATE),
     ("bosanmada-velayet", "velayet.md", "Aile", "/aile-hukuku", "Boşanma ve aile hukuku", "blog-velayet", "Kapının yanında duran küçük bir çocuk sırt çantası ve yağmur botları", NEW_DATE),
     ("savciliga-sikayet-suresi", "sikayet.md", "Ceza", "/ceza-hukuku", "Ceza hukuku", "blog-sikayet", "Uzun pencerelerden ışık alan boş bir koridorda ahşap bank ve üzerinde kapalı bir dosya", NEW_DATE),
-    ("kira-artisi-ve-kira-tespit-davasi", "kira.md", "Kira", "/gayrimenkul-kira-miras", "Gayrimenkul, kira ve miras", "blog-kira", "Travertin bir rafın üzerinde pirinç ev anahtarları ve katlanmış boş bir kâğıt"),
+    ("kira-artisi-ve-kira-tespit-davasi", "kira.md", "Kira", "/kira-hukuku", "Kira hukuku","blog-kira", "Travertin bir rafın üzerinde pirinç ev anahtarları ve katlanmış boş bir kâğıt"),
     ("anlasmali-bosanma-rehberi", "bosanma.md", "Aile", "/aile-hukuku", "Boşanma ve aile hukuku", "blog-bosanma", "Ceviz bir masanın iki ucunda birbirinden uzak duran iki seramik fincan"),
     ("ifadeye-cagrildiniz", "ifade.md", "Ceza", "/ceza-hukuku", "Ceza hukuku", "blog-ifade", "Koyu bir masada dar bir ışık huzmesinin altında açılmamış bir zarf ve okuma gözlüğü"),
     ("isten-cikarildim-haklarim", "isten.md", "İş", "/is-icra-ticaret", "İş, icra ve ticaret hukuku", "blog-isten", "Boşaltılmış bir ofis masasında kalan küçük bir saksı ve kupa"),
     ("odeme-emri-geldi", "odeme.md", "İcra", "/is-icra-ticaret", "İş, icra ve ticaret hukuku", "blog-odeme", "Travertin bir yüzeyde üst üste duran zarflar ve pirinç bir mektup açacağı"),
-    ("miras-kalan-tasinmaz", "miras.md", "Miras", "/gayrimenkul-kira-miras", "Gayrimenkul, kira ve miras", "blog-miras", "Önünde yaşlı bir zeytin ağacı olan eski taş bir köy evi"),
+    ("miras-kalan-tasinmaz", "miras.md", "Miras", "/tapu-iptali-ortakligin-giderilmesi", "Tapu, ortaklık ve miras kalan taşınmaz","blog-miras", "Önünde yaşlı bir zeytin ağacı olan eski taş bir köy evi"),
 ]
 
 def _inline(t):
@@ -289,7 +297,8 @@ BLOG_SLUGS = [o["slug"] for o in parsed]
 
 
 def related_posts(area_path):
-    rel = [o for o in parsed if o["alink"] == area_path]
+    paths = area_path if isinstance(area_path, (list, tuple)) else [area_path]
+    rel = [o for o in parsed if o["alink"] in paths]
     if not rel: return ""
     cards = "".join(f'<a class="post-card" href="/blog/{o["slug"]}"><img src="/assets/blog/{o["img"]}-card.webp" width="800" height="450" loading="lazy" decoding="async" alt=""><span class="post-meta"><span>{o["cat"]}</span><span>{o["mins"]} dk.</span></span><h3>{_inline(o["title"])}</h3><p>{_inline(o["summary"])}</p><span class="read">Yazıyı okuyun ↗</span></a>' for o in rel)
     return f'''    <section class="section">
@@ -298,8 +307,22 @@ def related_posts(area_path):
     </section>'''
 
 # ---------------------------------------------------------------- Area pages
-def area_page(slug, img, title, desc, eyebrow, h1, lead, topics_h2, topics_intro, topics, notes_h2, notes, faqs, local, cta_h2, service, docs=None):
+def area_page(slug, img, title, desc, eyebrow, h1, lead, topics_h2, topics_intro, topics, notes_h2, notes, faqs, local, cta_h2, service, docs=None, re_sub=False):
     path = "/" + slug
+    if re_sub:
+        crumb = [("/calisma-alanlari", "Çalışma alanları"), (RE_HUB[0], "Gayrimenkul hukuku")]
+        crumb_ld = [("Çalışma Alanları", "/calisma-alanlari"), ("Gayrimenkul Hukuku", RE_HUB[0])]
+        others = f'''    <section class="section alt">
+      {head("Gayrimenkul hukuku", "Diğer taşınmaz konuları.")}
+      {area_rows(exclude=path, items=[RE_HUB] + RE_AREAS)}
+    </section>'''
+    else:
+        crumb = [("/calisma-alanlari", "Çalışma alanları")]
+        crumb_ld = [("Çalışma Alanları", "/calisma-alanlari")]
+        others = f'''    <section class="section alt">
+      {head("Ana alanımız", "Gayrimenkul ve taşınmaz hukuku.", "Büromuzun ağırlıklı çalıştığı alan. Tapu, hisseli taşınmaz, inşaat, kira ve kamulaştırma dosyaları.")}
+      {area_rows(exclude=path, items=[RE_HUB] + OTHER_AREAS)}
+    </section>'''
     topic_html = "".join(f'<li><strong>{t}</strong><span>{d}</span></li>' for t, d in topics)
     notes_html = "".join(f'<h3>{t}</h3><p>{p}</p>' for t, p in notes)
     docs_html = ""
@@ -310,7 +333,7 @@ def area_page(slug, img, title, desc, eyebrow, h1, lead, topics_h2, topics_intro
       <ol class="doc-list">{"".join(f"<li><strong>{a}</strong><span>{b}</span></li>" for a, b in d_items)}</ol>
     </section>'''
     body = "\n".join([
-        hero(img, eyebrow, h1, lead, crumb=[("/calisma-alanlari", "Çalışma alanları")]),
+        hero(img, eyebrow, h1, lead, crumb=crumb),
         f'''    <section class="section">
       {head("Neler yapıyoruz", topics_h2, topics_intro)}
       <ul class="topic-grid">{topic_html}</ul>
@@ -320,15 +343,14 @@ def area_page(slug, img, title, desc, eyebrow, h1, lead, topics_h2, topics_intro
         docs_html,
         faq_html(faqs),
         related_posts(path),
-        f'''    <section class="section alt">
-      {head("Diğer alanlar", "Başka bir konu mu?")}
-      {area_rows(exclude=path)}
-    </section>''',
+        others,
         cta(cta_h2),
     ])
-    graph = [webpage(path, "WebPage", title, desc),
-             {"@type": "Service", "@id": SITE + path + "#service", "serviceType": service, "name": h1.rstrip("."), "provider": {"@id": ORG_ID}, "areaServed": [{"@type": "AdministrativeArea", "name": "Kepez"}, {"@type": "City", "name": "Antalya"}], "url": SITE + path},
-             crumbs(("Çalışma Alanları", "/calisma-alanlari"), (h1.rstrip("."), path)), faq_ld(faqs)]
+    svc = {"@type": "Service", "@id": SITE + path + "#service", "serviceType": service, "name": h1.rstrip("."), "provider": {"@id": ORG_ID}, "areaServed": [{"@type": "AdministrativeArea", "name": "Kepez"}, {"@type": "City", "name": "Antalya"}], "url": SITE + path}
+    if re_sub:
+        svc["isRelatedTo"] = {"@id": SITE + RE_HUB[0] + "#service"}
+    graph = [webpage(path, "WebPage", title, desc), svc,
+             crumbs(*crumb_ld, (h1.rstrip("."), path)), faq_ld(faqs)]
     write(slug + ".html", page(path, title, desc, img, graph, body))
 
 area_page(
@@ -402,40 +424,213 @@ area_page(
            ("Tanıklar", "Olayı gören kişilerin adları ve telefonları."),
            ("Eski dosyalar", "Aynı kişiyle ya da aynı olayla ilgili daha önceki dosyaların numaraları.")]))
 
+# ---------------------------------------------------------------- Gayrimenkul hub
+RE_PATHS = [h for h, _, _ in RE_AREAS]
+path = RE_HUB[0]
+t = "Antalya Gayrimenkul Avukatı | Kozanoğlu Hukuk, Kepez"
+d = "Antalya'da gayrimenkul ve taşınmaz hukuku: tapu iptal ve tescil, ortaklığın giderilmesi, kat karşılığı inşaat, kira, kamulaştırma, imar ve yabancılara satış. Kepez, (0242) 244 54 20."
+hub_faqs = [
+    ("Taşınmaz davası hangi mahkemede açılır?", "Tapu iptal ve tescil, el atmanın önlenmesi gibi aynı hakka ilişkin davalar taşınmazın bulunduğu yer mahkemesinde açılır; bu yetki kesindir. Antalya'daki bir taşınmaz için dava, siz başka şehirde otursanız da Antalya'da görülür."),
+    ("Her taşınmaz uyuşmazlığında arabulucuya gitmek gerekir mi?", "Hayır. Kira, ortaklığın giderilmesi, kat mülkiyeti ve komşuluk uyuşmazlıklarında dava öncesi arabuluculuk zorunludur. Tapu iptal ve tescil davaları için böyle bir zorunluluk yoktur."),
+    ("Tapuda şerh, ipotek ya da haciz olup olmadığını nasıl öğrenirim?", "Malik iseniz e-Devlet üzerinden tapu kaydınızı görebilirsiniz. Satın almayı düşündüğünüz bir taşınmaz için satıcıdan güncel tapu kaydını isteyin; alım öncesinde kaydı birlikte inceleriz."),
+    ("Antalya dışında yaşıyorum, dosyamı yürütebilir misiniz?", "Evet. Herhangi bir noterden vekaletname çıkarmanız yeterlidir. Keşif, bilirkişi incelemesi ve duruşmalara biz katılırız; gelişmeleri size düzenli olarak bildiririz."),
+    ("Dava ne kadar sürer?", "Dosyanın türüne, keşif ve bilirkişi aşamasına ve mahkemenin iş yüküne göre değişir. İlk görüşmede sizinkine benzer dosyaların ortalama ne kadar sürdüğünü açıkça söyleriz; kesin bir tarih vermeyiz."),
+]
+hub_steps = '<div class="steps"><article class="step"><span>01 · Kayıt</span><h3>Önce tapuya bakarız</h3><p>Tapu kaydı, hisse oranları, şerh ve beyanlar, imar durumu. Çoğu dosyanın yönünü kayıtların kendisi belirler.</p></article><article class="step"><span>02 · Yol</span><h3>Dava mı, arabulucu mu?</h3><p>İhtarname, arabuluculuk, tespit ya da dava. Hangisinin ne kadar süreceğini ve masrafını ilk görüşmede konuşuruz.</p></article><article class="step"><span>03 · Tescil</span><h3>Karar tapuya işlenene kadar</h3><p>Kararı alıp bırakmayız. Kesinleşme, tapuya tescil ya da tahliye adımına kadar dosyanın başındayız.</p></article></div>'
+hub_notes = [
+    ("Taşınmaz satışı resmi şekle bağlıdır", "Taşınmaz satışı tapu müdürlüğünde, satış vaadi ve kat karşılığı inşaat sözleşmesi ise noterde düzenleme şeklinde yapılmalıdır. Elden yapılan sözleşmeler ve adi yazılı belgeler mülkiyeti geçirmez; çoğu zaman yalnızca ödenen paranın iadesi istenebilir."),
+    ("Tapu kaydına güvenilir, ama her zaman değil", "Tapuya güvenerek iyi niyetle taşınmaz edinen kişi korunur. Kayıt hileli bir işlemle oluşmuşsa ya da alıcı durumu biliyorsa, tapu iptal ve tescil davası açılabilir. İyi niyetin varlığı dosyanın en çok tartışılan konusudur."),
+    ("İhtiyati tedbir taşınmazı korur", "Dava sürerken taşınmazın üçüncü kişilere satılmasını önlemek için tapuya ihtiyati tedbir şerhi konulması istenebilir. Tedbir olmadan dava sırasında yapılan bir satış, dosyayı çok daha zor hale getirir."),
+    ("Keşif ve bilirkişi dosyanın merkezindedir", "Taşınmaz davalarının çoğunda mahkeme yerinde keşif yapar, bilirkişiden değer ya da teknik rapor alır. Rapora itiraz süresi kısadır; raporu tebliğ aldığımız gün inceleriz."),
+]
+hub_body = "\n".join([
+    hero("hero-poster.webp", "Ana çalışma alanı", "Gayrimenkul ve taşınmaz hukuku.", "Tapu iptali ve tescil, hisseli taşınmazlar, kat karşılığı inşaat, kira, kamulaştırma ve imar. Bir taşınmazın alımından paylaşımına kadar her aşamada danışmanlık veriyor, davaları yürütüyoruz.", crumb=[("/calisma-alanlari", "Çalışma alanları")]),
+    f'''    <section class="section">
+      {head("Dört başlık", "Taşınmaz dosyalarını dört başlıkta topluyoruz.", "Her başlığın kendi sayfasında kaçırılmaması gereken süreler, sık sorulan sorular ve görüşmeye getirmeniz gereken belgeler var. Konunuzun hangisine girdiğinden emin değilseniz arayın, telefonda söyleyelim.")}
+      {area_rows(items=RE_AREAS)}
+    </section>''',
+    f'''    <section class="section alt">
+      {head("Nasıl ilerleriz", "Her taşınmaz dosyası kayıtla başlar.")}
+      {hub_steps}
+    </section>''',
+    f'''    <section class="section article-section"><div><p class="section-label">Bilmeniz gerekenler</p><h2>Taşınmaz işlerinde dört temel kural.</h2></div><div class="article-body">{"".join(f"<h3>{a}</h3><p>{b}</p>" for a, b in hub_notes)}<p class="disclaimer">Süreler ve kurallar mevzuat değişikliğiyle güncellenebilir. Kendi durumunuz için bizimle görüşün.</p></div></section>''',
+    f'''    <section class="section local-note alt"><div class="local-grid"><p class="section-label">Antalya'da</p><div><p class="local-lead">Antalya'da taşınmaz dosyalarının kendine özgü bir rengi var: Varsak gibi 2008'e kadar ayrı belediye olan bölgelerde eski ve hisseli tapular, hızla yükselen yeni siteler, imar planı değişiklikleri ve yabancılara yapılan satışlar. Dosyalarımızın büyük bölümü bu başlıklardan birine dokunuyor.</p><a class="text-link" href="/kepez-varsak-avukat">Kepez ve Varsak sayfası ↗</a></div></div></section>''',
+    f'''    <section class="section">
+      {head("İlk görüşme", "Yanınızda getirirseniz işimiz hızlanır.", "Hepsi elinizde olmayabilir. Olanları getirin, eksikleri görüşmede birlikte çıkarırız.")}
+      <ol class="doc-list">{"".join(f"<li><strong>{a}</strong><span>{b}</span></li>" for a, b in [
+          ("Güncel tapu kaydı", "e-Devlet ya da Web Tapu'dan alınan kayıt; hisse oranları, şerh ve beyanlarla birlikte."),
+          ("Sözleşmeler", "Satış vaadi, kat karşılığı inşaat, kira ya da ortaklık sözleşmesi; noter onaylıysa yevmiye numarasıyla."),
+          ("İmar ve yapı belgeleri", "İmar durumu, ruhsat, iskân, proje ve varsa belediyeden gelen yazılar."),
+          ("Tebligatlar", "İhtarname, dava dilekçesi, kamulaştırma ya da arabuluculuk davetleri; zarflarıyla birlikte."),
+          ("Mirasçılık belgesi", "Taşınmaz miras kaldıysa noterden ya da sulh hukuk mahkemesinden alınan veraset ilamı."),
+          ("Ödeme kayıtları ve yazışmalar", "Banka dekontları, makbuzlar, karşı tarafla yapılan mesajlaşmalar."),
+      ])}</ol>
+    </section>''',
+    faq_html(hub_faqs),
+    related_posts(RE_PATHS),
+    f'''    <section class="section alt">
+      {head("Diğer alanlar", "Taşınmaz dışında üstlendiğimiz dosyalar.")}
+      {area_rows(items=OTHER_AREAS)}
+    </section>''',
+    cta("Tapu, hisse, inşaat ya da kira: önce kayıtlara bakalım."),
+])
+hub_graph = [webpage(path, "WebPage", t, d),
+             {"@type": "Service", "@id": SITE + path + "#service", "serviceType": "Gayrimenkul ve taşınmaz hukuku", "name": "Gayrimenkul ve taşınmaz hukuku", "provider": {"@id": ORG_ID}, "areaServed": [{"@type": "AdministrativeArea", "name": "Kepez"}, {"@type": "City", "name": "Antalya"}], "url": SITE + path,
+              "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Gayrimenkul hukuku", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": n, "url": SITE + h}} for h, n, _ in RE_AREAS]}},
+             crumbs(("Çalışma Alanları", "/calisma-alanlari"), ("Gayrimenkul Hukuku", path)), faq_ld(hub_faqs)]
+write("gayrimenkul-hukuku.html", page(path, t, d, "hero-poster.webp", hub_graph, hub_body))
+
+# ---------------------------------------------------------------- Tapu, ortaklık, el atma
 area_page(
-    "gayrimenkul-kira-miras", "hero-poster.webp",
-    "Kepez Kira, Tapu ve Miras Avukatı | Kozanoğlu Hukuk Antalya",
-    "Kepez ve Varsak'ta kira artışı, tahliye, tapu iptali, ortaklığın giderilmesi, kat mülkiyeti ve miras paylaşımı davaları. Kozanoğlu Hukuk Bürosu, Emek Mah. Kepez. (0242) 244 54 20.",
-    "Çalışma alanı · Gayrimenkul, kira, miras", "Gayrimenkul, kira ve miras.",
-    "Kira artışı ve tahliye, tapu, hisseli taşınmazlar, site yönetimi ve miras paylaşımı. Çoğunda karşı taraf tanıdık biri: ev sahibi, kiracı, komşu ya da kardeş.",
-    "Taşınmaz ve miras dosyalarında yaptıklarımız.",
-    "Bu yüzden önce anlaşma yolunu deneriz, olmazsa davayı açarız. Çoğu dosyada arabuluculuk zaten zorunlu bir ilk adım.",
-    [("Kira artışı ve kira tespiti", "Yasal sınırlar içinde artış, beş yılı dolan sözleşmelerde kira bedelinin belirlenmesi."),
-     ("Tahliye", "İhtiyaç, temerrüt ve tahliye taahhüdüne dayalı tahliye davaları ve takipleri."),
-     ("Tapu iptal ve tescil", "Muvazaa, vekalet kötüye kullanımı ve hatalı tescil davaları."),
-     ("Ortaklığın giderilmesi", "Hisseli taşınmazların aynen bölünmesi ya da satış yoluyla paylaştırılması."),
-     ("Kat mülkiyeti ve site yönetimi", "Aidat, ortak alan, yönetim planı ve komşuluk uyuşmazlıkları."),
-     ("Miras", "Veraset ilamı, mirasın reddi, tenkis ve muris muvazaası davaları.")],
+    "tapu-iptali-ortakligin-giderilmesi", "footer-table.webp",
+    "Tapu İptal ve Tescil, Ortaklığın Giderilmesi Avukatı | Kozanoğlu Hukuk Antalya",
+    "Antalya'da tapu iptal ve tescil, muris muvazaası, ortaklığın giderilmesi (izale-i şuyu), el atmanın önlenmesi, ecrimisil, önalım ve miras kalan taşınmaz davaları. Kepez, (0242) 244 54 20.",
+    "Gayrimenkul hukuku · Tapu ve ortaklık", "Tapu iptali, ortaklığın giderilmesi ve el atma.",
+    "Yanlış ya da haksız tescil, anlaşamayan hissedarlar, izinsiz kullanılan arsa ve miras kalan taşınmazlar.",
+    "Bu başlıkta üstlendiğimiz işler.",
+    "Bu dosyaların çoğunda karşı taraf tanıdık biridir: kardeş, akraba, komşu ya da eski ortak. Önce anlaşma yolunu deneriz; olmazsa davayı açar, karar tapuya işlenene kadar takip ederiz.",
+    [("Tapu iptal ve tescil", "Muvazaalı satış, vekâletin kötüye kullanılması, hile ya da hatayla yapılan devirlerin iptali."),
+     ("Muris muvazaası", "Mirasçılardan mal kaçırmak için satış gibi gösterilen bağışların iptali."),
+     ("Ortaklığın giderilmesi", "Hisseli taşınmazların aynen bölünmesi ya da satılarak bedelin paylaştırılması (izale-i şuyu)."),
+     ("El atmanın önlenmesi ve ecrimisil", "Taşınmazınızı izinsiz kullanan kişinin çıkarılması ve geçmiş kullanım bedelinin istenmesi."),
+     ("Önalım (şufa) hakkı", "Hissedarlardan biri payını üçüncü kişiye sattığında, o payı aynı bedelle alma hakkı."),
+     ("Kadastro ve zilyetlik", "Kadastro tespitine itiraz, tapusuz taşınmazların zilyetlik yoluyla tescili, sınır ve yüzölçümü düzeltmeleri.")],
     "Dava açmadan önce bilmeniz gerekenler.",
-    [("Kira davalarında önce arabulucu", "1 Eylül 2023'ten bu yana kira ilişkisinden doğan uyuşmazlıklarda dava açmadan önce arabulucuya başvurmak zorunludur. Aynı kural ortaklığın giderilmesi ve kat mülkiyeti uyuşmazlıkları için de geçerlidir."),
+    [("Muris muvazaasında süre sınırı yok", "Murisin sağlığında mirasçılardan mal kaçırmak amacıyla yaptığı ‘satış görünümlü bağış’lara karşı açılan davalar zamanaşımına tabi değildir. Ancak tanıkların ve belgelerin kaybolmaması için beklememek gerekir."),
+     ("Ortaklığın giderilmesinde önce arabulucu", "1 Eylül 2023'ten bu yana ortaklığın giderilmesi davasından önce arabulucuya başvurmak zorunludur. Anlaşma olmazsa sulh hukuk mahkemesi önce aynen bölmeyi değerlendirir; mümkün değilse taşınmazın satışına karar verir."),
+     ("Önalım için üç ay ve iki yıl", "Pay satışını öğrendiğiniz tarihten itibaren üç ay, her halde satıştan itibaren iki yıl içinde önalım davası açılmalıdır. Mahkemenin belirlediği süre içinde satış bedeli ve tapu masrafları depo edilmezse dava reddedilir."),
+     ("Ecrimisil geriye dönük beş yıl", "Taşınmazınızı izinsiz kullanan kişiden geçmişe dönük beş yıla kadar kullanım bedeli istenebilir. Paydaşlar arasında ecrimisil istemek için ise kural olarak önce kullanımın engellendiğini gösteren bir ihtar gerekir."),
+     ("Kadastro tespitine itiraz için on yıl", "Kadastro tutanağının kesinleşmesinden itibaren on yıl geçtikten sonra, tespitten önceki sebeplere dayanarak itiraz edilemez. Askı ilanı süresindeki otuz günlük itiraz ise kadastro komisyonuna yapılır.")],
+    [("Babam evi kardeşime satmış gibi göstermiş, ne yapabilirim?", "Satış gerçekte bir bağışsa ve amaç diğer mirasçılardan mal kaçırmaksa muris muvazaası nedeniyle tapu iptal ve tescil davası açılabilir. Bedelin gerçekten ödenip ödenmediği, taşınmazın değeri ve aile içi ilişkiler birlikte değerlendirilir."),
+     ("Miras kalan tarlayı kardeşlerle paylaşamıyoruz.", "Önce arabulucuya başvurulur. Anlaşma çıkmazsa ortaklığın giderilmesi davası açılır; bölünmesi mümkün değilse taşınmaz ihaleyle satılır ve bedel paylar oranında dağıtılır. Satıştan önce aranızda anlaşmak çoğu zaman daha iyi bir bedel getirir."),
+     ("Hissedarlardan biri payını yabancı birine sattı.", "Satışı öğrendiğiniz günden itibaren üç ay içinde önalım davası açarak o payı aynı bedelle alabilirsiniz. Süre kısa olduğu için tapu kaydını hemen inceleyelim."),
+     ("Komşu arsama duvar çekti, ne yapabilirim?", "El atmanın önlenmesi ve yıkım davası açılabilir; izinsiz kullanım süresi için ecrimisil de istenebilir. Sınırın tam yeri genellikle keşif ve fen bilirkişisi raporuyla belirlenir."),
+     ("Tapusu olmayan bir arazi için ne yapabilirim?", "Tapuda kayıtlı olmayan bir taşınmazı yirmi yıl boyunca çekişmesiz ve aralıksız, malik gibi kullandıysanız zilyetliğe dayalı tescil davası açılabilir. Taşınmazın niteliği ve kadastro durumu önce incelenir."),
+     ("Vekâlet verdiğim kişi evimi düşük bedelle satmış.", "Vekil, yetkisini kötüye kullanarak taşınmazı gerçek değerinin çok altında ya da alıcıyla anlaşarak sattıysa tapu iptal ve tescil davası açılabilir. Alıcının durumu bilip bilmediği belirleyicidir.")],
+    "Varsak'ta ve Kepez'in kırsal mahallelerinde kuşaklardır bölünmemiş hisseli tarlalar ve eski tarihli kayıtlar sık görülür. Bu dosyalarda önce veraset durumunu ve tapu geçmişini çıkarır, kimin hangi payda olduğunu netleştiririz.",
+    "Tapu, hisse ya da miras: önce kayıtlara bakalım.", "Tapu iptal ve tescil, ortaklığın giderilmesi",
+    docs=("Bu dosyalar kayıt üzerinden yürür. Tapu geçmişi ne kadar eksiksiz olursa ilk görüşmede o kadar net konuşuruz.",
+          [("Güncel tapu kaydı", "Hisse oranları, şerh ve beyanlar görünecek şekilde."),
+           ("Tapu geçmişi", "Taşınmazın önceki malikleri ve satış tarihleri; tapu müdürlüğünden alınabilir."),
+           ("Mirasçılık belgesi", "Noterden ya da sulh hukuk mahkemesinden alınan veraset ilamı."),
+           ("Satış ve vekâlet belgeleri", "Resmi senet, vekâletname ve varsa ödeme dekontları."),
+           ("Kadastro ve harita", "Kadastro tutanağı, çap ya da aplikasyon krokisi."),
+           ("Fotoğraflar ve tanıklar", "Taşınmazın kullanımını gösteren fotoğraflar ve durumu bilen kişilerin adları.")]),
+    re_sub=True)
+
+# ---------------------------------------------------------------- Kat karşılığı inşaat, kat mülkiyeti
+area_page(
+    "kat-karsiligi-insaat", "interior-logo.webp",
+    "Kat Karşılığı İnşaat ve Kat Mülkiyeti Avukatı | Kozanoğlu Hukuk Antalya",
+    "Antalya'da kat karşılığı inşaat sözleşmeleri, müteahhit uyuşmazlıkları, geç teslim, ayıplı konut, kat mülkiyeti, site yönetimi ve aidat davaları. Kepez, (0242) 244 54 20.",
+    "Gayrimenkul hukuku · İnşaat ve kat mülkiyeti", "Kat karşılığı inşaat ve kat mülkiyeti.",
+    "Müteahhitle sözleşme, geç teslim, ayıplı daire, site yönetimi ve aidat.",
+    "Bu başlıkta üstlendiğimiz işler.",
+    "Arsa sahibi, müteahhit, daire alan ya da site sakini. Hangi taraftaysanız, uyuşmazlığın kaynağı çoğunlukla sözleşmedeki bir maddedir. Bu yüzden işe imzadan önce başlamak, en ucuz çözümdür.",
+    [("Kat karşılığı inşaat sözleşmesi", "Sözleşmenin hazırlanması ve incelenmesi; arsa payı, teslim süresi, ceza koşulu ve teminat maddeleri."),
+     ("Geç teslim ve sözleşmeden dönme", "Gecikme tazminatı, kira kaybı, ceza koşulu ve sözleşmenin feshi davaları."),
+     ("Ayıplı konut", "Eksik ve kusurlu imalat, projeye aykırılık, ayıp tespiti ve bedel indirimi."),
+     ("Tapu devri ve tescil", "Müteahhide geçen dairelerin tescili ya da iptali, üçüncü kişilere satılan bağımsız bölümler."),
+     ("Kat mülkiyeti ve site yönetimi", "Yönetim planı, kat malikleri kurulu kararlarına itiraz, ortak alan kullanımı."),
+     ("Aidat ve ortak gider", "Ödenmeyen aidatların takibi ya da haksız aidat taleplerine itiraz.")],
+    "Sözleşmeden önce ve sonra bilmeniz gerekenler.",
+    [("Sözleşme noterde düzenleme şeklinde yapılmalı", "Kat karşılığı inşaat sözleşmesi arsa payının devri vaadini içerdiğinden noterde düzenleme şeklinde yapılmalıdır. Adi yazılı ya da yalnızca imzası onaylanmış sözleşmeler, kural olarak tapu devrini istemeye yetmez."),
+     ("Teslim tarihi ve ceza koşulu net yazılmalı", "Teslim tarihi, gecikme halinde ödenecek tazminat ve hangi durumların gecikme sayılmayacağı sözleşmede açıkça yazılmazsa, her gecikme ayrı bir tartışma konusu olur."),
+     ("Ayıbı gecikmeden bildirin", "Teslimde görülebilen ayıplar uygun süre içinde, sonradan ortaya çıkan gizli ayıplar ise fark edildiği anda müteahhide yazılı olarak bildirilmelidir. Daireyi konut olarak satın aldıysanız uyuşmazlık tüketici mahkemesinde görülür ve çoğu durumda önce arabulucuya gidilir."),
+     ("Kurul kararına itiraz için bir ay", "Kat malikleri kurulu kararına karşı iptal davası, toplantıda karşı oy verdiyseniz karar tarihinden, katılmadıysanız öğrendiğiniz tarihten itibaren bir ay, her halde altı ay içinde açılmalıdır. Kat mülkiyeti uyuşmazlıklarında dava öncesi arabuluculuk zorunludur."),
+     ("Aidatı geciken için yüzde beş", "Kat mülkiyeti kanununa göre ortak gider ve avans payını zamanında ödemeyen kat maliki, geciken her ay için yüzde beş gecikme tazminatı öder. Yönetim bu alacak için doğrudan icra takibi başlatabilir.")],
+    [("Müteahhit inşaatı yarıda bıraktı, ne yapabilirim?", "Sözleşmeden dönülerek arsa payının iadesi ve tazminat istenebilir ya da inşaatın başka bir yükleniciyle tamamlanması için mahkemeden yetki alınabilir. Hangisinin uygun olduğu, inşaatın seviyesine ve tapuda müteahhide ne kadar pay geçtiğine bağlıdır."),
+     ("Daire teslim tarihi geçti, tazminat alabilir miyim?", "Sözleşmede ceza koşulu varsa onu, yoksa gecikme süresince kira kaybınızı isteyebilirsiniz. Teslim alırken ihtirazi kayıt koymazsanız ceza koşulunu sonradan istemek zorlaşır."),
+     ("Aldığım dairede rutubet ve çatlaklar çıktı.", "Önce ayıbı müteahhide yazılı olarak bildirin. Mahkemeden delil tespiti istenerek ayıbın kaynağı ve onarım bedeli bilirkişiyle belirlenebilir. Ayıba göre bedel indirimi, onarım ya da sözleşmeden dönme talep edilir."),
+     ("Kat irtifakından kat mülkiyetine nasıl geçilir?", "Yapı kullanma izni (iskân) alındıktan sonra tapu müdürlüğüne başvurularak kat irtifakı kat mülkiyetine çevrilir. İskân alınamıyorsa nedeni ve sorumlusu ayrıca incelenmelidir."),
+     ("Site yönetimi ortak alanı tek bir daireye bıraktı.", "Ortak alanların kullanımı yönetim planına ve kat malikleri kurulu kararına bağlıdır. Usule aykırı alınmış bir karara karşı süresi içinde iptal davası açılabilir; önce arabulucuya başvurulur."),
+     ("Arsa sahibi olarak sözleşmeyi imzalamadan önce neye dikkat etmeliyim?", "Arsa payı oranı, dairelerin hangi katta ve cephede olacağı, teslim tarihi, teminat ve tapu devrinin inşaatın ilerlemesine bağlanması. Sözleşmeyi imzadan önce inceler, riskli maddeleri işaretleriz.")],
+    "Kepez ve Varsak'ta son yıllarda yükselen sitelerin çoğu kat karşılığı inşaat modeliyle yapıldı. Gelen dosyaların önemli bir bölümü geç teslim, iskân sorunları ve site yönetimiyle ilgili.",
+    "Müteahhitle, arsa sahibiyle ya da yönetimle sorun mu var? Konuşalım.", "Kat karşılığı inşaat ve kat mülkiyeti hukuku",
+    docs=("Bu dosyalarda her şey sözleşmeye ve tarihlere bağlıdır. Elinizdeki belgeleri eksiksiz getirin.",
+          [("İnşaat sözleşmesi", "Noter yevmiye numarasıyla birlikte; varsa ek protokoller."),
+           ("Satış belgeleri", "Daireyi müteahhitten aldıysanız satış vaadi, resmi senet ve ödeme dekontları."),
+           ("Proje ve ruhsat", "Onaylı proje, yapı ruhsatı, varsa iskân belgesi."),
+           ("Fotoğraflar", "Ayıpları ve inşaatın durumunu gösteren tarihli fotoğraflar."),
+           ("Yazışmalar ve ihtarlar", "Müteahhit, arsa sahibi ya da yönetimle yazışmalar, gönderilen ihtarnameler."),
+           ("Site belgeleri", "Yönetim planı, karar defteri sayfaları, aidat dökümü.")]),
+    re_sub=True)
+
+# ---------------------------------------------------------------- Kira hukuku
+area_page(
+    "kira-hukuku", "meeting-room.webp",
+    "Antalya Kira Avukatı: Kira Tespiti ve Tahliye | Kozanoğlu Hukuk",
+    "Antalya ve Kepez'de kira hukuku: kira artışı, kira tespit davası, ihtiyaç ve temerrüt nedeniyle tahliye, tahliye taahhüdü, arabuluculuk. Ev sahibi ve kiracı tarafında. (0242) 244 54 20.",
+    "Gayrimenkul hukuku · Kira", "Kira hukuku.",
+    "Kira artışı, kira tespiti ve tahliye; ev sahibi ve kiracı tarafında.",
+    "Kira dosyalarında üstlendiğimiz işler.",
+    "Kira uyuşmazlıklarında süreler çok kısadır ve bir ayı kaçırmak, davayı bir yıl ertelemek demektir. Ev sahibi ya da kiracı, ilk iş tarihlerinizi çıkarırız.",
+    [("Kira artışı", "Yasal sınır içinde artış ve sınırı aşan taleplere karşı kiracının hakları."),
+     ("Kira tespit davası", "Beş yılı dolan sözleşmelerde kira bedelinin emsallere göre belirlenmesi."),
+     ("İhtiyaç nedeniyle tahliye", "Malikin ya da yakınlarının konut veya işyeri ihtiyacına dayalı tahliye davaları."),
+     ("Temerrüt ve iki haklı ihtar", "Kiranın ödenmemesi nedeniyle icra yoluyla ya da dava açılarak tahliye."),
+     ("Tahliye taahhüdü", "Yazılı taahhüde dayalı tahliye takipleri ve taahhüdün geçerliliğinin incelenmesi."),
+     ("Kira sözleşmesi ve ihtarname", "Sözleşmenin hazırlanması, ihtarname, depozito ve hasar uyuşmazlıkları.")],
+    "Kaçırılmaması gereken süreler.",
+    [("Önce arabulucu", "1 Eylül 2023'ten bu yana kira ilişkisinden doğan uyuşmazlıklarda dava açmadan önce arabulucuya başvurmak zorunludur. Tahliye taahhüdüne ya da kira borcuna dayalı icra takipleri ise doğrudan başlatılabilir."),
      ("Konut kirasında artışın sınırı", "Konut kiralarında yıllık artış, bir önceki kira yılının on iki aylık TÜFE ortalamasını geçemez. Beş yılı dolduran sözleşmelerde ise kira bedeli mahkemece emsallere göre yeniden belirlenebilir."),
-     ("İhtiyaç nedeniyle tahliyede süre", "Belirli süreli sözleşmede ihtiyaç nedeniyle tahliye davası, sözleşme süresinin bitiminden itibaren bir ay içinde açılmalıdır. Bu süre kaçarsa dava bir sonraki dönemi bekler."),
-     ("Mirası reddetmenin süresi üç ay", "Borçlu bir miras söz konusuysa, mirası reddetmek için ölümü öğrendiğiniz tarihten itibaren üç ay süreniz vardır. Bu süre sulh hukuk mahkemesine başvurarak kullanılır.")],
+     ("Kira tespitinde otuz gün", "Kira tespit davası yeni kira döneminin başlamasından en az otuz gün önce açılır ya da ev sahibi bu süre içinde kiracıya yazılı olarak artış bildirirse, belirlenen kira yeni dönemin başından itibaren geçerli olur."),
+     ("İhtiyaç davası için bir ay", "Belirli süreli sözleşmede ihtiyaç nedeniyle tahliye davası, sözleşme süresinin bitiminden itibaren bir ay içinde açılmalıdır. Evi yeni satın alan malik ise edinmeden itibaren bir ay içinde kiracıya bildirim yapmalı, altı ay sonra dava açabilir."),
+     ("On yıl kuralı", "Konut ve çatılı işyeri kiralarında on yıllık uzama süresi dolduktan sonra ev sahibi, her uzama yılının bitiminden en az üç ay önce bildirimde bulunarak sebep göstermeden sözleşmeyi sona erdirebilir.")],
     [("Ev sahibim kirayı yasal sınırın üzerinde artırmak istiyor.", "Konut kiralarında on iki aylık TÜFE ortalamasının üzerindeki artışı kabul etmek zorunda değilsiniz. Ancak sözleşmeniz beş yılı doldurduysa ev sahibi kira tespit davası açabilir."),
      ("Oturduğum ev satıldı, yeni ev sahibi beni çıkarabilir mi?", "Satış kira sözleşmesini bitirmez. Yeni malik evi kendisi kullanacaksa, tapuyu aldıktan sonra bir ay içinde size yazılı bildirim yapmak ve altı ay sonra dava açmak zorundadır."),
      ("Sözleşme süresi doldu, ev sahibi çıkmamı istiyor.", "Konut kiralarında sürenin dolması tek başına tahliye sebebi değildir. Siz çıkmak istemedikçe sözleşme birer yıl uzar; ev sahibi ancak kanunda sayılan sebeplerle dava açabilir."),
-     ("Miras kalan evi kardeşlerle paylaşamıyoruz.", "Anlaşma olmazsa ortaklığın giderilmesi yoluna gidilir. Önce arabulucuya başvurulur; anlaşma çıkmazsa sulh hukuk mahkemesi taşınmazın bölünmesine ya da satışına karar verir."),
-     ("Sitede aidat ödemeyen bir komşu için ne yapılabilir?", "Yönetim, ödenmeyen aidatlar için icra takibi başlatabilir. Kat mülkiyetinden doğan uyuşmazlıklarda dava açılacaksa önce arabulucuya gidilir."),
-     ("Tapusu olmayan bir hisse için ne yapabilirim?", "Önce tapu kayıtları ve veraset durumu incelenir. Eski kayıtlarda isim ya da pay hataları sık görülür; çoğu zaman düzeltme ya da tescil davasıyla çözülür.")],
-    "Varsak 2008'e kadar ayrı bir belediyeydi. Bu yüzden bölgede eski tarihli tapu kayıtları, hisseli tarlalar ve imar değişikliğinden etkilenen parseller sık görülür. Yeni sitelerle birlikte aidat, ortak alan ve kat karşılığı inşaat sözleşmesi uyuşmazlıkları da arttı.",
-    "Kira, tapu ya da miras: önce belgelere bakalım.", "Gayrimenkul, kira ve miras hukuku",
-    docs=("Bu dosyalar kâğıt üzerinde yürür. Sözlü anlaşmaların çoğu, ancak bir dekont ya da mesajla ispatlanabilir.",
+     ("Kiracım kirayı ödemiyor, ne yapmalıyım?", "Kira borcu için icra takibi başlatılarak kiracıya otuz gün süre verilir; bu sürede ödeme yapılmazsa icra mahkemesinden tahliye istenebilir. Bir kira yılı içinde iki haklı ihtar çekildiyse, yıl bitiminden itibaren bir ay içinde tahliye davası da açılabilir."),
+     ("Sözleşmeyle birlikte imzalatılan tahliye taahhüdü geçerli mi?", "Kira sözleşmesiyle aynı anda, kiracı henüz eve girmeden alınan tahliye taahhütleri Yargıtay uygulamasına göre geçersiz sayılır. Taahhüdün tarihi ve kim tarafından doldurulduğu bu yüzden önemlidir."),
+     ("Depozitomu geri vermiyorlar.", "Ev teslim edildiğinde kira borcu ve kiracıdan kaynaklanan bir hasar yoksa depozito iade edilmelidir. Evi teslim ederken tutanak tutup fotoğraf çekmek, sonradan çıkacak tartışmayı büyük ölçüde önler.")],
+    "Kepez ve Varsak'ta kira uyuşmazlıkları arabuluculuk aşamasında sık çözülür. Arabuluculuk toplantısına sizinle birlikte katılır, anlaşma çıkmazsa sulh hukuk mahkemesinde davayı açarız.",
+    "Kira artışı mı, tahliye mi? Süre dolmadan konuşalım.", "Kira hukuku",
+    docs=("Kira dosyaları kâğıt üzerinde yürür. Sözlü anlaşmaların çoğu ancak bir dekont ya da mesajla ispatlanabilir.",
           [("Kira sözleşmesi", "Yazılı sözleşme yoksa kiranın ödendiğini gösteren banka dekontları."),
+           ("Ödeme kayıtları", "Son dönemin kira ödemelerini gösteren hesap hareketleri."),
            ("İhtarname ve tebligatlar", "Zarflarıyla birlikte. Süreler tebliğ tarihinden başlar."),
-           ("Tapu kaydı", "e-Devlet ya da Web Tapu üzerinden alınan güncel kayıt, hisse oranlarıyla."),
-           ("Mirasçılık belgesi", "Noterden ya da sulh hukuk mahkemesinden alınan veraset ilamı."),
-           ("Site ve apartman belgeleri", "Yönetim planı, karar defteri sayfaları, aidat borç dökümü."),
-           ("Yazışmalar", "Ev sahibi, kiracı ya da diğer hissedarlarla yapılan mesajlaşmalar.")]))
+           ("Tahliye taahhüdü", "Varsa aslı ya da okunaklı bir kopyası."),
+           ("Tapu kaydı", "Ev sahibiyseniz güncel tapu kaydı; ev yeni satın alındıysa edinme tarihi."),
+           ("Yazışmalar", "Ev sahibi ya da kiracıyla yapılan mesajlaşmalar.")]),
+    re_sub=True)
+
+# ---------------------------------------------------------------- Kamulaştırma, imar, yabancılar
+area_page(
+    "kamulastirma-imar", "rear-entrance.webp",
+    "Kamulaştırma, İmar ve Yabancılara Taşınmaz Satışı | Kozanoğlu Hukuk Antalya",
+    "Antalya'da kamulaştırma bedeli, kamulaştırmasız el atma, imar planı ve yapı uyuşmazlıkları, yabancıların taşınmaz edinimi ve alım-satım danışmanlığı. Kepez, (0242) 244 54 20.",
+    "Gayrimenkul hukuku · Kamulaştırma ve imar", "Kamulaştırma, imar ve yabancılara satış.",
+    "Kamulaştırma bedeli, kamulaştırmasız el atma, imar ve yapı sorunları, yabancıların taşınmaz edinimi.",
+    "Bu başlıkta üstlendiğimiz işler.",
+    "Bu dosyalarda karşınızda çoğu zaman bir idare ya da bir alım-satım işlemi vardır. Süreler idari ve kısadır; doğru yere doğru zamanda başvurmak, davanın kendisi kadar önemlidir.",
+    [("Kamulaştırma bedeli", "Uzlaşma görüşmeleri ve idarenin açtığı bedel tespiti ve tescil davalarında gerçek değerin savunulması."),
+     ("Kamulaştırmasız el atma", "İdarenin kamulaştırmadan yol, kanal ya da başka bir amaçla kullandığı taşınmazlar için tazminat."),
+     ("İmar planı uyuşmazlıkları", "Plan değişikliklerine itiraz ve iptal davaları, kamu alanına ayrılan taşınmazlar."),
+     ("Yapı ve ruhsat", "Ruhsat, iskân, yapı tatil tutanağı, yıkım kararı ve imar para cezalarına itiraz."),
+     ("Yabancılara taşınmaz satışı", "Yabancı alıcı ve satıcılar için hukuki inceleme, tapu işlemleri, vatandaşlık ve ikamet bağlantılı alımlar."),
+     ("Alım-satım danışmanlığı", "Satın almadan önce tapu, imar ve şerh incelemesi, satış vaadi ve kapora sözleşmeleri.")],
+    "Bilmeniz gerekenler.",
+    [("Uzlaşma teklifini hemen imzalamayın", "İdare kamulaştırmadan önce malikle uzlaşma görüşmesi yapar. Teklif edilen bedel kabul edilmezse idare bedelin mahkemece belirlenmesi için dava açar. Teklifi kabul etmeden önce taşınmazın gerçek değerini ve emsal satışları inceleyin."),
+     ("Kamulaştırma işlemine karşı otuz gün", "Kamulaştırma işleminin kendisine, yani kamu yararı kararına ve işlemin hukuka uygunluğuna karşı tebliğden itibaren otuz gün içinde idare mahkemesinde iptal davası açılabilir. Bedel ise adli yargıda tartışılır."),
+     ("İmar planına karşı altmış gün", "Onaylanan imar planları bir ay askıya çıkarılır ve bu sürede belediyeye itiraz edilebilir. Plana karşı iptal davası ise ilan tarihinden itibaren altmış gün içinde idare mahkemesinde açılır."),
+     ("Satış vaadi noterde yapılmalı", "Taşınmaz satış vaadi sözleşmesi noterde düzenleme şeklinde yapılmazsa geçersizdir. Elden imzalanan bir kapora belgesi mülkiyet hakkı vermez; çoğu zaman yalnızca ödenen paranın iadesi istenebilir."),
+     ("Yabancılar için sınırlar ve şartlar", "Yabancı gerçek kişiler ülke genelinde otuz hektara kadar taşınmaz edinebilir; askeri ve güvenlik bölgelerinde edinim yasaktır. Vatandaşlık ya da ikamet amaçlı alımlarda değerleme raporu, ödeme şekli ve taşınmazın bulunduğu mahallenin durumu önceden kontrol edilmelidir.")],
+    [("İdare arazime yol geçirdi ama kamulaştırma yapmadı.", "Kamulaştırma yapılmadan fiilen el atılan taşınmazlar için bedel ya da el atmanın önlenmesi istenebilir. El atmanın tarihi ve şekli hangi yolun açık olduğunu belirler; önce tapu kaydı ve haritalar incelenir."),
+     ("Kamulaştırma bedeli düşük, ne yapabilirim?", "Uzlaşma teklifini kabul etmek zorunda değilsiniz. İdarenin açtığı bedel tespiti davasında keşif ve bilirkişi incelemesi yapılır; emsal satışlarla gerçek değer savunulur."),
+     ("Arsam imar planında park alanına ayrıldı.", "Kamu alanına ayrılan ve uzun süre kamulaştırılmayan taşınmazlar için idareye başvurularak kamulaştırma ya da plan değişikliği istenebilir; olumsuz cevaba karşı dava yolu açıktır. Planın onay tarihi ve askı süresi önce kontrol edilir."),
+     ("Yabancıyım, Antalya'da daire almak istiyorum.", "Satın almadan önce tapu kaydı, imar durumu, iskân ve borç şerhleri incelenmelidir. Vatandaşlık ya da ikamet planlıyorsanız şartlar ayrıca kontrol edilir. Tapu işlemlerinde yeminli tercüman bulunur; vekâletle de işlem yapılabilir."),
+     ("Kapora verdim, satıcı vazgeçti.", "Noterde yapılmamış bir satış vaadi geçersiz olduğu için satışın zorla yaptırılması istenemez; ancak ödenen kapora ve uğranılan zarar istenebilir. Kapora belgesindeki ifadeler ve ödeme kaydı belirleyicidir."),
+     ("Belediye binama yıkım kararı verdi.", "Yapı tatil tutanağı, yıkım kararı ve imar para cezalarına karşı itiraz ve dava süreleri kısadır. Tebligatı aldığınız gün belgeyi bize getirin.")],
+    "Antalya, yabancılara en çok taşınmaz satılan illerin başında geliyor; Kepez ve çevresinde ise yol, kanal ve imar planı değişiklikleri birçok arsa sahibini kamulaştırma süreciyle karşı karşıya bırakıyor. Bu dosyalarda hem tapu müdürlüğüyle hem belediye ve idareyle yazışmaları biz yürütürüz.",
+    "Bir tebligat, bir teklif ya da bir alım: önce kayıtlara bakalım.", "Kamulaştırma, imar hukuku ve gayrimenkul alım-satım danışmanlığı",
+    docs=("İdari süreçlerde tebliğ tarihi her şeydir. Zarfları atmayın.",
+          [("Tebligat ve zarfı", "Kamulaştırma kararı, uzlaşma daveti, yıkım ya da ceza kararı; tebliğ tarihiyle birlikte."),
+           ("Tapu kaydı", "Güncel kayıt, şerh ve beyanlarla birlikte."),
+           ("İmar durumu", "Belediyeden alınan imar durumu belgesi ve plan notları."),
+           ("Harita ve fotoğraflar", "El atılan bölümü gösteren kroki ve tarihli fotoğraflar."),
+           ("Satış belgeleri", "Kapora belgesi, satış vaadi, ödeme dekontları."),
+           ("Kimlik ve pasaport", "Yabancı alıcılar için pasaport ve yeminli tercümesi; vergi numarası.")]),
+    re_sub=True)
 
 area_page(
     "is-icra-ticaret", "interior-logo.webp",
@@ -475,18 +670,22 @@ area_page(
 # ---------------------------------------------------------------- Çalışma alanları hub
 path = "/calisma-alanlari"
 t = "Çalışma Alanları | Kozanoğlu Hukuk Bürosu Kepez, Antalya"
-d = "Kozanoğlu Hukuk Bürosu'nun Kepez'den yürüttüğü çalışma alanları: boşanma ve aile, ceza, gayrimenkul, kira, miras, iş, icra ve ticaret hukuku."
+d = "Kozanoğlu Hukuk Bürosu'nun ana çalışma alanı gayrimenkul ve taşınmaz hukuku: tapu iptal ve tescil, ortaklığın giderilmesi, kat karşılığı inşaat, kira, kamulaştırma ve imar. Ayrıca aile, ceza, iş ve icra."
 body = "\n".join([
-    hero("footer-table.webp", "Çalışma alanları", "Hangi dosyalara bakıyoruz?", "Aile, ceza, gayrimenkul, kira, miras, iş, icra ve ticaret. Danışmanlık veriyor, dava ve takipleri yürütüyoruz. Konunuz hangi başlığa giriyor bilmiyorsanız, sorun."),
+    hero("footer-table.webp", "Çalışma alanları", "Ağırlığımız taşınmaz dosyalarında.", "Büromuzun ana çalışma alanı gayrimenkul ve taşınmaz hukuku. Tapu, hisse, inşaat, kira, kamulaştırma ve imar dosyalarının yanında aile, ceza, iş ve icra dosyalarını da üstleniyoruz."),
     f'''    <section class="section">
-      {head("Dört başlık", "Konunuz hangisine yakın?", "Her başlığın kendi sayfasında sık sorulan sorular ve kaçırılmaması gereken süreler var. Emin değilseniz arayın, konunun hangi alana girdiğini telefonda söyleriz.")}
-      {area_rows()}
+      {head("Ana alan", "Gayrimenkul ve taşınmaz hukuku.", "Dört başlıkta topladığımız taşınmaz dosyaları. Her başlığın kendi sayfasında kaçırılmaması gereken süreler, sık sorulan sorular ve getirmeniz gereken belgeler var.")}
+      {area_rows(items=[RE_HUB] + RE_AREAS)}
     </section>''',
     f'''    <section class="section alt">
-      {head("Ortak nokta", "Her dosyada aynı ilk adım.")}
-      <div class="steps"><article class="step"><span>01 · Dinlemek</span><h3>Olayı baştan anlatın</h3><p>Ne oldu, ne zaman oldu, kimler var. Kesin tarih bilmiyorsanız yaklaşık dönem de yeter.</p></article><article class="step"><span>02 · Belge</span><h3>Elinizdekileri getirin</h3><p>Tebligat, sözleşme, tapu, mesaj kayıtları. Önemsiz görünen bir kâğıt bazen dosyanın yönünü değiştirir.</p></article><article class="step"><span>03 · Yol</span><h3>Seçenekleri konuşalım</h3><p>Dava, arabuluculuk, ihtarname ya da beklemek. Her birinin süresini ve masrafını açıkça söyleriz.</p></article></div>
+      {head("Diğer alanlar", "Taşınmaz dışındaki dosyalar.", "Emin değilseniz arayın, konunuzun hangi alana girdiğini telefonda söyleriz.")}
+      {area_rows(items=OTHER_AREAS)}
     </section>''',
-    cta("Konunuz hangi alana giriyor, telefonda söyleyelim."),
+    f'''    <section class="section">
+      {head("Ortak nokta", "Her dosyada aynı ilk adım.")}
+      <div class="steps"><article class="step"><span>01 · Dinlemek</span><h3>Olayı baştan anlatın</h3><p>Ne oldu, ne zaman oldu, kimler var. Kesin tarih bilmiyorsanız yaklaşık dönem de yeter.</p></article><article class="step"><span>02 · Kayıt</span><h3>Elinizdekileri getirin</h3><p>Tapu kaydı, sözleşme, tebligat, mesaj kayıtları. Önemsiz görünen bir kâğıt bazen dosyanın yönünü değiştirir.</p></article><article class="step"><span>03 · Yol</span><h3>Seçenekleri konuşalım</h3><p>Dava, arabuluculuk, ihtarname ya da beklemek. Her birinin süresini ve masrafını açıkça söyleriz.</p></article></div>
+    </section>''',
+    cta("Taşınmazınızla ilgili bir sorun mu var? Önce arayın."),
 ])
 write("calisma-alanlari.html", page(path, t, d, "footer-table.webp",
       [webpage(path, "CollectionPage", t, d), crumbs(("Çalışma Alanları", path)),
@@ -495,24 +694,24 @@ write("calisma-alanlari.html", page(path, t, d, "footer-table.webp",
 # ---------------------------------------------------------------- Kepez / Varsak
 path = "/kepez-varsak-avukat"
 t = "Kepez ve Varsak Avukat | Kozanoğlu Hukuk Bürosu, Emek Mah."
-d = "Kepez Emek Mahallesi'nde hukuk bürosu. Varsak Karşıyaka, Varsak Esentepe, Varsak Menderes ve Kepez'in diğer mahallelerinden gelen aile, ceza, kira, tapu, miras, iş ve icra dosyaları."
+d = "Kepez Emek Mahallesi'nde gayrimenkul ağırlıklı hukuk bürosu. Varsak ve Kepez'de hisseli tapu, ortaklığın giderilmesi, kat karşılığı inşaat, site yönetimi, kira ve kamulaştırma dosyaları."
 faqs = [
     ("Ofise gelmeden dosyamı size verebilir miyim?", "İlk değerlendirmeyi telefonda başlatabiliriz. Dosyayı üstlenmemiz için herhangi bir noterden avukat adına vekaletname çıkarmanız yeterlidir; bunun için ofise gelmeniz şart değildir."),
     ("Kepez'deki davalar hangi adliyede görülür?", "Kepez ve Varsak'ı ilgilendiren davaların ve icra işlemlerinin büyük bölümü Muratpaşa Meltem'deki Antalya Adliyesi'nde yürür."),
-    ("Duruşmalara benim de gitmem gerekir mi?", "Çoğu duruşmaya vekil olarak biz gireriz. Anlaşmalı boşanma gibi kanunun bizzat katılımı aradığı durumlarda size önceden haber veririz."),
+    ("Duruşmalara benim de gitmem gerekir mi?", "Çoğu duruşmaya ve keşfe vekil olarak biz katılırız. Kanunun ya da mahkemenin bizzat katılımınızı istediği durumlarda size önceden haber veririz."),
     ("Görüşme için randevu gerekiyor mu?", "Evet. Gelmeden önce (0242) 244 54 20 numarasını arayın, görüşme için uygun bir saat belirleyelim."),
 ]
 hoods = ["Emek", "Varsak Karşıyaka", "Varsak Esentepe", "Varsak Menderes", "Altıayak", "Teomanpaşa", "Fabrikalar", "Odabaşı", "Kepez'in diğer mahalleleri"]
 hood_html = "".join(f"<li>{h}</li>" for h in hoods)
 body = "\n".join([
-    hero("mobile-hero.webp", "Bölge rehberi", "Kepez ve Varsak: büro, adliye, mahalleler.", "Dosyanızın nerede görüleceği, bu bölgede hangi konuların sık çıktığı ve bize nasıl ulaşacağınız. Kısa ve pratik."),
+    hero("mobile-hero.webp", "Bölge rehberi", "Kepez ve Varsak: büro, adliye, mahalleler.", "Taşınmazınızın davası nerede görülür, bu bölgede hangi tapu ve inşaat sorunları sık çıkar, bize nasıl ulaşırsınız. Kısa ve pratik."),
     f'''    <section class="section">
-      <div class="section-head"><p class="section-label">Büro ve adliye</p><div><h2>Duruşmaya biz gideriz.</h2><p class="section-intro">Kepez ve Varsak'ı ilgilendiren davaların ve icra takiplerinin büyük bölümü Muratpaşa Meltem'deki Antalya Adliyesi'nde yürür. Duruşmalara, dosya incelemesine ve icra işlemlerine biz gideriz. Dosyadaki her hareketi UYAP üzerinden takip eder, size bildiririz.</p></div></div>
+      <div class="section-head"><p class="section-label">Büro ve adliye</p><div><h2>Duruşmaya biz gideriz.</h2><p class="section-intro">Kepez ve Varsak'taki taşınmazlarla ilgili davaların ve icra takiplerinin büyük bölümü Muratpaşa Meltem'deki Antalya Adliyesi'nde yürür. Duruşmalara, keşiflere ve bilirkişi incelemelerine biz gideriz. Dosyadaki her hareketi UYAP üzerinden takip eder, size bildiririz.</p></div></div>
       <div class="split-facts"><div><span>Ofis</span><strong>Emek Mah. Yeşilırmak Cd. No:19/2, 07030 Kepez / Antalya</strong><a class="text-link" href="{MAP}" target="_blank" rel="noopener noreferrer">Google Haritalar'da açın ↗</a></div><div><span>Adliye</span><strong>Antalya Adliyesi, Meltem Mah. Dumlupınar Blv., Muratpaşa</strong><p>Kepez'deki hukuk, ceza ve icra dosyalarının görüldüğü yer.</p></div><div><span>Telefon</span><strong>{TEL_TXT}</strong><a class="text-link" href="tel:{TEL}">Arayın ↗</a></div></div>
     </section>''',
     f'''    <section class="section alt">
-      {head("Sık çıkan konular", "Üç konu, defalarca.", "Yeni siteler, eski tapular, kiracı ile ev sahibi. Buradan gelen dosyaların çoğu bu üçünden birine dokunuyor.")}
-      <div class="cards"><article class="card"><span class="number">01</span><h3>Kira ve tahliye</h3><p>Kira artışı, kira tespiti ve tahliye. Dava açmadan önce zorunlu arabuluculuk aşaması. <a class="inline-link" href="/gayrimenkul-kira-miras">Ayrıntılar</a></p></article><article class="card"><span class="number">02</span><h3>Hisseli tapular</h3><p>Varsak 2008'e kadar ayrı bir belediyeydi. Eski tapu kayıtları, miras kalan hisseli tarlalar ve imar değişiklikleri bu yüzden sık gündeme gelir. <a class="inline-link" href="/gayrimenkul-kira-miras">Ayrıntılar</a></p></article><article class="card"><span class="number">03</span><h3>Site ve kat mülkiyeti</h3><p>Yeni sitelerde aidat, ortak alan kullanımı ve kat karşılığı inşaat sözleşmelerinden doğan uyuşmazlıklar. <a class="inline-link" href="/gayrimenkul-kira-miras">Ayrıntılar</a></p></article></div>
+      {head("Sık çıkan konular", "Eski tapular, yeni siteler.", "Bölgeden gelen dosyaların çoğu bir taşınmaza dokunuyor: kuşaklardır bölünmemiş tarlalar, yükselen siteler ve kiracı ile ev sahibi.")}
+      <div class="cards"><article class="card"><span class="number">01</span><h3>Hisseli tapular</h3><p>Varsak 2008'e kadar ayrı bir belediyeydi. Eski tapu kayıtları, miras kalan hisseli tarlalar ve ortaklığın giderilmesi bu yüzden sık gündeme gelir. <a class="inline-link" href="/tapu-iptali-ortakligin-giderilmesi">Ayrıntılar</a></p></article><article class="card"><span class="number">02</span><h3>Kat karşılığı inşaat ve siteler</h3><p>Geç teslim, iskân sorunları, ayıplı daireler, aidat ve ortak alan uyuşmazlıkları. <a class="inline-link" href="/kat-karsiligi-insaat">Ayrıntılar</a></p></article><article class="card"><span class="number">03</span><h3>Kira ve tahliye</h3><p>Kira artışı, kira tespiti ve tahliye. Dava açmadan önce zorunlu arabuluculuk aşaması. <a class="inline-link" href="/kira-hukuku">Ayrıntılar</a></p></article></div>
     </section>''',
     f'''    <section class="section">
       {head("Mahalleler", "Dosyalar en çok buradan geliyor.", "Antalya'nın diğer ilçelerindeki dosyaları da üstleniyoruz.")}
@@ -520,7 +719,7 @@ body = "\n".join([
     </section>''',
     f'''    <section class="section alt">
       {head("Çalışma alanları", "Konuya göre sayfalar.")}
-      {area_rows()}
+      {area_rows(items=[RE_HUB] + RE_AREAS + OTHER_AREAS)}
     </section>''',
     faq_html(faqs),
     cta("Önce arayın, sonra gelin.", sub="Randevuyla, sizi bekletmeden görüşelim."),
@@ -531,16 +730,16 @@ write("kepez-varsak-avukat.html", page(path, t, d, "mobile-hero.webp",
 # ---------------------------------------------------------------- Hakkımızda
 path = "/hakkimizda"
 t = "Hakkımızda | Kozanoğlu Hukuk Bürosu, Kepez Antalya"
-d = "Kepez Emek Mahallesi'ndeki ofisimizde Av. Osman Kozanoğlu, Av. Hüseyin Kozanoğlu ve Av. Beyza Oya çalışıyor. Nasıl çalıştığımızı anlattık."
+d = "Kepez Emek Mahallesi'ndeki ofisimizde Av. Osman Kozanoğlu, Av. Hüseyin Kozanoğlu ve Av. Beyza Oya çalışıyor. Ağırlıklı olarak gayrimenkul ve taşınmaz hukukuna bakıyoruz."
 body = "\n".join([
-    hero("rear-entrance.webp", "Hakkımızda", "Dosyanızı kimin takip ettiğini bilirsiniz.", "Kozanoğlu Hukuk Bürosu'nda üç avukat çalışıyor. Aile, ceza, gayrimenkul, kira, miras, iş ve icra dosyalarına bakıyoruz."),
+    hero("rear-entrance.webp", "Hakkımızda", "Taşınmaz dosyalarına odaklanan bir büro.", "Kozanoğlu Hukuk Bürosu'nda üç avukat çalışıyor. Ağırlıklı olarak gayrimenkul ve taşınmaz hukukuna bakıyor; aile, ceza, iş ve icra dosyalarını da üstleniyoruz."),
     f'''    <section class="section">
-      {head("Nasıl çalışırız", "Önce dinleriz, sonra konuşuruz.", "Hukuki bir sorunla gelen çoğu kişi neyi soracağını bilmez. Bu çok normal. İlk görüşmede olayı sizden dinler, gereken belgeleri ve tarihleri birlikte çıkarırız.")}
-      <div class="story-grid"><img src="/assets/meeting-room.webp" width="1440" height="804" loading="lazy" decoding="async" alt="Kozanoğlu Hukuk Bürosu görüşme odası, Kepez"><div class="story-copy"><p class="quote">Ne yapılabileceğini de, ne yapılamayacağını da açıkça söyleriz.</p><p>Her dosya davayla bitmez. Bazı konular bir ihtarnameyle, bazıları arabuluculuk masasında çözülür. Hangi yolun daha az masraflı, hangisinin daha uzun süreceğini görüşmede konuşuruz.</p><p>Dosya açıldıktan sonra duruşma tarihlerini, bilirkişi raporlarını ve karşı tarafın dilekçelerini size biz iletiriz. Bir gelişmeyi öğrenmek için peşimizden koşmanız gerekmez.</p></div></div>
+      {head("Nasıl çalışırız", "Önce dinleriz, sonra konuşuruz.", "Hukuki bir sorunla gelen çoğu kişi neyi soracağını bilmez. Bu çok normal. İlk görüşmede olayı sizden dinler, tapu kaydına ve belgelere birlikte bakar, tarihleri çıkarırız.")}
+      <div class="story-grid"><img src="/assets/meeting-room.webp" width="1440" height="804" loading="lazy" decoding="async" alt="Kozanoğlu Hukuk Bürosu görüşme odası, Kepez"><div class="story-copy"><p class="quote">Ne yapılabileceğini de, ne yapılamayacağını da açıkça söyleriz.</p><p>Her dosya davayla bitmez. Bazı taşınmaz uyuşmazlıkları bir ihtarnameyle, bazıları arabuluculuk masasında, bazıları da hissedarlar arasında bir protokolle çözülür. Hangi yolun daha az masraflı, hangisinin daha uzun süreceğini görüşmede konuşuruz.</p><p>Dosya açıldıktan sonra duruşma ve keşif tarihlerini, bilirkişi raporlarını ve karşı tarafın dilekçelerini size biz iletiriz. Bir gelişmeyi öğrenmek için peşimizden koşmanız gerekmez.</p></div></div>
     </section>''',
     f'''    <section class="section alt">
       {head("Alışkanlıklar", "Büroda değişmeyen üç şey.")}
-      <div class="cards"><article class="card"><span class="number">01</span><h3>Sade dil</h3><p>Dilekçede ne yazdığını, kararın ne anlama geldiğini hukuk terimlerine boğmadan anlatırız.</p></article><article class="card"><span class="number">02</span><h3>Gerçekçi beklenti</h3><p>Sonuç vaadi vermeyiz. Riskleri, olası süreleri ve masrafları baştan konuşuruz.</p></article><article class="card"><span class="number">03</span><h3>Düzenli haber</h3><p>Duruşma, rapor, tebligat. Dosyanızdaki gelişmeleri gecikmeden size iletiriz.</p></article></div>
+      <div class="cards"><article class="card"><span class="number">01</span><h3>Sade dil</h3><p>Dilekçede ne yazdığını, kararın ne anlama geldiğini hukuk terimlerine boğmadan anlatırız.</p></article><article class="card"><span class="number">02</span><h3>Gerçekçi beklenti</h3><p>Sonuç vaadi vermeyiz. Riskleri, olası süreleri ve masrafları baştan konuşuruz.</p></article><article class="card"><span class="number">03</span><h3>Sonuna kadar takip</h3><p>Duruşma, keşif, rapor, tebligat. Karar tapuya işlenene kadar gelişmeleri gecikmeden size iletiriz.</p></article></div>
     </section>''',
     f'''    <section class="section">
       {head("Ekip", "Aynı masada üç avukat.", "Telefonu açan da, duruşmaya giren de bu ekipten biri.")}
@@ -548,7 +747,7 @@ body = "\n".join([
     </section>''',
     f'''    <section class="section alt">
       {head("İlk görüşme", "İlk görüşme nasıl geçer?")}
-      <div class="steps"><article class="step"><span>01 · Telefon</span><h3>Arayın</h3><p>Konuyu bir iki cümleyle anlatmanız yeterli. Görüşme için ofiste bir saat belirleriz.</p></article><article class="step"><span>02 · Belgeler</span><h3>Elinizdekini getirin</h3><p>Sözleşme, tebligat, mesaj kayıtları, tapu ya da nüfus kaydı. Hepsi işe yarar.</p></article><article class="step"><span>03 · Yol</span><h3>Seçenekleri konuşalım</h3><p>Dava, arabuluculuk, ihtarname ya da beklemek. Süreleri ve masrafları birlikte değerlendiririz.</p></article></div>
+      <div class="steps"><article class="step"><span>01 · Telefon</span><h3>Arayın</h3><p>Konuyu bir iki cümleyle anlatmanız yeterli. Görüşme için ofiste bir saat belirleriz.</p></article><article class="step"><span>02 · Belgeler</span><h3>Elinizdekini getirin</h3><p>Tapu kaydı, sözleşme, tebligat, mesaj kayıtları. Hepsi işe yarar.</p></article><article class="step"><span>03 · Yol</span><h3>Seçenekleri konuşalım</h3><p>Dava, arabuluculuk, ihtarname ya da beklemek. Süreleri ve masrafları birlikte değerlendiririz.</p></article></div>
     </section>''',
     faq_html([
         ("Avukatlık ücreti nasıl belirlenir?", "Ücret, işe başlamadan önce yazılı bir sözleşmeyle belirlenir. Türkiye Barolar Birliği her yıl bir asgari ücret tarifesi yayımlar; avukatlar bu tarifenin altında ücret kararlaştıramaz."),
@@ -570,7 +769,7 @@ d = "Kozanoğlu Hukuk Bürosu: Emek Mah. Yeşilırmak Cd. No:19/2, 07030 Kepez /
 body = "\n".join([
     hero("meeting-room.webp", "İletişim", "Arayın, bir saat belirleyelim.", f"{TEL_TXT} numaralı telefondan bize ulaşabilirsiniz. Ofisimiz Kepez Emek Mahallesi'nde, Yeşilırmak Caddesi No:19/2'de."),
     f'''    <section class="section">
-      <div class="contact-layout"><div><p class="section-label">İlk görüşme</p><h2>Doğrudan ulaşın.</h2><p class="section-intro">Aradığınızda adınızı ve konuyu bir iki cümleyle söylemeniz yeterli. Görüşmeye gelirken elinizdeki belgeleri yanınıza alın.</p></div><div class="contact-panel contact-card"><div class="contact-panel-head"><p class="section-label">İletişim bilgileri</p><p>Telefon ve adres.</p></div><div class="contact-list"><div class="contact-item"><span class="contact-index">01</span><div class="contact-value"><span>Telefon</span><strong>{TEL_TXT}</strong></div><a class="contact-action" href="tel:{TEL}"><span>Arayın</span><span aria-hidden="true">↗</span></a></div><div class="contact-item"><span class="contact-index">02</span><div class="contact-value"><span>Adres</span><strong>Emek Mah. Yeşilırmak Cd. No:19/2, 07030 Kepez / Antalya</strong></div><a class="contact-action" href="{MAP}" target="_blank" rel="noopener noreferrer"><span>Yol tarifi</span><span aria-hidden="true">↗</span></a></div><div class="contact-item"><span class="contact-index">03</span><div class="contact-value"><span>Görüşme</span><strong>Ofiste, randevuyla</strong></div><a class="contact-action" href="/kepez-varsak-avukat"><span>Bölge</span><span aria-hidden="true">↗</span></a></div></div><p class="contact-note">Telefonda yapılan ön görüşme, avukatlık sözleşmesi yerine geçmez. Görüşmede paylaştığınız bilgiler sır saklama yükümlülüğümüz kapsamındadır.</p></div></div>
+      <div class="contact-layout"><div><p class="section-label">İlk görüşme</p><h2>Doğrudan ulaşın.</h2><p class="section-intro">Aradığınızda adınızı ve konuyu bir iki cümleyle söylemeniz yeterli. Bir taşınmazla ilgiliyse, görüşmeye güncel tapu kaydını ve elinizdeki sözleşmeleri getirin.</p></div><div class="contact-panel contact-card"><div class="contact-panel-head"><p class="section-label">İletişim bilgileri</p><p>Telefon ve adres.</p></div><div class="contact-list"><div class="contact-item"><span class="contact-index">01</span><div class="contact-value"><span>Telefon</span><strong>{TEL_TXT}</strong></div><a class="contact-action" href="tel:{TEL}"><span>Arayın</span><span aria-hidden="true">↗</span></a></div><div class="contact-item"><span class="contact-index">02</span><div class="contact-value"><span>Adres</span><strong>Emek Mah. Yeşilırmak Cd. No:19/2, 07030 Kepez / Antalya</strong></div><a class="contact-action" href="{MAP}" target="_blank" rel="noopener noreferrer"><span>Yol tarifi</span><span aria-hidden="true">↗</span></a></div><div class="contact-item"><span class="contact-index">03</span><div class="contact-value"><span>Görüşme</span><strong>Ofiste, randevuyla</strong></div><a class="contact-action" href="/kepez-varsak-avukat"><span>Bölge</span><span aria-hidden="true">↗</span></a></div></div><p class="contact-note">Telefonda yapılan ön görüşme, avukatlık sözleşmesi yerine geçmez. Görüşmede paylaştığınız bilgiler sır saklama yükümlülüğümüz kapsamındadır.</p></div></div>
     </section>''',
     f'''    <section class="section alt">
       {head("Nasıl ilerler", "Telefondan dosyaya üç adım.")}
@@ -578,7 +777,7 @@ body = "\n".join([
     </section>''',
     f'''    <section class="section">
       {head("Çalışma alanları", "Hangi konuda arıyorsunuz?")}
-      {area_rows()}
+      {area_rows(items=[RE_HUB] + RE_AREAS + OTHER_AREAS)}
     </section>''',
     cta("Telefon açmak çoğu zaman en kısa yoldur."),
 ])

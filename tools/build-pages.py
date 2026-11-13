@@ -27,7 +27,7 @@ ORG = {
     "hasMap": MAP,
     "areaServed": [{"@type": "AdministrativeArea", "name": "Kepez"}, {"@type": "Place", "name": "Varsak, Kepez"}, {"@type": "City", "name": "Antalya"}],
     "knowsAbout": ["Gayrimenkul hukuku", "Taşınmaz hukuku", "Tapu iptal ve tescil", "Ortaklığın giderilmesi", "Kat karşılığı inşaat sözleşmesi", "Kat mülkiyeti", "Kira hukuku", "Kamulaştırma", "İmar hukuku", "Yabancıların taşınmaz edinimi", "İcra ve iflas hukuku"],
-    "employee": [{"@type": "Person", "name": n, "jobTitle": t} for n, t in [("Osman Kozanoğlu", "Avukat"), ("Hüseyin Kozanoğlu", "Avukat"), ("Beyza Oya", "Avukat")]],
+    "employee": [{"@type": "Person", "name": n, "jobTitle": t} for n, t in [("Osman Kozanoğlu", "Avukat"), ("Hüseyin Kozanoğlu", "Avukat"), ("Havva Beyza Kozanoğlu Oya", "Avukat")]],
 }
 
 NAV = [("/hakkimizda", "Hakkımızda", None), ("/calisma-alanlari", "Çalışma Alanları", "Alanlar"), ("/blog", "Blog", None), ("/iletisim", "İletişim", None)]
@@ -655,7 +655,7 @@ write("kepez-varsak-avukat.html", page(path, t, d, "mobile-hero.webp",
 # ---------------------------------------------------------------- Hakkımızda
 path = "/hakkimizda"
 t = "Hakkımızda | Kozanoğlu Hukuk Bürosu, Kepez Antalya"
-d = "Kepez Emek Mahallesi'ndeki ofisimizde Av. Osman Kozanoğlu, Av. Hüseyin Kozanoğlu ve Av. Beyza Oya çalışıyor. Ağırlıklı olarak gayrimenkul ve taşınmaz hukukuna bakıyoruz."
+d = "Kepez Emek Mahallesi'ndeki ofisimizde Av. Osman Kozanoğlu, Av. Hüseyin Kozanoğlu ve Av. Havva Beyza Kozanoğlu Oya çalışıyor. Ağırlıklı olarak gayrimenkul ve taşınmaz hukukuna bakıyoruz."
 body = "\n".join([
     hero("rear-entrance.webp", "Hakkımızda", "Taşınmaz dosyalarına odaklanan bir büro.", "Kozanoğlu Hukuk Bürosu'nda üç avukat çalışıyor. Ağırlıklı olarak gayrimenkul ve taşınmaz hukukuna bakıyor, icra dosyalarını da üstleniyoruz."),
     f'''    <section class="section">
@@ -668,7 +668,7 @@ body = "\n".join([
     </section>''',
     f'''    <section class="section">
       {head("Ekip", "Aynı masada üç avukat.", "Telefonu açan da, duruşmaya giren de bu ekipten biri.")}
-      <div class="people" aria-label="Kozanoğlu Hukuk Bürosu ekibi"><article class="person"><span class="initials">OK</span><h3>Osman Kozanoğlu</h3><p>Avukat</p></article><article class="person"><span class="initials">HK</span><h3>Hüseyin Kozanoğlu</h3><p>Avukat</p></article><article class="person"><span class="initials">BO</span><h3>Beyza Oya</h3><p>Avukat</p></article></div>
+      <div class="people" aria-label="Kozanoğlu Hukuk Bürosu ekibi"><article class="person"><span class="initials">OK</span><h3>Osman Kozanoğlu</h3><p>Avukat</p></article><article class="person"><span class="initials">HK</span><h3>Hüseyin Kozanoğlu</h3><p>Avukat</p></article><article class="person"><span class="initials">HO</span><h3>Havva Beyza Kozanoğlu Oya</h3><p>Avukat</p></article></div>
     </section>''',
     f'''    <section class="section alt">
       {head("İlk görüşme", "İlk görüşme nasıl geçer?")}

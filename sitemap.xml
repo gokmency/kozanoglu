@@ -36,17 +36,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://kozanogluhukuk.com/aile-hukuku</loc>
-    <lastmod>2026-11-13</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://kozanogluhukuk.com/ceza-hukuku</loc>
-    <lastmod>2026-11-13</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://kozanogluhukuk.com/is-icra-ticaret</loc>
+    <loc>https://kozanogluhukuk.com/icra-hukuku</loc>
     <lastmod>2026-11-13</lastmod>
     <priority>0.7</priority>
   </url>
@@ -71,28 +61,8 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://kozanogluhukuk.com/blog/anlasmali-bosanma-rehberi</loc>
-    <lastmod>2026-11-04</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://kozanogluhukuk.com/blog/bosanmada-velayet</loc>
-    <lastmod>2026-11-13</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://kozanogluhukuk.com/blog/ev-sahibi-kiraciyi-nasil-cikarir</loc>
     <lastmod>2026-11-13</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://kozanogluhukuk.com/blog/ifadeye-cagrildiniz</loc>
-    <lastmod>2026-11-04</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://kozanogluhukuk.com/blog/isten-cikarildim-haklarim</loc>
-    <lastmod>2026-11-04</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -108,11 +78,6 @@
   <url>
     <loc>https://kozanogluhukuk.com/blog/odeme-emri-geldi</loc>
     <lastmod>2026-11-04</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://kozanogluhukuk.com/blog/savciliga-sikayet-suresi</loc>
-    <lastmod>2026-11-13</lastmod>
     <priority>0.7</priority>
   </url>
 </urlset>

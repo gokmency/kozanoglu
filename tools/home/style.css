@@ -149,3 +149,6 @@ main{position:relative}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.001ms!important;transition-delay:0s!important}}
 
 .m-notes .m-area{grid-template-columns:44px 1fr auto}.m-notes .m-area strong{font-size:21px;line-height:1.1}
+.contact-mail{margin-top:10px;text-transform:none;letter-spacing:.04em;font-size:13px}
+.final-contact .contact-mail{margin-left:8px}
+@media(max-width:1024px){.final-contact .contact-mail{margin-left:0}}

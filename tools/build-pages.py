@@ -8,6 +8,7 @@ __file__ = os.path.abspath(__file__)
 SITE = "https://kozanogluhukuk.com"
 TEL = "+902422445420"
 TEL_TXT = "(0242) 244 54 20"
+MAIL = "avkozanoglu@hotmail.com"
 MAP = "https://share.google/ynnFKMV5p0aNbcGuE"
 ORG_ID = SITE + "/#organization"
 
@@ -21,6 +22,7 @@ ORG = {
     "name": "Kozanoğlu Hukuk Bürosu", "url": SITE + "/",
     "logo": SITE + "/assets/logo-white-optimized.png", "image": SITE + "/assets/og-kozanoglu.jpg",
     "telephone": "+90 242 244 54 20",
+    "email": "avkozanoglu@hotmail.com",
     "address": {"@type": "PostalAddress", "streetAddress": "Emek Mah. Yeşilırmak Cd. No:19/2", "postalCode": "07030", "addressLocality": "Kepez", "addressRegion": "Antalya", "addressCountry": "TR"},
     "hasMap": MAP,
     "areaServed": [{"@type": "AdministrativeArea", "name": "Kepez"}, {"@type": "Place", "name": "Varsak, Kepez"}, {"@type": "City", "name": "Antalya"}],
@@ -56,7 +58,7 @@ def footer():
     other_links = "".join(f'<a href="{h}">{t}</a>' for h, t, _ in OTHER_AREAS)
     return f'''<footer class="site-footer">
     <div class="footer-grid">
-      <div><p class="footer-title">Kozanoğlu Hukuk Bürosu</p><address>Emek Mah. Yeşilırmak Cd. No:19/2<br>07030 Kepez / Antalya</address><a class="footer-tel" href="tel:{TEL}">{TEL_TXT}</a></div>
+      <div><p class="footer-title">Kozanoğlu Hukuk Bürosu</p><address>Emek Mah. Yeşilırmak Cd. No:19/2<br>07030 Kepez / Antalya</address><a class="footer-tel" href="tel:{TEL}">{TEL_TXT}</a><a class="footer-mail" href="mailto:{MAIL}">{MAIL}</a></div>
       <nav aria-label="Gayrimenkul hukuku"><p class="footer-title">Gayrimenkul hukuku</p>{re_links}</nav>
       <nav aria-label="Site"><p class="footer-title">İcra hukuku</p>{other_links}<p class="footer-title" style="margin-top:28px">Büro</p><a href="/hakkimizda">Hakkımızda</a><a href="/kepez-varsak-avukat">Kepez ve Varsak</a><a href="/blog">Hukuk notları</a><a href="/iletisim">İletişim ve yol tarifi</a></nav>
     </div>
@@ -688,11 +690,11 @@ write("hakkimizda.html", page(path, t, d, "rear-entrance.webp", [webpage(path, "
 # ---------------------------------------------------------------- İletişim
 path = "/iletisim"
 t = "İletişim ve Yol Tarifi | Kozanoğlu Hukuk Bürosu Kepez, Antalya"
-d = "Kozanoğlu Hukuk Bürosu: Emek Mah. Yeşilırmak Cd. No:19/2, 07030 Kepez / Antalya. Telefon (0242) 244 54 20. Görüşme için arayın, ofiste bir saat belirleyelim."
+d = "Kozanoğlu Hukuk Bürosu: Emek Mah. Yeşilırmak Cd. No:19/2, 07030 Kepez / Antalya. Telefon (0242) 244 54 20, e-posta avkozanoglu@hotmail.com. Görüşme için arayın, ofiste bir saat belirleyelim."
 body = "\n".join([
-    hero("meeting-room.webp", "İletişim", "Arayın, bir saat belirleyelim.", f"{TEL_TXT} numaralı telefondan bize ulaşabilirsiniz. Ofisimiz Kepez Emek Mahallesi'nde, Yeşilırmak Caddesi No:19/2'de."),
+    hero("meeting-room.webp", "İletişim", "Arayın, bir saat belirleyelim.", f"{TEL_TXT} numaralı telefondan ya da {MAIL} adresinden bize ulaşabilirsiniz. Ofisimiz Kepez Emek Mahallesi'nde, Yeşilırmak Caddesi No:19/2'de."),
     f'''    <section class="section">
-      <div class="contact-layout"><div><p class="section-label">İlk görüşme</p><h2>Doğrudan ulaşın.</h2><p class="section-intro">Aradığınızda adınızı ve konuyu bir iki cümleyle söylemeniz yeterli. Bir taşınmazla ilgiliyse, görüşmeye güncel tapu kaydını ve elinizdeki sözleşmeleri getirin.</p></div><div class="contact-panel contact-card"><div class="contact-panel-head"><p class="section-label">İletişim bilgileri</p><p>Telefon ve adres.</p></div><div class="contact-list"><div class="contact-item"><span class="contact-index">01</span><div class="contact-value"><span>Telefon</span><strong>{TEL_TXT}</strong></div><a class="contact-action" href="tel:{TEL}"><span>Arayın</span><span aria-hidden="true">↗</span></a></div><div class="contact-item"><span class="contact-index">02</span><div class="contact-value"><span>Adres</span><strong>Emek Mah. Yeşilırmak Cd. No:19/2, 07030 Kepez / Antalya</strong></div><a class="contact-action" href="{MAP}" target="_blank" rel="noopener noreferrer"><span>Yol tarifi</span><span aria-hidden="true">↗</span></a></div><div class="contact-item"><span class="contact-index">03</span><div class="contact-value"><span>Görüşme</span><strong>Ofiste, randevuyla</strong></div><a class="contact-action" href="/kepez-varsak-avukat"><span>Bölge</span><span aria-hidden="true">↗</span></a></div></div><p class="contact-note">Telefonda yapılan ön görüşme, avukatlık sözleşmesi yerine geçmez. Görüşmede paylaştığınız bilgiler sır saklama yükümlülüğümüz kapsamındadır.</p></div></div>
+      <div class="contact-layout"><div><p class="section-label">İlk görüşme</p><h2>Doğrudan ulaşın.</h2><p class="section-intro">Aradığınızda adınızı ve konuyu bir iki cümleyle söylemeniz yeterli. Bir taşınmazla ilgiliyse, görüşmeye güncel tapu kaydını ve elinizdeki sözleşmeleri getirin.</p></div><div class="contact-panel contact-card"><div class="contact-panel-head"><p class="section-label">İletişim bilgileri</p><p>Telefon, e-posta ve adres.</p></div><div class="contact-list"><div class="contact-item"><span class="contact-index">01</span><div class="contact-value"><span>Telefon</span><strong>{TEL_TXT}</strong></div><a class="contact-action" href="tel:{TEL}"><span>Arayın</span><span aria-hidden="true">↗</span></a></div><div class="contact-item"><span class="contact-index">02</span><div class="contact-value"><span>Adres</span><strong>Emek Mah. Yeşilırmak Cd. No:19/2, 07030 Kepez / Antalya</strong></div><a class="contact-action" href="{MAP}" target="_blank" rel="noopener noreferrer"><span>Yol tarifi</span><span aria-hidden="true">↗</span></a></div><div class="contact-item"><span class="contact-index">03</span><div class="contact-value"><span>E-posta</span><strong>{MAIL}</strong></div><a class="contact-action" href="mailto:{MAIL}"><span>Yazın</span><span aria-hidden="true">↗</span></a></div><div class="contact-item"><span class="contact-index">04</span><div class="contact-value"><span>Görüşme</span><strong>Ofiste, randevuyla</strong></div><a class="contact-action" href="/kepez-varsak-avukat"><span>Bölge</span><span aria-hidden="true">↗</span></a></div></div><p class="contact-note">Telefonda yapılan ön görüşme, avukatlık sözleşmesi yerine geçmez. Görüşmede paylaştığınız bilgiler sır saklama yükümlülüğümüz kapsamındadır.</p></div></div>
     </section>''',
     f'''    <section class="section alt">
       {head("Nasıl ilerler", "Telefondan dosyaya üç adım.")}

@@ -88,3 +88,5 @@ body{-webkit-font-smoothing:antialiased}html{-webkit-text-size-adjust:100%}
 .doc-list strong{font-family:"Cabinet Grotesk",sans-serif;font-size:22px;font-weight:500;line-height:1.15;letter-spacing:-.025em}
 .doc-list span{color:rgba(241,238,231,.74);font-size:15px}
 @media(max-width:900px){.doc-list{grid-template-columns:1fr;margin-top:40px}.doc-list li{grid-template-columns:36px 1fr;padding:20px 0}.doc-list strong{font-size:20px}}
+.footer-mail{display:block;margin-top:10px;word-break:break-all}
+.contact-card .contact-value strong{overflow-wrap:anywhere;min-width:0}

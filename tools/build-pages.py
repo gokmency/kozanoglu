@@ -58,7 +58,7 @@ def footer():
     other_links = "".join(f'<a href="{h}">{t}</a>' for h, t, _ in OTHER_AREAS)
     return f'''<footer class="site-footer">
     <div class="footer-grid">
-      <div><p class="footer-title">Kozanoğlu Hukuk Bürosu</p><address>Emek Mah. Yeşilırmak Cd. No:19/2<br>07030 Kepez / Antalya</address><a class="footer-tel" href="tel:{TEL}">{TEL_TXT}</a><a class="footer-mail" href="mailto:{MAIL}">{MAIL}</a></div>
+      <div><p class="footer-title">Kozanoğlu Hukuk Bürosu</p><address>Emek Mah. Yeşilırmak Cd. No:19/2<br>07030 Kepez / Antalya</address><div class="footer-contact"><div><a class="footer-tel" href="tel:{TEL}">{TEL_TXT}</a></div><div><a class="footer-mail" href="mailto:{MAIL}">{MAIL}</a></div></div></div>
       <nav aria-label="Gayrimenkul hukuku"><p class="footer-title">Gayrimenkul hukuku</p>{re_links}</nav>
       <nav aria-label="Site"><p class="footer-title">İcra hukuku</p>{other_links}<p class="footer-title" style="margin-top:28px">Büro</p><a href="/hakkimizda">Hakkımızda</a><a href="/kepez-varsak-avukat">Kepez ve Varsak</a><a href="/blog">Hukuk notları</a><a href="/iletisim">İletişim ve yol tarifi</a></nav>
     </div>
@@ -84,9 +84,9 @@ def page(path, title, desc, hero_img, graph, body, og_desc=None, og_img=None, og
   <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{e(title)}"><meta name="twitter:description" content="{og}"><meta name="twitter:image" content="{SITE}{og_img or '/assets/og-kozanoglu.jpg'}">
   <link rel="preload" as="image" href="/assets/{hero_img}" fetchpriority="high">
   {FONTS}
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/pages.css">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/pages.css?v=20261113">
   {BOOT}
-  <link rel="stylesheet" href="/transitions.css"><script defer src="/transitions.js"></script>
+  <link rel="stylesheet" href="/transitions.css?v=20261113"><script defer src="/transitions.js?v=20261113"></script>
   <script type="application/ld+json">{ld}</script>
 </head>
 <body>

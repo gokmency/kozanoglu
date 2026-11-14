@@ -151,8 +151,22 @@ def write(name, content):
 import re as _re
 BLOG_DATE = "2026-11-04"
 NEW_DATE = "2026-11-10"
+D3 = "2026-11-14"
+TAPU = ("/tapu-iptali-ortakligin-giderilmesi", "Tapu, ortaklık ve el atma")
+INSAAT = ("/kat-karsiligi-insaat", "Kat karşılığı inşaat ve kat mülkiyeti")
+KAMU = ("/kamulastirma-imar", "Kamulaştırma, imar ve yabancılara satış")
 POSTS = [
     # slug, md, kategori, alan linki, alan adı, görsel, görsel alt, [tarih]
+    ("tapu-iptal-ve-tescil-davasi", "tapu-iptal.md", "Tapu", *TAPU, "blog-tapu-iptal", "Ceviz bir masada kapalı eski bir defter, dolma kalem ve pirinç bir anahtar", D3),
+    ("kat-karsiligi-insaat-sozlesmesi", "kat-karsiligi.md", "İnşaat", *INSAAT, "blog-kat-karsiligi", "Gün batımında iskeleli, kaba inşaat hâlindeki bir apartman ve bir kule vinç", D3),
+    ("kamulastirma-bedeli-itiraz", "kamulastirma.md", "Kamulaştırma", *KAMU, "blog-kamulastirma", "Zeytinlik tepelerin arasından kıvrılarak geçen yeni bir asfalt yol", D3),
+    ("muris-muvazaasi-davasi", "muris.md", "Miras", *TAPU, "blog-muris", "Eski bir köy evinin taş pencere pervazında duran demir bir anahtar", D3),
+    ("ev-alirken-kapora-ve-satis-vaadi", "kapora.md", "Alım-satım", *KAMU, "blog-kapora", "Boş ve aydınlık bir dairede travertin tezgâh üzerinde pirinç bir anahtar ve kapalı bir zarf", D3),
+    ("muteahhit-daireyi-gec-teslim-ederse", "gec-teslim.md", "İnşaat", *INSAAT, "blog-gec-teslim", "Yeni yapılmış boş bir odada pencerenin yanındaki duvarda ince bir çatlak", D3),
+    ("hisseli-tapuda-onalim-hakki", "onalim.md", "Tapu", *TAPU, "blog-onalim", "Antalya kırsalında alçak bir kuru taş duvarla bölünmüş zeytinli bir tarla", D3),
+    ("kamulastirmasiz-el-atma", "el-atma.md", "Kamulaştırma", *KAMU, "blog-el-atma", "Bir bahçenin taş sınır duvarını kesip geçen dar bir yol", D3),
+    ("ecrimisil-nedir", "ecrimisil.md", "Tapu", *TAPU, "blog-ecrimisil", "Taş bir bahçe duvarında eski bir asma kilitle kapatılmış ahşap kapı", D3),
+    ("yabancilara-konut-satisi", "yabanci.md", "Alım-satım", *KAMU, "blog-yabanci", "Antalya'da denize ve Toros dağlarına bakan sakin bir balkon ve iki boş sandalye", D3),
     ("ev-sahibi-kiraciyi-nasil-cikarir", "tahliye.md", "Kira", "/kira-hukuku", "Kira hukuku","blog-tahliye", "Boş bir odada açık kapının yanında üst üste duran koliler ve üzerinde bir anahtar", NEW_DATE),
     ("kira-artisi-ve-kira-tespit-davasi", "kira.md", "Kira", "/kira-hukuku", "Kira hukuku","blog-kira", "Travertin bir rafın üzerinde pirinç ev anahtarları ve katlanmış boş bir kâğıt"),
     ("odeme-emri-geldi", "odeme.md", "İcra", "/icra-hukuku", "İcra hukuku", "blog-odeme", "Travertin bir yüzeyde üst üste duran zarflar ve pirinç bir mektup açacağı"),
@@ -273,12 +287,12 @@ for i, p in enumerate(parsed):
 
 # blog index
 path = "/blog"
-t = "Hukuk Notları: Kira, Tahliye, Miras, İcra | Kozanoğlu Hukuk"
-d = "Tahliye, kira artışı, miras kalan taşınmaz ve ödeme emri: süreleri ve adımları örneklerle anlatan yazılar."
+t = "Gayrimenkul Hukuku Notları: Tapu, Kira, Kamulaştırma | Kozanoğlu Hukuk"
+d = "Tapu iptali, muris muvazaası, önalım, kat karşılığı inşaat, kamulaştırma, ecrimisil, kapora, kira ve icra: süreleri ve adımları örneklerle anlatan yazılar."
 feat, rest = parsed[0], parsed[1:]
 cards = "".join(f'<a class="post-card" href="/blog/{o["slug"]}"><img src="/assets/blog/{o["img"]}-card.webp" width="800" height="450" loading="lazy" decoding="async" alt="{e(o["alt"])}"><span class="post-meta"><span>{o["cat"]}</span><span>{o["mins"]} dk.</span></span><h2>{_inline(o["title"])}</h2><p>{_inline(o["summary"])}</p><span class="read">Yazıyı okuyun ↗</span></a>' for o in rest)
 body = "\n".join([
-    hero("interior-logo.webp", "Hukuk notları", "Süreler, adımlar, sık yapılan hatalar.", "Büroda en sık sorulan konular. Her yazıda kanun maddesi, kaçırılmaması gereken süre ve gündelik hayattan birer örnek var."),
+    hero("interior-logo.webp", "Hukuk notları", "Süreler, adımlar, sık yapılan hatalar.", "Taşınmaz dosyalarında en sık sorulan konular. Her yazıda kanun maddesi, kaçırılmaması gereken süre ve gündelik hayattan birer örnek var."),
     f'''    <section class="section">
       <a class="post-feature" href="/blog/{feat["slug"]}"><img src="/assets/blog/{feat["img"]}.webp" width="1376" height="768" loading="lazy" decoding="async" alt="{e(feat["alt"])}"><div><span class="post-meta"><span>{feat["cat"]}</span><span>{feat["mins"]} dk.</span></span><h2>{_inline(feat["title"])}</h2><p>{_inline(feat["summary"])}</p><span class="read">Yazıyı okuyun ↗</span></div></a>
       <div class="blog-grid">{cards}</div>

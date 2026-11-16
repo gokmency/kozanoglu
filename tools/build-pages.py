@@ -48,8 +48,9 @@ def e(s):
     return html.escape(s, quote=True)
 
 def nav(current):
+    cur = ' aria-current="page"'
     links = "".join(
-        f'<a href="{h}"{" aria-current=\"page\"" if h == current else ""}>' + (f'<span class="l-full">{t}</span><span class="l-short">{s}</span>' if s else t) + "</a>"
+        f'<a href="{h}"{cur if h == current else ""}>' + (f'<span class="l-full">{t}</span><span class="l-short">{s}</span>' if s else t) + "</a>"
         for h, t, s in NAV)
     return f'<nav class="site-nav" aria-label="Ana navigasyon"><a class="brand" href="/" aria-label="Kozanoğlu Hukuk Bürosu ana sayfa"><img src="/assets/logo.webp" width="724" height="543" fetchpriority="high" alt="Kozanoğlu Hukuk Bürosu"></a><div class="nav-links">{links}</div><a class="nav-call" href="tel:{TEL}" aria-label="Büroyu arayın: {TEL_TXT}">{TEL_TXT}</a></nav>'
 
@@ -152,11 +153,24 @@ import re as _re
 BLOG_DATE = "2026-11-04"
 NEW_DATE = "2026-11-10"
 D3 = "2026-11-14"
+D4 = "2026-11-16"
 TAPU = ("/tapu-iptali-ortakligin-giderilmesi", "Tapu, ortaklık ve el atma")
 INSAAT = ("/kat-karsiligi-insaat", "Kat karşılığı inşaat ve kat mülkiyeti")
+KIRA = ("/kira-hukuku", "Kira hukuku")
 KAMU = ("/kamulastirma-imar", "Kamulaştırma, imar ve yabancılara satış")
+ICRA = ("/icra-hukuku", "İcra hukuku")
 POSTS = [
     # slug, md, kategori, alan linki, alan adı, görsel, görsel alt, [tarih]
+    ("ortakligin-giderilmesi-izale-i-suyu-davasi", "izale-i-suyu.md", "Tapu", *TAPU, "blog-izale-i-suyu", "Ceviz bir masada katlanmış bir kadastro haritası, pirinç bir pergel ve yan yana duran iki anahtar", D4),
+    ("ayipli-konut-ve-eksik-imalat-davasi", "ayipli-konut.md", "İnşaat", *INSAAT, "blog-ayipli-konut", "Yeni yapılmış aydınlık bir odada meşe parke zeminde su terazisi ve mimari proje rulosu", D4),
+    ("tahliye-taahhutnamesi-gecerlilik-sartlari", "tahliye-taahhutnamesi.md", "Kira", *KIRA, "blog-tahliye-taahhutnamesi", "Travertin masa üzerinde boş bir kâğıt, pirinç dolma kalem ve bir daire anahtarı", D4),
+    ("apartman-ve-site-yonetiminde-aidat-ve-karar-iptali", "site-yonetimi.md", "Kat mülkiyeti", *INSAAT, "blog-site-yonetimi", "Zeytin ve narenciye ağaçlarıyla çevrili bir konut sitesinin taş avlusu ve posta kutuları", D4),
+    ("imar-planinda-park-veya-yesil-alana-ayrilan-arsa", "imar-plani.md", "İmar", *KAMU, "blog-imar-plani", "Ahşap masa üzerinde açık duran renkli bir imar planı paftası, büyüteç ve ölçek cetveli", D4),
+    ("kiraci-kirasini-odemezse-tahliye-sureci", "kira-borcu.md", "Kira", *KIRA, "blog-kira-borcu", "Ceviz bir daire kapısının eşiğinde paspasın yanında duran kapalı bir zarf", D4),
+    ("iskan-alinmayan-binada-kat-mulkiyeti", "iskan.md", "İnşaat", *INSAAT, "blog-iskan", "Yeni tamamlanmış bir apartmanın gün ışığı alan travertin taşlı giriş holü", D4),
+    ("yapi-tatil-tutanagi-yikim-karari-ve-imar-para-cezasi", "yikim-imar-cezasi.md", "İmar", *KAMU, "blog-yikim-imar-cezasi", "Gün batımında tuğla duvarları örülmüş kaba inşaat hâlindeki bir bina ve şerit çekilmiş şantiye girişi", D4),
+    ("kadastro-tespitine-itiraz-ve-zilyetlik", "kadastro-zilyetlik.md", "Tapu", *TAPU, "blog-kadastro-zilyetlik", "Antalya kırsalında zeytin ağaçları ve Toros dağları önünde duran eski taş kadastro sınır işareti", D4),
+    ("ev-haczi-ipotekli-takip-ve-ihalenin-feshi", "ev-haczi-ihale.md", "İcra", *ICRA, "blog-ev-haczi-ihale", "Ceviz bir çalışma masasında bordo deri dosya, pirinç mühür ve küçük bir pirinç ev maketi", D4),
     ("tapu-iptal-ve-tescil-davasi", "tapu-iptal.md", "Tapu", *TAPU, "blog-tapu-iptal", "Ceviz bir masada kapalı eski bir defter, dolma kalem ve pirinç bir anahtar", D3),
     ("kat-karsiligi-insaat-sozlesmesi", "kat-karsiligi.md", "İnşaat", *INSAAT, "blog-kat-karsiligi", "Gün batımında iskeleli, kaba inşaat hâlindeki bir apartman ve bir kule vinç", D3),
     ("kamulastirma-bedeli-itiraz", "kamulastirma.md", "Kamulaştırma", *KAMU, "blog-kamulastirma", "Zeytinlik tepelerin arasından kıvrılarak geçen yeni bir asfalt yol", D3),

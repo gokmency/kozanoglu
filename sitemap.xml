@@ -2,62 +2,72 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://kozanogluhukuk.com/</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://kozanogluhukuk.com/gayrimenkul-hukuku</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://kozanogluhukuk.com/tapu-iptali-ortakligin-giderilmesi</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://kozanogluhukuk.com/kat-karsiligi-insaat</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://kozanogluhukuk.com/kira-hukuku</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://kozanogluhukuk.com/kamulastirma-imar</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://kozanogluhukuk.com/calisma-alanlari</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kozanogluhukuk.com/icra-hukuku</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kozanogluhukuk.com/kepez-varsak-avukat</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://kozanogluhukuk.com/blog</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kozanogluhukuk.com/iletisim</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kozanogluhukuk.com/hakkimizda</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kozanogluhukuk.com/blog/apartman-ve-site-yonetiminde-aidat-ve-karar-iptali</loc>
+    <lastmod>2026-11-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kozanogluhukuk.com/blog/ayipli-konut-ve-eksik-imalat-davasi</loc>
+    <lastmod>2026-11-16</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -71,6 +81,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://kozanogluhukuk.com/blog/ev-haczi-ipotekli-takip-ve-ihalenin-feshi</loc>
+    <lastmod>2026-11-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://kozanogluhukuk.com/blog/ev-sahibi-kiraciyi-nasil-cikarir</loc>
     <lastmod>2026-11-13</lastmod>
     <priority>0.7</priority>
@@ -78,6 +93,21 @@
   <url>
     <loc>https://kozanogluhukuk.com/blog/hisseli-tapuda-onalim-hakki</loc>
     <lastmod>2026-11-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kozanogluhukuk.com/blog/imar-planinda-park-veya-yesil-alana-ayrilan-arsa</loc>
+    <lastmod>2026-11-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kozanogluhukuk.com/blog/iskan-alinmayan-binada-kat-mulkiyeti</loc>
+    <lastmod>2026-11-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kozanogluhukuk.com/blog/kadastro-tespitine-itiraz-ve-zilyetlik</loc>
+    <lastmod>2026-11-16</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -101,6 +131,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://kozanogluhukuk.com/blog/kiraci-kirasini-odemezse-tahliye-sureci</loc>
+    <lastmod>2026-11-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://kozanogluhukuk.com/blog/miras-kalan-tasinmaz</loc>
     <lastmod>2026-11-04</lastmod>
     <priority>0.7</priority>
@@ -121,6 +156,16 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://kozanogluhukuk.com/blog/ortakligin-giderilmesi-izale-i-suyu-davasi</loc>
+    <lastmod>2026-11-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kozanogluhukuk.com/blog/tahliye-taahhutnamesi-gecerlilik-sartlari</loc>
+    <lastmod>2026-11-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://kozanogluhukuk.com/blog/tapu-iptal-ve-tescil-davasi</loc>
     <lastmod>2026-11-13</lastmod>
     <priority>0.7</priority>
@@ -128,6 +173,11 @@
   <url>
     <loc>https://kozanogluhukuk.com/blog/yabancilara-konut-satisi</loc>
     <lastmod>2026-11-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kozanogluhukuk.com/blog/yapi-tatil-tutanagi-yikim-karari-ve-imar-para-cezasi</loc>
+    <lastmod>2026-11-16</lastmod>
     <priority>0.7</priority>
   </url>
 </urlset>

@@ -185,6 +185,7 @@ POSTS = [
     ("kira-artisi-ve-kira-tespit-davasi", "kira.md", "Kira", "/kira-hukuku", "Kira hukuku","blog-kira", "Travertin bir rafın üzerinde pirinç ev anahtarları ve katlanmış boş bir kâğıt"),
     ("odeme-emri-geldi", "odeme.md", "İcra", "/icra-hukuku", "İcra hukuku", "blog-odeme", "Travertin bir yüzeyde üst üste duran zarflar ve pirinç bir mektup açacağı"),
     ("miras-kalan-tasinmaz", "miras.md", "Miras", "/tapu-iptali-ortakligin-giderilmesi", "Tapu, ortaklık ve miras kalan taşınmaz","blog-miras", "Önünde yaşlı bir zeytin ağacı olan eski taş bir köy evi"),
+    ("reddi-miras-nasil-yapilir-borclu-mirasin-reddi-ve-3-aylik-sure", "reddi-miras-nasil-yapilir-borclu-mirasin-reddi-ve-3-aylik-sure.md", "Miras", "/gayrimenkul-hukuku", "Gayrimenkul hukuku", "blog-reddi-miras-nasil-yapilir-borclu-mirasin-reddi-ve-3-aylik-sure", "Antalya taş avlusunda zeytin ağacı gölgesinde duran eski anahtar ve kapalı dosya", "2026-11-19"),
 ]
 
 def _inline(t):

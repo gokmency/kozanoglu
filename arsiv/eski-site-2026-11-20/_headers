@@ -1,0 +1,15 @@
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+/assets/*
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=31536000
+/assets/fonts/*
+  Access-Control-Allow-Origin: *
+/pages.css
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+/transitions.css
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+/transitions.js
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800

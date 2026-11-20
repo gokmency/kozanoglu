@@ -130,7 +130,8 @@ D4 = "2026-11-16"
 POSTS = [
     # slug, md, kategori, görsel, görsel alt, [tarih]
     ("mirasin-reddi-ve-uc-aylik-sure", "reddi-miras.md", "Miras", "blog-reddi-miras", "Taş bir avluda zeytin ağacı gölgesinde duran eski bir anahtar ve kapalı bir dosya", "2026-11-19"),
-    ("bosanmada-evin-paylasimi", "bosanma-ev.md", "Aile", "blog-bosanma-ev", "Traverten masa üzerinde duran ev anahtarı, zeytin dalı ve bir dosya", "2026-11-18"),
+    # 1 Aralık 2026 sonrasına ertelendi (baro uyarısı). Yayınlamak için: content/ertelenen/bosanma-ev.md -> content/blog/, blog-bosanma-ev* görselleri -> assets/blog/, sonra alttaki satırın # işaretini kaldırın.
+    # ("bosanmada-evin-paylasimi", "bosanma-ev.md", "Aile", "blog-bosanma-ev", "Traverten masa üzerinde duran ev anahtarı, zeytin dalı ve bir dosya", "2026-11-18"),
     ("ortakligin-giderilmesi-izale-i-suyu-davasi", "izale-i-suyu.md", "Tapu", "blog-izale-i-suyu", "Ceviz bir masada katlanmış bir kadastro haritası, pirinç bir pergel ve yan yana duran iki anahtar", D4),
     ("ayipli-konut-ve-eksik-imalat-davasi", "ayipli-konut.md", "İnşaat", "blog-ayipli-konut", "Yeni yapılmış aydınlık bir odada meşe parke zeminde su terazisi ve mimari proje rulosu", D4),
     ("tahliye-taahhutnamesi-gecerlilik-sartlari", "tahliye-taahhutnamesi.md", "Kira", "blog-tahliye-taahhutnamesi", "Travertin masa üzerinde boş bir kâğıt, pirinç dolma kalem ve bir daire anahtarı", D4),

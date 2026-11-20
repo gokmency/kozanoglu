@@ -30,92 +30,92 @@
     },
     {
       "source": "/gayrimenkul-hukuku",
-      "destination": "/blog",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
       "source": "/gayrimenkul-hukuku/",
-      "destination": "/blog",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
       "source": "/gayrimenkul-hukuku.html",
-      "destination": "/blog",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
       "source": "/tapu-iptali-ortakligin-giderilmesi",
-      "destination": "/blog",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
       "source": "/tapu-iptali-ortakligin-giderilmesi/",
-      "destination": "/blog",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
       "source": "/tapu-iptali-ortakligin-giderilmesi.html",
-      "destination": "/blog",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
       "source": "/kat-karsiligi-insaat",
-      "destination": "/blog",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
       "source": "/kat-karsiligi-insaat/",
-      "destination": "/blog",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
       "source": "/kat-karsiligi-insaat.html",
-      "destination": "/blog",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
       "source": "/kira-hukuku",
-      "destination": "/blog",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
       "source": "/kira-hukuku/",
-      "destination": "/blog",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
       "source": "/kira-hukuku.html",
-      "destination": "/blog",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
       "source": "/kamulastirma-imar",
-      "destination": "/blog",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
       "source": "/kamulastirma-imar/",
-      "destination": "/blog",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
       "source": "/kamulastirma-imar.html",
-      "destination": "/blog",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
       "source": "/icra-hukuku",
-      "destination": "/blog",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
       "source": "/icra-hukuku/",
-      "destination": "/blog",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
       "source": "/icra-hukuku.html",
-      "destination": "/blog",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
@@ -135,87 +135,82 @@
     },
     {
       "source": "/gayrimenkul-kira-miras",
-      "destination": "/blog",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
       "source": "/gayrimenkul-kira-miras/",
-      "destination": "/blog",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
       "source": "/gayrimenkul-kira-miras.html",
-      "destination": "/blog",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
       "source": "/aile-hukuku",
-      "destination": "/blog",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
       "source": "/aile-hukuku/",
-      "destination": "/blog",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
       "source": "/aile-hukuku.html",
-      "destination": "/blog",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
       "source": "/ceza-hukuku",
-      "destination": "/blog",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
       "source": "/ceza-hukuku/",
-      "destination": "/blog",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
       "source": "/ceza-hukuku.html",
-      "destination": "/blog",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
       "source": "/is-icra-ticaret",
-      "destination": "/blog",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
       "source": "/is-icra-ticaret/",
-      "destination": "/blog",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
       "source": "/is-icra-ticaret.html",
-      "destination": "/blog",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
-      "source": "/blog/anlasmali-bosanma-rehberi",
-      "destination": "/blog",
+      "source": "/blog",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
-      "source": "/blog/bosanmada-velayet",
-      "destination": "/blog",
+      "source": "/blog/",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
-      "source": "/blog/ifadeye-cagrildiniz",
-      "destination": "/blog",
+      "source": "/blog.html",
+      "destination": "/hakkimizda",
       "permanent": true
     },
     {
-      "source": "/blog/savciliga-sikayet-suresi",
-      "destination": "/blog",
-      "permanent": true
-    },
-    {
-      "source": "/blog/isten-cikarildim-haklarim",
-      "destination": "/blog",
+      "source": "/blog/:path*",
+      "destination": "/hakkimizda",
       "permanent": true
     }
   ],

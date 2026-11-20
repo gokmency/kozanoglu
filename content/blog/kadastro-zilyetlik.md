@@ -16,7 +16,7 @@ TMK 713 uyarınca tapusuz bir taşınmazın kendi adınıza tescilini isteyebilm
 - **Davasız ve aralıksız kullanım:** Bu yirmi yıllık süre içinde mülkiyet iddiasıyla size karşı açılmış bir dava olmamalı ve kullanımınız terk edilmeden kesintisiz sürmelidir.
 - **Malik sıfatıyla zilyetlik:** Taşınmazı bir kiracı, yarıcı veya emanetçi gibi değil, gerçek sahibiymiş gibi kendiniz için kullanmış olmanız şarttır.
 
-Örneğin Antalya'nın kırsal bir mahallesinde tapu kütüğüne kayıtlı olmayan bir tarlayı önce babanız on beş yıl boyunca ekip biçti, vefatından sonra da siz yedi yıldır aralıksız olarak aynı şekilde kullanmaya devam ettiniz. İki sürenin toplamı yirmi yılı aştığı için, diğer şartlar da mevcutsa bu tarlanın adınıza tescili için dava açabilirsiniz.
+Örneğin kırsal bir mahallede tapu kütüğüne kayıtlı olmayan bir tarlayı önce babanız on beş yıl boyunca ekip biçti, vefatından sonra da siz yedi yıldır aralıksız olarak aynı şekilde kullanmaya devam ettiniz. İki sürenin toplamı yirmi yılı aştığı için, diğer şartlar da mevcutsa bu tarlanın adınıza tescili için dava açabilirsiniz.
 
 ## Hangi araziler zilyetlikle kazanılamaz ve alan sınırı nedir?
 

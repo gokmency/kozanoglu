@@ -63,7 +63,7 @@ Tapu iptal ve tescil davalarında görevli mahkeme asliye hukuk mahkemesidir. Ta
 
 Dava açılırken ödenecek harç, dava konusu taşınmazın değeri üzerinden hesaplanır. Davacı dilekçesinde bir değer belirtir, ancak yargılama sırasında mahkeme taşınmazın başında keşif yapar ve bilirkişiden taşınmazın gerçek değerini gösteren bir rapor alır. Değer başlangıçta bildirilenden yüksek çıkarsa, eksik kalan harç tamamlanır.
 
-Örneğin siz başka bir ilde ikamet ediyorsunuz, davalı da farklı bir ilde yaşıyor; ancak dava konusu daire Antalya/Kepez sınırları içinde bulunuyor. HMK 12 uyarınca kesin yetki kuralı gereği davanızı kendi yaşadığınız yerde değil, taşınmazın bağlı olduğu yerdeki asliye hukuk mahkemesinde açmanız gerekir.
+Örneğin siz başka bir ilde ikamet ediyorsunuz, davalı da farklı bir ilde yaşıyor; ancak dava konusu daire üçüncü bir ilin sınırları içinde bulunuyor. HMK 12 uyarınca kesin yetki kuralı gereği davanızı kendi yaşadığınız yerde değil, taşınmazın bağlı olduğu yerdeki asliye hukuk mahkemesinde açmanız gerekir.
 
 ## Dava açmak için bir süre sınırı var mı?
 

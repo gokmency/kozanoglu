@@ -13,7 +13,7 @@ Hisseli bir tarla, arsa veya eviniz olduğunda tapuda paylı mülkiyet kurallar�
 
 TMK 732 uyarınca, paylı mülkiyette bir paydaş kendi payının tamamını ya da bir kısmını paydaş olmayan üçüncü bir kişiye satarsa, diğer paydaşlar önalım hakkını kullanarak o payı aynı koşullarla alabilir. Halk arasında bu hakka şufa hakkı denir. Bu hak sayesinde, dışarıdan alıcı olan kişiye "ortağım payını sana satmış ama öncelik bende, aynı bedeli ödeyerek bu payı ben alıyorum" deme imkanınız doğar.
 
-Örneğin Antalya Kepez bölgesinde kardeşlerinizle ortak olduğunuz hisseli bir zeytinlik var. Kardeşlerinizden biri nakit ihtiyacı yüzünden kendi payını hiç tanımadığınız bir emlak yatırımcısına sattı. Zeytinliğe yabancı birinin girmesini ve sizinle ortak olmasını istemiyorsanız, TMK 732 kapsamındaki önalım hakkınızı devreye sokabilirsiniz. Böylece yatırımcının ödediği bedeli ve masrafları karşılayarak o payı kendi adınıza tescil ettirebilirsiniz.
+Örneğin kardeşlerinizle ortak olduğunuz hisseli bir zeytinlik var. Kardeşlerinizden biri nakit ihtiyacı yüzünden kendi payını hiç tanımadığınız bir emlak yatırımcısına sattı. Zeytinliğe yabancı birinin girmesini ve sizinle ortak olmasını istemiyorsanız, TMK 732 kapsamındaki önalım hakkınızı devreye sokabilirsiniz. Böylece yatırımcının ödediği bedeli ve masrafları karşılayarak o payı kendi adınıza tescil ettirebilirsiniz.
 
 Bu hak tapuda paydaş olduğunuz anda kendiliğinden var olur. Tapu kütüğüne önceden ayrı bir şerh koymanıza gerek yoktur. Pay oranınızın büyüklüğü de fark yaratmaz. Taşınmazdaki payınız çok küçük olsa bile, dışarıya satılan büyük bir payı alma hakkınız bulunur.
 

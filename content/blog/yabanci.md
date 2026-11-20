@@ -39,7 +39,7 @@ Konut alımıyla vatandaşlık değil de sadece oturma izni hedefleyenler için 
 
 İkamet izni konusunda dikkat etmeniz gereken bir diğer engel ise kapalı mahalle uygulamasıdır. Bazı il ve mahalleler yabancıların yeni ikamet izni başvurularına kapatılmıştır. Yabancı bir kişi bu kapalı mahallelerden ev satın alabilir, tapu kendi adına tescil edilir; fakat o evi adres göstererek yeni ikamet izni alamaz. Bu durum mutlaka konut alımından önce kontrol edilmelidir.
 
-Örneğin yabancı bir aile, Antalya'da beğendikleri bir daireyi satın alarak Türkiye'de düzenli yaşamak istedi. Satıcı, evi aldıklarında hemen ikamet izni çıkarabileceklerini söyledi. Aile, para göndermeden önce dairenin bulunduğu mahallenin yabancılara kapatılan yerler arasında olup olmadığını ve evin değerinin büyükşehirler için aranan alt sınırı geçip geçmediğini araştırdı. Mahallenin yeni başvurulara kapalı olduğunu öğrenince o daireyi almaktan vazgeçip açık olan başka bir mahalleye yöneldiler.
+Örneğin yabancı bir aile, beğendikleri bir daireyi satın alarak Türkiye'de düzenli yaşamak istedi. Satıcı, evi aldıklarında hemen ikamet izni çıkarabileceklerini söyledi. Aile, para göndermeden önce dairenin bulunduğu mahallenin yabancılara kapatılan yerler arasında olup olmadığını ve evin değerinin büyükşehirler için aranan alt sınırı geçip geçmediğini araştırdı. Mahallenin yeni başvurulara kapalı olduğunu öğrenince o daireyi almaktan vazgeçip açık olan başka bir mahalleye yöneldiler.
 
 ## Tapu işlemi nasıl yürür?
 

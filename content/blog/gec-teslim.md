@@ -13,7 +13,7 @@ Bir inşaat şirketinden veya müteahhitten daire satın aldığınızda, bu al�
 
 Tüketici sayılmanız size yargılama aşamasında çeşitli kolaylıklar sağlar. Müteahhit veya inşaat şirketi ile aranızda çıkacak davalar genel mahkemelerde değil, tüketici mahkemesinde görülür. Ticari kazanç elde etmek, alım satım işi yapmak veya ticari işletmenizde kullanmak amacıyla daire aldığınızda ise tüketici sayılmazsınız.
 
-Örneğin Antalya Kepez bölgesinde devam eden bir projeden, emekliliğinizde oturmak üzere bir daire satın aldınız. İnşaat şirketi ticari bir firma olsa bile sizin amacınız ticari olmadığı için bu işlem bir tüketici işlemidir. Müteahhitle yaşayacağınız teslim veya kusur anlaşmazlıklarında doğrudan tüketici haklarından yararlanırsınız.
+Örneğin devam eden bir projeden, emekliliğinizde oturmak üzere bir daire satın aldınız. İnşaat şirketi ticari bir firma olsa bile sizin amacınız ticari olmadığı için bu işlem bir tüketici işlemidir. Müteahhitle yaşayacağınız teslim veya kusur anlaşmazlıklarında doğrudan tüketici haklarından yararlanırsınız.
 
 ## Ön ödemeli konut satışı: noter şartı, cayma hakkı ve teslim süresi
 

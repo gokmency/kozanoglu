@@ -15,7 +15,7 @@ Yeni bir daire satın aldığınızda veya arsa sahibi olarak müteahhitten dair
 
 **Eksik imalat** ise sözleşmede, projede veya tanıtım broşüründe yapılacağı vaat edilen bir işin hiç yapılmamış olmasıdır. Örneğin sözleşmede daireye kombi ve panjur takılacağı veya sitenin bahçesine yüzme havuzu ve otopark yapılacağı yazmasına rağmen bunların hiç yapılmamış olması eksik imalattır. Eksik imalatta iş henüz tamamlanmadığı için alıcının ayıp ihbarı süresini kaçırdığı ileri sürülemez; borçlu edimini tam olarak yerine getirmemiş sayılır.
 
-Örneğin Antalya Kepez'de yeni bir siteden aldığınız dairede mutfak tezgâhının ortadan çatlak çıkması ayıplı imalattır. Aynı sitede müteahhidin katalogda ve sözleşmede vaat ettiği çocuk oyun alanını ve jeneratörü hiç kurmamış olması ise eksik imalattır.
+Örneğin yeni bir siteden aldığınız dairede mutfak tezgâhının ortadan çatlak çıkması ayıplı imalattır. Aynı sitede müteahhidin katalogda ve sözleşmede vaat ettiği çocuk oyun alanını ve jeneratörü hiç kurmamış olması ise eksik imalattır.
 
 ## Açık ayıp ve gizli ayıp ayrımı
 

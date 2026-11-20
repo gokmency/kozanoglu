@@ -13,7 +13,7 @@ Belediyeler ve ilgili bakanlıklar şehirlerin gelişimini düzenlemek için 1/5
 
 Arsanız imar planında böyle bir kamu hizmet alanına ayrıldığında tapunuz sizin üzerinizde kalmaya devam eder, hatta belediye sizden emlak vergisi bile isteyebilir; ancak arsanızın üzerine tek bir çivi dahi çakamazsınız. Belediyeye inşaat ruhsatı için başvurduğunuzda "arsanız imar planında park veya okul alanında kalıyor" cevabıyla talebiniz reddedilir. Üstelik üzerinde inşaat yasağı bulunan bir arsayı gerçek değerinden satmanız da imkânsız hale gelir.
 
-Örneğin Antalya Kepez'de yatırım amacıyla aldığınız bir arsanın, yıllar sonra yapılan imar planı revizyonunda "belediye hizmet alanı ve park" olarak işaretlendiğini öğrendiniz. Yan parseldeki komşunuza beş katlı konut imarı verilirken sizin arsanıza inşaat izni verilmemesi, mülkiyet hakkınızın içini boşaltan bir kısıtlamadır.
+Örneğin yatırım amacıyla aldığınız bir arsanın, yıllar sonra yapılan imar planı revizyonunda "belediye hizmet alanı ve park" olarak işaretlendiğini öğrendiniz. Yan parseldeki komşunuza beş katlı konut imarı verilirken sizin arsanıza inşaat izni verilmemesi, mülkiyet hakkınızın içini boşaltan bir kısıtlamadır.
 
 ## Yeni yapılan imar planına itiraz ve iptal davası (30 ve 60 gün kuralı)
 

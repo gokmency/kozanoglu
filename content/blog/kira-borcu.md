@@ -15,7 +15,7 @@ Kiracı kira bedelini sözleşmede kararlaştırılan günde ödemediğinde veya
 
 Uygulamada ikinci yol, yani doğrudan icra dairesinden tahliye talepli ödeme emri göndermek çok daha hızlı ve etkilidir. Çünkü bu yolda hem birikmiş kira alacağının tahsili için haciz süreci başlatılır hem de TBK 315'teki otuz günlük ihtar şartı tek bir işlemle yerine getirilmiş olur. Üstelik icra dairesi üzerinden başlatılan tahliye takiplerinde ve devamında icra mahkemesinde açılan tahliye davalarında **zorunlu arabuluculuk şartı yoktur**.
 
-Örneğin Antalya Kepez'deki dairenizde oturan kiracınız son iki ayın kirasını ödemedi. Noterden sadece ihtarname çekerseniz otuz gün bekleyip ardından arabuluculuğa başvurmanız ve sulh hukuk mahkemesinde dava açmanız gerekir. Oysa doğrudan icra dairesinden Örnek No: 13 ödeme emri gönderirseniz, aynı otuz günlük süreyi icra dosyası üzerinden başlatır ve borç ödenmediğinde doğrudan icra mahkemesinden tahliye isteyebilirsiniz.
+Örneğin dairenizde oturan kiracınız son iki ayın kirasını ödemedi. Noterden sadece ihtarname çekerseniz otuz gün bekleyip ardından arabuluculuğa başvurmanız ve sulh hukuk mahkemesinde dava açmanız gerekir. Oysa doğrudan icra dairesinden Örnek No: 13 ödeme emri gönderirseniz, aynı otuz günlük süreyi icra dosyası üzerinden başlatır ve borç ödenmediğinde doğrudan icra mahkemesinden tahliye isteyebilirsiniz.
 
 ## Tahliye talepli icra takibi (Örnek No: 13) nasıl işler?
 

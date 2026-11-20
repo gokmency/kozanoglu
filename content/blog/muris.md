@@ -13,7 +13,7 @@ Bir kişinin vefatından sonra mirasçılar tapu kayıtlarını incelediğinde, 
 
 Hukuki açıdan burada iki ayrı işlem vardır. İlk işlem, dışarıya karşı yapılan ve tapuda görünen satıştır. Tarafların gerçek amacı satış olmadığı için bu görünüşteki satış muvazaalıdır ve geçersizdir. İkinci işlem ise tarafların arkada gizledikleri bağıştır. Taşınmaz bağışlarının geçerli olması için tapuda resmi şekilde bağış olarak yapılması gerekir. Tapuda satış gösterilerek yapılan işlemde gizlenen bağış resmi şekilde yapılmadığından o da geçersizdir. Konu Yargıtay'ın 1 Nisan 1974 tarihli 1/2 sayılı İçtihadı Birleştirme Kararı ile düzenlenmiştir.
 
-Örneğin babanız sağlığında Antalya Kepez'deki dairesini tapuda ağabeyinize satmış gibi devretti. Gerçekte ağabeyiniz babanıza hiçbir para ödemedi ve babanızın amacı sadece evin ağabeyinize kalmasını sağlamaktı. Görünüşteki satış gerçek iradeyi yansıtmadığı için, gizli bağış ise tapuda bağış şeklinde yapılmadığı için geçersizdir. Babanızın vefatından sonra bu işleme itiraz ederek kendi miras payınızı talep edebilirsiniz.
+Örneğin babanız sağlığında dairesini tapuda ağabeyinize satmış gibi devretti. Gerçekte ağabeyiniz babanıza hiçbir para ödemedi ve babanızın amacı sadece evin ağabeyinize kalmasını sağlamaktı. Görünüşteki satış gerçek iradeyi yansıtmadığı için, gizli bağış ise tapuda bağış şeklinde yapılmadığı için geçersizdir. Babanızın vefatından sonra bu işleme itiraz ederek kendi miras payınızı talep edebilirsiniz.
 
 ## Mahkeme satışın gerçek mi yoksa göstermelik mi olduğunu nasıl anlar?
 

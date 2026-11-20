@@ -12,6 +12,211 @@
       ],
       "destination": "https://kozanogluhukuk.com/:path*",
       "permanent": true
+    },
+    {
+      "source": "/calisma-alanlari",
+      "destination": "/hakkimizda",
+      "permanent": true
+    },
+    {
+      "source": "/calisma-alanlari/",
+      "destination": "/hakkimizda",
+      "permanent": true
+    },
+    {
+      "source": "/calisma-alanlari.html",
+      "destination": "/hakkimizda",
+      "permanent": true
+    },
+    {
+      "source": "/gayrimenkul-hukuku",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/gayrimenkul-hukuku/",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/gayrimenkul-hukuku.html",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/tapu-iptali-ortakligin-giderilmesi",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/tapu-iptali-ortakligin-giderilmesi/",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/tapu-iptali-ortakligin-giderilmesi.html",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/kat-karsiligi-insaat",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/kat-karsiligi-insaat/",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/kat-karsiligi-insaat.html",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/kira-hukuku",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/kira-hukuku/",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/kira-hukuku.html",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/kamulastirma-imar",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/kamulastirma-imar/",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/kamulastirma-imar.html",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/icra-hukuku",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/icra-hukuku/",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/icra-hukuku.html",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/kepez-varsak-avukat",
+      "destination": "/iletisim",
+      "permanent": true
+    },
+    {
+      "source": "/kepez-varsak-avukat/",
+      "destination": "/iletisim",
+      "permanent": true
+    },
+    {
+      "source": "/kepez-varsak-avukat.html",
+      "destination": "/iletisim",
+      "permanent": true
+    },
+    {
+      "source": "/gayrimenkul-kira-miras",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/gayrimenkul-kira-miras/",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/gayrimenkul-kira-miras.html",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/aile-hukuku",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/aile-hukuku/",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/aile-hukuku.html",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/ceza-hukuku",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/ceza-hukuku/",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/ceza-hukuku.html",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/is-icra-ticaret",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/is-icra-ticaret/",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/is-icra-ticaret.html",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/anlasmali-bosanma-rehberi",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/bosanmada-velayet",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ifadeye-cagrildiniz",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/savciliga-sikayet-suresi",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/isten-cikarildim-haklarim",
+      "destination": "/blog",
+      "permanent": true
     }
   ],
   "headers": [

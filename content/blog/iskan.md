@@ -13,7 +13,7 @@ Bir inşaatın kaba ve ince işçiliğinin bitmiş olması, dairelerin kapılar�
 
 Belediye teknik ekipleri binaya gelerek inşaatın onaylı mimari ve statik projeye, deprem yönetmeliğine, yangın merdiveni ve sığınak kurallarına, otopark ve asansör standartlarına uygun yapılıp yapılmadığını yerinde denetler. Ayrıca müteahhidin bu inşaatla ilgili Sosyal Güvenlik Kurumu'na (SGK) ilişiksizlik belgesi ve vergi dairesine borcu bulunmadığı kontrol edilir. Tüm şartlar tamamsa yapı kullanma izin belgesi düzenlenir.
 
-Örneğin Antalya Kepez'de yeni bitmiş bir apartmandan daire aldınız, müteahhit size anahtarı teslim etti ve hemen taşındınız. Ancak belediye kayıtlarında binanın yapı kullanma izni alınmamışsa, oturduğunuz bina hukuken hala devam eden bir şantiye statüsündedir.
+Örneğin yeni bitmiş bir apartmandan daire aldınız, müteahhit size anahtarı teslim etti ve hemen taşındınız. Ancak belediye kayıtlarında binanın yapı kullanma izni alınmamışsa, oturduğunuz bina hukuken hala devam eden bir şantiye statüsündedir.
 
 ## Kat irtifakı ile kat mülkiyeti arasındaki fark nedir?
 

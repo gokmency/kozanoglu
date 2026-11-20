@@ -13,7 +13,7 @@ Normal şartlarda belediye, karayolları veya başka bir devlet kurumu sizin tap
 
 Bu durum mülkiyet hakkınıza doğrudan bir müdahaledir. Tapu hala sizin adınızadır, hatta belediyeye emlak vergisi ödemeye devam ediyor olabilirsiniz. Fakat arazinin üzerinde artık asfalt bir yol, su kanalı veya çocuk parkı vardır. Arazinizi ekemezsiniz, üzerine bina yapamazsınız ve satmak istediğinizde alıcı bulamazsınız.
 
-Örneğin Antalya Kepez'de babadan kalma bir tarlanız olduğunu düşünün. Uzun süre uğramadığınız bu tarlaya gittiğinizde, belediyenin arazinin ortasından asfalt yol geçirdiğini ve kenarına kaldırım döşediğini görürsünüz. Size tebliğ edilmiş bir evrak veya hesabınıza yatmış bir kamulaştırma parası yoktur. İşte bu tablo doğrudan kamulaştırmasız el atmadır.
+Örneğin babadan kalma bir tarlanız olduğunu düşünün. Uzun süre uğramadığınız bu tarlaya gittiğinizde, belediyenin arazinin ortasından asfalt yol geçirdiğini ve kenarına kaldırım döşediğini görürsünüz. Size tebliğ edilmiş bir evrak veya hesabınıza yatmış bir kamulaştırma parası yoktur. İşte bu tablo doğrudan kamulaştırmasız el atmadır.
 
 ## Fiili el atma ile hukuki el atma arasındaki fark
 

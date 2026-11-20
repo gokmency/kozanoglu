@@ -19,7 +19,7 @@ Mahkeme yerinde keşif ve bilirkişi incelemesi yaptırarak iki değeri karşıl
 
 Eğer haczedilen evin değeri, haline münasip bir ev almaya ancak yetiyorsa **haciz tamamen kaldırılır**. Buna karşılık borçlunun oturduğu ev lüks ve büyük bir konutsa (örneğin değeri 10 milyon TL ise ve borçlunun haline münasip bir evi 4 milyon TL'ye alabileceği tespit edilirse), evin satılmasına ancak satış bedelinden **4 milyon TL'nin borçluya haline münasip ev alması için bırakılmasına**, kalan kısmın alacaklıya ödenmesine karar verilir.
 
-Örneğin Antalya Kepez'de emekli maaşıyla geçinen dört kişilik bir ailenin oturduğu, başka hiçbir taşınmazı bulunmayan üç odalı mütevazı bir daireye senet borcu yüzünden haciz konuldu. Mahkeme bu dairenin ailenin haline münasip olduğuna karar verdiğinde daire üzerindeki haciz tümüyle kaldırılır ve ev satılamaz.
+Örneğin emekli maaşıyla geçinen dört kişilik bir ailenin oturduğu, başka hiçbir taşınmazı bulunmayan üç odalı mütevazı bir daireye senet borcu yüzünden haciz konuldu. Mahkeme bu dairenin ailenin haline münasip olduğuna karar verdiğinde daire üzerindeki haciz tümüyle kaldırılır ve ev satılamaz.
 
 ## Meskeniyet şikâyetinde 7 günlük süre ve istisnalar
 

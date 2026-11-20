@@ -13,7 +13,7 @@ Halk arasında kat karşılığı olarak bilinen bu anlaşmanın hukuki adı ars
 
 Hukuken bu anlaşma iki ayrı sözleşmenin birleşimidir. Bir yönüyle müteahhidin bina yapmayı üstlendiği bir eser sözleşmesidir. Diğer yönüyle de sizin arsa payınızı devretmeyi kabul ettiğiniz bir taşınmaz satış vaadidir. Cebinizden nakit para çıkmadan arsanızı değerlendirmenizi sağlar.
 
-Örneğin Antalya Kepez bölgesinde eski bir müstakil eviniz ve arsası var. Kendi imkanlarınızla buraya apartman yaptıracak paranız yok. Bir müteahhitle anlaşıyorsunuz. Müteahhit eski evi yıkıp yerine yeni bir apartman yapmayı, karşılığında da binadaki dairelerin bir kısmını almayı kabul ediyor. İşte bu anlaşma arsa payı karşılığı inşaat sözleşmesidir.
+Örneğin eski bir müstakil eviniz ve arsası var. Kendi imkanlarınızla buraya apartman yaptıracak paranız yok. Bir müteahhitle anlaşıyorsunuz. Müteahhit eski evi yıkıp yerine yeni bir apartman yapmayı, karşılığında da binadaki dairelerin bir kısmını almayı kabul ediyor. İşte bu anlaşma arsa payı karşılığı inşaat sözleşmesidir.
 
 ## Şekil şartı: Sözleşmeyi neden noterde yapmalısınız?
 

@@ -13,7 +13,7 @@ Kamulaştırma işlemleri 2942 sayılı Kamulaştırma Kanunu kurallarına göre
 
 Bu ilk bedel, idarenin kendi iç çalışmasıdır. Sizin görüşünüz alınmadan, sahada derinlemesine bir inceleme yapılmadan masa başında veya genel verilerle hazırlanmış olabilir. Bu nedenle idarenin belirlediği ilk tutar, taşınmazınızın piyasadaki gerçek karşılığını yansıtmayabilir.
 
-Örneğin Antalya Kepez bölgesinde üzerinde eviniz ve meyve ağaçlarınız bulunan bir arsanız olduğunu düşünün. Belediye buradan yol geçireceği için kamulaştırma kararı alır. Belediyenin kıymet takdir komisyonu, sadece arsa niteliğine ve genel verilere bakarak bir tahmini bedel çıkarır. Evinize, bahçe duvarınıza veya çevredeki yeni gelişmelere yeterince değer biçilmeyebilir. Süreç, idarenin bu hazırlığı tamamlaması ve size resmi bir davet göndermesiyle görünür hale gelir.
+Örneğin üzerinde eviniz ve meyve ağaçlarınız bulunan bir arsanız olduğunu düşünün. Belediye buradan yol geçireceği için kamulaştırma kararı alır. Belediyenin kıymet takdir komisyonu, sadece arsa niteliğine ve genel verilere bakarak bir tahmini bedel çıkarır. Evinize, bahçe duvarınıza veya çevredeki yeni gelişmelere yeterince değer biçilmeyebilir. Süreç, idarenin bu hazırlığı tamamlaması ve size resmi bir davet göndermesiyle görünür hale gelir.
 
 İdare, belirlediği bu tahmini bedel üzerinden taşınmazı öncelikle satın alma usulüyle devralmak ister. Size gönderilen yazıda, kamulaştırma niyeti ve görüşme daveti yer alır. Bu tebligatı aldığınızda, henüz taşınmazınız elinizden çıkmış veya bedel kesinleşmiş değildir.
 

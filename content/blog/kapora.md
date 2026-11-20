@@ -13,7 +13,7 @@ Beğendiğiniz bir evi başkasına satılmasın diye ayırtmak istediğinizde sa
 
 Tapu dışında, kendi aranızda veya emlakçı ofisinde imzaladığınız kapora senedi ya da satış sözleşmesi başlıklı belgeler hukuken geçersizdir. Bu belgelere dayanarak satıcıyı tapuyu devretmeye, alıcıyı da evin kalan parasını ödemeye zorlayamazsınız.
 
-Örneğin Antalya Kepez bölgesinde beğendiğiniz bir daire için emlak ofisinde satıcıyla buluştunuz, kapora ödediniz ve iki şahit huzurunda detaylı bir satış sözleşmesi imzaladınız. Ertesi gün satıcı evi satmaktan vazgeçtiğini söylediğinde, elinizdeki bu imzalı kağıtla mahkemeye başvurup evin tapusunun kendi adınıza geçirilmesini sağlayamazsınız.
+Örneğin beğendiğiniz bir daire için emlak ofisinde satıcıyla buluştunuz, kapora ödediniz ve iki şahit huzurunda detaylı bir satış sözleşmesi imzaladınız. Ertesi gün satıcı evi satmaktan vazgeçtiğini söylediğinde, elinizdeki bu imzalı kağıtla mahkemeye başvurup evin tapusunun kendi adınıza geçirilmesini sağlayamazsınız.
 
 ## Satış vaadi sözleşmesi neden noterde yapılmalı?
 

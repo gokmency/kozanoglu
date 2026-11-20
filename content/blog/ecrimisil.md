@@ -13,7 +13,7 @@ Size ait bir evin, arsanın veya tarlanın sizin onayınız olmadan bir başkas�
 
 Türk Medeni Kanunu'nun (TMK) 995. maddesine göre kötü niyetli zilyet, yani taşınmazı kullanmaya hakkı olmadığını bilen veya bilmesi gereken kişi, malike kullanım bedeli ödemek zorundadır. Kullanan kişinin taşınmazdan fiilen kazanç sağlamış olması şart değildir. Taşınmazı kendi malı gibi tutması ve sizin kullanmanıza engel olması sorumluluk için yeterlidir.
 
-Örneğin Antalya Kepez'de boş duran bir arsanız olduğunu düşünün. Yan parseldeki oto yıkamacı, sizden izin almadan arsanızın etrafını çevirip burayı müşteri otoparkı olarak kullanmaya başladı. Aranızda bir kira sözleşmesi bulunmuyor ve bu kişi arsanın kendisine ait olmadığını biliyor. Bu durumda oto yıkamacı kötü niyetli zilyet sayılır ve arsanızı kullandığı süre için size ecrimisil ödemesi gerekir.
+Örneğin boş duran bir arsanız olduğunu düşünün. Yan parseldeki oto yıkamacı, sizden izin almadan arsanızın etrafını çevirip burayı müşteri otoparkı olarak kullanmaya başladı. Aranızda bir kira sözleşmesi bulunmuyor ve bu kişi arsanın kendisine ait olmadığını biliyor. Bu durumda oto yıkamacı kötü niyetli zilyet sayılır ve arsanızı kullandığı süre için size ecrimisil ödemesi gerekir.
 
 ## Ne kadar ve kaç yıl geriye dönük istenebilir?
 

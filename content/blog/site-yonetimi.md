@@ -20,7 +20,7 @@ Süreler hak düşürücü niteliktedir ve kaçırıldığında karar kesinleşi
 - Toplantıya katılmayan malikler, kararı **öğrendikleri tarihten başlayarak bir ay içinde** ve her halde **karar tarihinden itibaren altı ay içinde** başvurmalıdır.
 - Karar doğrudan doğruya mutlak butlanla hükümsüz (yok hükmünde) sayılan bir konuya ilişkirse bu süre sınırları uygulanmaz.
 
-Örneğin Antalya Kepez'de oturduğunuz sitede yapılan olağanüstü toplantıya şehir dışında olduğunuz için katılamadınız. İki hafta sonra apartman panosuna asılan kararda, bahçedeki yeşil alanın iptal edilerek sadece zemin kat dükkanlarına özel depo yapılmasına oy çokluğuyla karar verildiğini gördünüz. Kararı öğrendiğiniz tarihten itibaren bir ay içinde (ve karar tarihinden itibaren altı ayı geçirmeden) harekete geçerek kararın iptalini isteyebilirsiniz.
+Örneğin oturduğunuz sitede yapılan olağanüstü toplantıya şehir dışında olduğunuz için katılamadınız. İki hafta sonra apartman panosuna asılan kararda, bahçedeki yeşil alanın iptal edilerek sadece zemin kat dükkanlarına özel depo yapılmasına oy çokluğuyla karar verildiğini gördünüz. Kararı öğrendiğiniz tarihten itibaren bir ay içinde (ve karar tarihinden itibaren altı ayı geçirmeden) harekete geçerek kararın iptalini isteyebilirsiniz.
 
 ## Aidat ve ortak giderler nasıl paylaşılır? Giriş kat dükkan veya daire muaf mıdır?
 

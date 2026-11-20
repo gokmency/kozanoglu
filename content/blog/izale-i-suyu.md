@@ -13,7 +13,7 @@ Bir taşınmazın birden fazla kişiye ait olması, zamanla kullanım ve yöneti
 
 Bu davayı açmak için çoğunluk hissesine sahip olmak gerekmez. Tapuda binde bir oranında payı bulunan bir hissedar bile ortaklığın sonlandırılması için tek başına başvuruda bulunabilir. Davanın kabul edilebilmesi için tapuda kayıtlı tüm paydaşların veya mirasçıların davada yer alması şarttır. Paydaşlardan biri vefat etmişse, onun mirasçılık belgesi çıkarılarak tüm mirasçıları davaya dahil edilir.
 
-Örneğin Antalya Kepez'de dedenizden kalan bir tarlada sekiz kuzen hissedar olduğunuzu ve sizin payınızın sadece on altıda bir olduğunu düşünün. Diğer yedi hissedar tarlanın satılmasına karşı çıksa bile, tek başınıza arabuluculuk ve dava sürecini başlatarak ortaklığın bitirilmesini talep edebilirsiniz.
+Örneğin dedenizden kalan bir tarlada sekiz kuzen hissedar olduğunuzu ve sizin payınızın sadece on altıda bir olduğunu düşünün. Diğer yedi hissedar tarlanın satılmasına karşı çıksa bile, tek başınıza arabuluculuk ve dava sürecini başlatarak ortaklığın bitirilmesini talep edebilirsiniz.
 
 ## Dava açmadan önce zorunlu arabuluculuk aşaması
 

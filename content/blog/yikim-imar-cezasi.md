@@ -15,7 +15,7 @@ Belediyenin yapı kontrol veya zabıta ekipleri sahada yaptıkları denetimde ya
 
 Yapı tatil tutanağının geçerli olabilmesi için ruhsata aykırılığın ne olduğunun somut, açık ve ölçülendirilmiş şekilde (kaç metrekare, hangi katta, hangi cephede, projeye göre neyin fazladan yapıldığı) tutanakta ve krokisinde gösterilmesi şarttır. Soyut olarak "projeye aykırı imalat görüldü" yazılarak düzenlenen tutanaklar hukuka aykırıdır.
 
-Örneğin Antalya Kepez'de dubleks dairenizin terasını pergoleyle kapattınız veya bahçenize sundurma yaptınız. Belediye ekipleri gelip hiçbir ölçüm yapmadan tüm binayı ruhsatsız göstererek tutanak tutarsa, aykırılığın niteliği ve alanı doğru tespit edilmediği için tutanağın ve buna bağlı cezaların iptali istenebilir.
+Örneğin dubleks dairenizin terasını pergoleyle kapattınız veya bahçenize sundurma yaptınız. Belediye ekipleri gelip hiçbir ölçüm yapmadan tüm binayı ruhsatsız göstererek tutanak tutarsa, aykırılığın niteliği ve alanı doğru tespit edilmediği için tutanağın ve buna bağlı cezaların iptali istenebilir.
 
 ## Bir aylık süre içinde ruhsat alma veya aykırılığı giderme imkânı
 

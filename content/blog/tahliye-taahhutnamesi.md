@@ -17,7 +17,7 @@ Bir tahliye taahhütnamesinin mahkeme ve icra dairesi önünde geçerli sayılab
 - **Tahliye tarihinin belirli olması:** Kiracının evi hangi gün boşaltacağının belgede tereddüde yer bırakmayacak biçimde (gün, ay ve yıl olarak veya net olarak anlaşılabilir bir tarihle) yazılmış olması gerekir.
 - **Tüm kiracıların imzası:** Kira sözleşmesinde birden fazla kiracı varsa, tahliye taahhütnamesinin geçerli olması için tüm kiracıların belgeyi imzalamış olması şarttır; tek bir kiracının imzası yeterli olmaz.
 
-Örneğin Antalya Kepez'de 1 Eylül 2025 tarihinde kiraladığınız ve taşındığınız daire için, üç ay sonra (örneğin 15 Aralık 2025 tarihinde) ev sahibinizle görüşerek 1 Eylül 2026 günü evi boşaltacağınıza dair yazılı ve imzalı bir belge verdiniz. Bu belge tüm geçerlilik şartlarını taşır.
+Örneğin 1 Eylül 2025 tarihinde kiraladığınız ve taşındığınız daire için, üç ay sonra (örneğin 15 Aralık 2025 tarihinde) ev sahibinizle görüşerek 1 Eylül 2026 günü evi boşaltacağınıza dair yazılı ve imzalı bir belge verdiniz. Bu belge tüm geçerlilik şartlarını taşır.
 
 ## Kira sözleşmesiyle aynı gün alınan veya tarihi boş bırakılan taahhütler
 
